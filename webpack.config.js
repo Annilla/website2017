@@ -25,7 +25,7 @@ module.exports = {
       loader: ['html-loader', 'pug-html-loader']
     }, {
       test: /\.(png|jpg|ico|json)$/,
-      use: "file-loader?name=img/[name].[ext]?[hash]&publicPath=./&outputPath=./"
+      use: "file-loader?name=[path][name].[ext]?[hash]"
     }]
   },
   devServer: {
@@ -33,11 +33,6 @@ module.exports = {
     compress: true,
     stats: "errors-only",
     open: true
-  },
-  resolve: {
-    alias: {
-      'img': path.resolve(__dirname, 'src/img')
-    }
   },
   plugins: [
     new HtmlWebpackPlugin({
