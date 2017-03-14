@@ -15,4 +15,6 @@ import '../img/android-chrome-72.png';
 import '../img/android-chrome-96.png';
 import '../img/android-chrome-144.png';
 import '../img/android-chrome-192.png';
-import './manifest.json';
+import '../img/manifest.json';
+
+const css = require('../scss/app.scss');
