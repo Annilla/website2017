@@ -1,0 +1,21 @@
+mixin seo(title, keywords, description)
+  // SEO
+  title= title
+  meta(name='keywords', content=keywords)
+  meta(name='description', content=description)
+  // SEO END
+
+mixin fb(fbpages, ogurl, ogtype, ogtitle, ogdescription, ogimage)
+  // FB
+  meta(property='fb:app_id', content='608477045879026')
+  meta(property='fb:pages', content=fbpages)
+  meta(property='og:url', content=ogurl)
+  meta(property='og:type', content=ogtype)
+  meta(property='og:title', content=ogtitle)
+  meta(property='og:description', content=ogdescription)
+  meta(property='og:image', content=ogimage)
+  if block
+    block
+  //- meta(property='article:author', content='https://www.facebook.com/JUKSYgirlz')
+  //- meta(property='article:publisher', content='https://www.facebook.com/JUKSYgirlz')
+  // FB END

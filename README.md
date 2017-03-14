@@ -1,1 +1,3 @@
-# website2017
+# webpack-practice
+1. npm install
+2. npm run dev
