@@ -1,5 +1,10 @@
 @charset "UTF-8";
+// google font
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900');
+
+// plugin
+@import "../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+@import "../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
 
 // common use
 @import "common/variables";
@@ -10,11 +15,4 @@
 @import "common/utilities";
 
 // modules
-// @import "modules/recommend";
-.testImg {
-	width: 100px;
-	height: 100px;
-	background-image: url('~img/article/test.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-}
+@import "index/index";

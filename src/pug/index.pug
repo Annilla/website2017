@@ -13,7 +13,45 @@ block meta.fb
   'website',
   'JUKSY 街星',
   '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!',
-  'ogimage'
+  'https://juksy-demo.github.io/website2017/dist/src/img/fb.png'
   )
 block main
-  .testImg
+  main.index
+    h2(class='hide') JUKSY 街星輪播
+    section.indexSlider.owl-carousel
+      .sliderItem
+        .banner
+          a(href='#', target='_blank')
+            picture
+              source(srcset='src/img/index/1500x500_1.jpg', media='(min-width: 768px) and (max-width: 1023px)')
+              source(srcset='src/img/index/1500x500_1.jpg', media='(min-width: 1024px)')
+              img(width='100%', height='auto', src='~img/index/640x920_1.jpg', alt='超有畫面！許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！')
+            .title
+              h3 超有畫面！A許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！
+      .sliderItem
+        .banner
+          a(href='#', target='_blank')
+            picture
+              source(srcset='src/img/index/1500x500_2.jpg', media='(min-width: 768px) and (max-width: 1023px)')
+              source(srcset='src/img/index/1500x500_2.jpg', media='(min-width: 1024px)')
+              img(width='100%', height='auto', src='~img/index/640x920_2.jpg', alt='「生活瘋狂 3 情境」你是否也成癮？許瑋甯神詮釋美的你嫑嫑！')
+            .title
+              h3 「生活瘋狂 3 情境」B你是否也成癮？許瑋甯神詮釋美的你嫑嫑！
+      .sliderItem
+        .banner
+          a(href='#', target='_blank')
+            picture
+              source(srcset='src/img/index/1500x500_1.jpg', media='(min-width: 768px) and (max-width: 1023px)')
+              source(srcset='src/img/index/1500x500_1.jpg', media='(min-width: 1024px)')
+              img(width='100%', height='auto', src='~img/index/640x920_1.jpg', alt='超有畫面！許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！')
+            .title
+              h3 超有畫面！C許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！
+      .sliderItem
+        .banner
+          a(href='#', target='_blank')
+            picture
+              source(srcset='src/img/index/1500x500_2.jpg', media='(min-width: 768px) and (max-width: 1023px)')
+              source(srcset='src/img/index/1500x500_2.jpg', media='(min-width: 1024px)')
+              img(width='100%', height='auto', src='~img/index/640x920_2.jpg', alt='「生活瘋狂 3 情境」你是否也成癮？許瑋甯神詮釋美的你嫑嫑！')
+            .title
+              h3 「生活瘋狂 3 情境」D你是否也成癮？許瑋甯神詮釋美的你嫑嫑！
