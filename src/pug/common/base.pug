@@ -2,13 +2,15 @@ doctype html
 html(lang="zh-TW")
   head
     meta(charset='UTF-8')
-    meta(name = 'viewport', content = 'width=device-width, initial-scale=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     block meta.seo
     block meta.fb
-    include favicon.pug
     block meta.juksy
+    include favicon.pug
   body
-    block header
-    block nav
+    include header.pug
+    include nav.pug
+    // MAIN
     block main
-    block footer
+    // MAIN END
+    include footer.pug
