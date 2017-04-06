@@ -11,13 +11,13 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.scss$/,
+      test: /\.(css|scss)$/,
       use: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: ['css-loader', 'postcss-loader', 'sass-loader'],
         publicPath: '/dist'
       })
-    }, {
+    },{
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'

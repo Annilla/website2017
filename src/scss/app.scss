@@ -2,10 +2,6 @@
 // google font
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900');
 
-// plugin
-@import "../../node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
-@import "../../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
-
 // common use
 @import "common/variables";
 @import "common/mixin";
@@ -15,4 +11,4 @@
 @import "common/utilities";
 
 // modules
-@import "index/index";
+@import "pages/index";

@@ -21,10 +21,16 @@ import '../img/manifest.json';
 import '../img/index/1500x500_1.jpg';
 import '../img/index/1500x500_2.jpg';
 
+// Plugin JS
+require('owl.carousel/dist/assets/owl.carousel.css');
+require('owl.carousel/dist/assets/owl.theme.default.css');
+
 // Main CSS
-const css = require('../scss/app.scss');
+require('../scss/app.scss');
+
+// Plugin JS
+require('jquery');
+require('owl.carousel');
 
 // Main JS
-import indexSlider from './index/indexSlider.js';
-
-indexSlider();
+require('./pages/index.js');
