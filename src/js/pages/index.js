@@ -2,12 +2,7 @@
   const $indexSlider = $('.indexSlider');
   const $window = $(window);
 
-  function indexSliderResizer () {
-  	$indexSlider.find('.sliderItem').width($window.width());
-  }
-
-  indexSliderResizer();
-  $window.resize(indexSliderResizer);
+  $indexSlider.find('.sliderItem').width($window.width());
 
   $indexSlider.owlCarousel({
   	autoWidth: true,
