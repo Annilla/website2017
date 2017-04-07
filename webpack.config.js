@@ -25,7 +25,7 @@ module.exports = {
       test: /\.pug$/,
       loader: ['html-loader', 'pug-html-loader']
     }, {
-      test: /\.(png|jpg|ico|json)$/,
+      test: /\.(png|jpg|ico|json|svg)$/,
       use: "file-loader?name=[path][name].[ext]?[hash]&publicPath=./&outputPath=./"
     }]
   },
