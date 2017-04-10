@@ -1,15 +1,24 @@
 // Media Queries mixin
 @mixin screen($point) {
-    @if $point == sm { // ≥ 568px
-        @media screen and (min-width: $sm) { @content; }
-    }
-    @else if $point == md { // ≥ 768px
-        @media screen and (min-width: $md) { @content; }
-    }
-    @else if $point == lg { // ≥ 1024px
-        @media screen and (min-width: $lg) { @content; }
-    }
-    @else if $point == xl { // ≥ 1280px
-        @media screen and (min-width: $xl) { @content; }
-    }
+  @if $point == sm { // ≥ 568px
+    @media screen and (min-width: $sm) { @content; }
+  }
+  @else if $point == md { // ≥ 768px
+    @media screen and (min-width: $md) { @content; }
+  }
+  @else if $point == lg { // ≥ 1024px
+    @media screen and (min-width: $lg) { @content; }
+  }
+  @else if $point == xl { // ≥ 1280px
+    @media screen and (min-width: $xl) { @content; }
+  }
+}
+// img Skeloton
+@mixin imgSkeloton {
+  min-height: 200px; // adjust height where we put
+  background-color: $lightgray;
+  background-image: radial-gradient(at top left, $white 0%, $lightgray_50 80%, $lightgray 47%, $lightgray 100%), radial-gradient(at bottom right, $lightgray 0%, $lightgray_50 80%, $lightgray 47%, $white 100%);
+  background-size: 200%, 200%;
+  background-position: 0, 0;
+  animation: imgShine 1s infinite;
 }

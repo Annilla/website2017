@@ -6,15 +6,22 @@ $lg: 64em; // 1024px
 $xl: 80em; // 1280px
 
 // PC max width
-$pc_max_width: 970px;
+$pc_max_width: 1200px;
 
 // Gap
-$m_gap: 20px; // mobile
+$m_gap: 10px; // mobile
+$tb_gap: 20px; // tablet
 
 // Fonts
-$font_body: 'Roboto Condensed', 'Microsoft JhengHei', sans-serif;
+$font_body: 'Roboto', 'Microsoft JhengHei', sans-serif;
 
 // Colors
-$master: rgba(255, 0, 0, 1);
 $white: rgba(255, 255, 255, 1);
+$white_30: rgba(255, 255, 255, 0.3);
+$white_50: rgba(255, 255, 255, 0.5);
 $black: rgba(0, 0, 0, 1);
+$black_90: rgba(0, 0, 0, 0.9);
+$juksyStarsBg_1: rgba(26, 69, 128, 1);
+$lightgray: rgba(204, 204, 204, 1);
+$lightgray_50: rgba(204, 204, 204, 0.5);
+

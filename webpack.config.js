@@ -11,13 +11,13 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.scss$/,
+      test: /\.(css|scss)$/,
       use: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: ['css-loader', 'postcss-loader', 'sass-loader'],
         publicPath: '/dist'
       })
-    }, {
+    },{
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
@@ -25,7 +25,7 @@ module.exports = {
       test: /\.pug$/,
       loader: ['html-loader', 'pug-html-loader']
     }, {
-      test: /\.(png|jpg|ico|json)$/,
+      test: /\.(png|jpg|ico|json|svg)$/,
       use: "file-loader?name=[path][name].[ext]?[hash]&publicPath=./&outputPath=./"
     }]
   },
