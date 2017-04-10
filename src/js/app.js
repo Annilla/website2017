@@ -33,6 +33,9 @@ require('../scss/app.scss');
 // Plugin JS
 require('jquery');
 require('owl.carousel');
+require('dotdotdot');
+require('jquery-lazy');
 
 // Main JS
+require('./common/module.js');
 require('./pages/index.js');

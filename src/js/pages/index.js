@@ -1,10 +1,12 @@
 (function() {
   const $window = $(window);
+  const $winW = $window.width();
   const $indexSlider = $('.indexSlider');
   const $indexMag = $('.indexMag');
+  const $latest = $('.latestArticles');
 
-  $indexSlider.find('.sliderItem').width($window.width());
-
+  // indexSlider
+  $indexSlider.find('.sliderItem').width($winW);
   $indexSlider.owlCarousel({
   	autoWidth: true,
     items: 1,
@@ -16,6 +18,29 @@
     dotsClass: 'indexSliderDots'
   });
 
+  // latest
+  if ($winW < 768) {
+    $latest.addClass('owl-carousel owl-theme');
+    $latest.owlCarousel({
+      items: 1,
+      loop: true,
+      lazyLoad: true,
+      dots: false,
+      nav: true,
+      navContainerClass: 'latestNav',
+      navText: ['', '']
+    });
+  }
+  else {
+    $latest.find('.lazy').lazy({
+      effect: "fadeIn",
+      effectTime: 1000,
+      threshold: 0,
+      defaultImage: ''
+    });
+  }
+
+  // indexMag
   $indexMag.owlCarousel({
     loop: true,
     lazyLoad: true,

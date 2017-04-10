@@ -23,3 +23,9 @@
   	background-position: 0, 50%;
 	}
 }
+
+@keyframes txtShine {
+  to {
+    background-position: 100% 0, 0px 10px, 0px 40px, 0px 70px,
+  }
+}

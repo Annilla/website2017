@@ -1,4 +1,57 @@
 .index {
+  h2.title {
+    text-align: center;
+    font-weight: 900;
+    display: block;
+    margin-bottom: 30px;
+    @include screen(md) {
+      text-align: left;
+      margin: 0 auto 30px auto;
+      padding: $tb_gap;
+      &:after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 7px;
+        background-color: $black;
+      }
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 60px auto;
+      padding: 0;
+    }
+    .en {
+      font-size: 30px;
+      letter-spacing: 1px;
+      @include screen(md) {
+        font-size: 42px;
+        display: inline-block;
+      }
+      &:after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 5px;
+        margin: 6px auto;
+        background-color: $black;
+        @include screen(md) {
+          width: 5px;
+          height: 30px;
+          margin: 0 20px;
+          display: inline-block;
+        }
+      }
+    }
+    .ch {
+      font-size: 24px;
+      letter-spacing: 3px;
+      @include screen(md) {
+        display: inline-block;
+        font-size: 30px;
+      }
+    }
+  }
   section.indexSlider {
     position: relative;
     margin-bottom: 30px;
@@ -88,61 +141,166 @@
       }
     }
   }
-  h2.title {
-    text-align: center;
-    font-weight: 900;
-    display: block;
-    margin-bottom: 30px;
+  section.latest {
+    margin: 0 $m_gap 50px $m_gap;
     @include screen(md) {
-      text-align: left;
-      margin: 0 auto 30px auto;
-      padding: $tb_gap;
-      &:after {
-        content: '';
-        display: block;
-        width: 100px;
-        height: 7px;
-        background-color: $black;
-      }
+      margin: 0 $tb_gap 50px $tb_gap;
     }
     @include screen(xl) {
       width: $pc_max_width;
-      padding: 0;
+      margin: 0 auto 50px auto;
     }
-    .en {
-      font-size: 30px;
-      letter-spacing: 1px;
-      @include screen(md) {
-        font-size: 42px;
+    ul.latestArticles {
+      li {
+        list-style: none;
         display: inline-block;
-      }
-      &:after {
-        content: '';
-        display: block;
-        width: 100px;
-        height: 5px;
-        margin: 6px auto;
-        background-color: $black;
-        @include screen(md) {
-          width: 5px;
-          height: 30px;
-          margin: 0 20px;
-          display: inline-block;
+        .article {
+          @include screen(md) {
+            margin-bottom: 50px;
+            &:before {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 2px;
+              background-color: $black;
+              margin-bottom: 10px;
+            }
+          }
+          @include screen(lg) {
+            margin-bottom: 60px;
+          }
+          a.img {
+            @include imgSkeloton;
+            display: block;
+            position: relative;
+            img {
+              width: 100%;
+              height: auto;
+              display: block;
+            }
+            .category {
+              display: none;
+              @include screen(md) {
+                display: block;
+                color: $white;
+                background-color: $juksyStarsBg_90;
+                font-weight: bold;
+                position: absolute;
+                top: 15px;
+                left: -6px;
+                padding: 5px 30px;
+              }
+            }
+          }
+          .detail {
+            @include txtSkeloton;
+            padding: 10px;
+            color: $gray;
+            overflow: hidden;
+            font-size: 14px;
+            text-align: left;
+            @include screen(md) {
+              padding: 10px 0;
+            }
+            .pageview {
+              font-weight: bold;
+              float: right;
+              .icon {
+                width: 19px;
+                height: 19px;
+                float: left;
+                margin-right: 10px;
+                svg {
+                  .st0 {
+                    fill: $gray;
+                  }
+                }
+              }
+            }
+          }
+          a.title {
+            display: block;
+            margin: 0 10px;
+            font-size: 18px;
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
+            @include screen(md) {
+              margin: 0;
+            }
+            h3 {}
+          }
         }
       }
-    }
-    .ch {
-      font-size: 24px;
-      letter-spacing: 3px;
-      @include screen(md) {
-        display: inline-block;
-        font-size: 30px;
+      li:nth-child(odd) {
+        .article {
+          @include screen(md) {
+            padding-right: 10px;
+          }
+          @include screen(lg) {
+            padding-right: 0;
+          }
+        }
+      }
+      li:nth-child(even) {
+        .article {
+          @include screen(md) {
+            padding-left: 10px;
+          }
+          @include screen(lg) {
+            padding-left: 0;
+          }
+        }
+      }
+      li:nth-child(3n+1) {
+        .article {
+          @include screen(lg) {
+            padding-right: 13px;
+          }
+        }
+      }
+      li:nth-child(3n+2) {
+        .article {
+          @include screen(lg) {
+            padding-left: 7px;
+            padding-right: 7px;
+          }
+        }
+      }
+      li:nth-child(3n+3) {
+        .article {
+          @include screen(lg) {
+            padding-left: 13px;
+          }
+        }
+      }
+      .latestNav {
+        position: absolute;
+        right: -10px;
+        top: 15%;
+        .owl-prev,
+        .owl-next {
+          width: 35px;
+          height: 42px;
+          background-color: $black_90;
+          background-image: url('~img/index/indexMagPrev.svg');
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center;
+        }
+        .owl-prev {
+          margin-bottom: 10px;
+        }
+        .owl-next {
+          transform: rotate(180deg);
+          transform-origin: 50% 50%;
+        }
       }
     }
   }
   section.juksyStars {
     margin: 0 $m_gap 50px $m_gap;
-    background: linear-gradient(to bottom, transparent 10%, $juksyStarsBg_1 10%, $juksyStarsBg_1 90%, transparent 90%);
+    background: linear-gradient(to bottom, transparent 10%, $juksyStarsBg 10%, $juksyStarsBg 90%, transparent 90%);
     @include screen(md) {
       margin: 0 $tb_gap 50px $tb_gap;
       background: none;
@@ -178,7 +336,7 @@
           @include imgSkeloton;
           display: block;
           margin-right: 10%;
-          min-height: 250px;
+          min-height: 236px;
           @include screen(md) {
             margin-right: 0;
             min-height: 471px;
@@ -205,7 +363,8 @@
           top: inherit;
           width: 100%;
         }
-        .owl-prev, .owl-next {
+        .owl-prev,
+        .owl-next {
           width: 35px;
           height: 42px;
           background-color: $black_90;
