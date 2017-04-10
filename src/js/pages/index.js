@@ -18,6 +18,7 @@
 
   $indexMag.owlCarousel({
     loop: true,
+    lazyLoad: true,
     dots: false,
     nav: true,
     navContainerClass: 'indexMagNav',

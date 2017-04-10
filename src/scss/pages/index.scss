@@ -19,7 +19,7 @@
             display: block;
             position: absolute;
             bottom: 0;
-            background: linear-gradient(to bottom, $black_0 0%, $black 100%);
+            background: linear-gradient(to bottom, transparent 0%, $black 100%);
             padding: 30px 0 50px 0;
             width: 100%;
             h3 {
@@ -35,7 +35,7 @@
         }
       }
     }
-    .indexSliderDots {
+    .white_30s {
       position: absolute;
       bottom: 10px;
       width: 100%;
@@ -54,13 +54,13 @@
             display: block;
             width: 100%;
             height: 2px;
-            background-color: $indexSliderDot;
+            background-color: $white_30;
             transition: all 0.5s;
           }
         }
         span:hover {
           &:after {
-            background-color: $indexSliderDot_hover;
+            background-color: $white;
           }
         }
       }
@@ -72,13 +72,13 @@
             display: block;
             width: 100%;
             height: 2px;
-            background-color: $indexSliderDot;
+            background-color: $white_30;
             position: absolute;
             left: 0;
             top: 8px;
           }
           &:after {
-            background-color: $indexSliderDot_hover;
+            background-color: $white;
             animation: index_banner 5s linear;
             position: absolute;
             left: 0;
@@ -142,7 +142,7 @@
   }
   section.juksyStars {
     margin: 0 $m_gap 50px $m_gap;
-    background: linear-gradient(to bottom, $juksyStarsBg_0 10%, $juksyStarsBg_1 10%, $juksyStarsBg_1 90%, $juksyStarsBg_0 90%);
+    background: linear-gradient(to bottom, transparent 10%, $juksyStarsBg_1 10%, $juksyStarsBg_1 90%, transparent 90%);
     @include screen(md) {
       margin: 0 $tb_gap 50px $tb_gap;
       background: none;
@@ -175,10 +175,19 @@
           text-transform: uppercase;
         }
         a.mag {
+          @include imgSkeloton;
           display: block;
-          padding-right: 10%;
+          margin-right: 10%;
+          min-height: 250px;
           @include screen(md) {
-            padding-right: 0;
+            margin-right: 0;
+            min-height: 471px;
+          }
+          @include screen(lg) {
+            min-height: 313px;
+          }
+          @include screen(xl) {
+            min-height: 383px;
           }
           img {
             display: block;
