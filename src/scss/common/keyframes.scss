@@ -29,3 +29,15 @@
     background-position: 100% 0, 0px 10px, 0px 40px, 0px 70px,
   }
 }
+
+@keyframes errorCount {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

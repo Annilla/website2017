@@ -23,7 +23,8 @@ import '../img/index/1500x500_2.jpg';
 import '../img/index/640x840_mag1.jpg';
 import '../img/index/640x840_mag2.jpg';
 
-// Plugin JS
+// Plugin CSS
+require('juksy-css-reset/css/reset.css');
 require('owl.carousel/dist/assets/owl.carousel.css');
 require('owl.carousel/dist/assets/owl.theme.default.css');
 

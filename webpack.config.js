@@ -52,6 +52,11 @@ module.exports = {
       filename: './index.html',
       template: './src/pug/index.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './404.html',
+      template: './src/pug/404.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,
