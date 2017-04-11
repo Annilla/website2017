@@ -297,6 +297,26 @@
         }
       }
     }
+    a.more {
+      display: none;
+      @include screen(md) {
+        display: block;
+        color: $white;
+        border: 1px solid $black;
+        background-color: $black;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 900;
+        padding: 10px 30px;
+        width: 150px;
+        margin: 0 auto;
+        cursor: pointer;
+        &:hover {
+          background-color: $white;
+          color: $black;
+        }
+      }
+    }
   }
   section.juksyStars {
     margin: 0 $m_gap 50px $m_gap;
