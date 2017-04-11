@@ -38,11 +38,11 @@
 				display: block;
 				position: absolute;
 				top: -15px;
-				left: -5px;
+				left: -4px;
 				@include screen(md) {
 					font-size: 25px;
 					top: -24px;
-					left: -7px;
+					left: -5px;
 				}
 				&:nth-child(1) {
 					opacity: 0;
