@@ -15,12 +15,14 @@
 }
 // image Skeloton
 @mixin imgSkeloton {
-  min-height: 150px; // adjust height where we put
-  background-color: $lightgray;
-  background-image: radial-gradient(at top left, $white 0%, $lightgray_50 80%, $lightgray 47%, $lightgray 100%), radial-gradient(at bottom right, $lightgray 0%, $lightgray_50 80%, $lightgray 47%, $white 100%);
-  background-size: 200%, 200%;
-  background-position: 0, 0;
-  animation: imgShine 1s infinite;
+  &:empty {
+    min-height: 150px; // adjust height where we put
+    background-color: $lightgray;
+    background-image: radial-gradient(at top left, $white 0%, $lightgray_50 80%, $lightgray 47%, $lightgray 100%), radial-gradient(at bottom right, $lightgray 0%, $lightgray_50 80%, $lightgray 47%, $white 100%);
+    background-size: 200%, 200%;
+    background-position: 0, 0;
+    animation: imgShine 1s infinite;
+  }
 }
 
 // text Skeloton

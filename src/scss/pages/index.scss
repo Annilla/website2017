@@ -356,16 +356,24 @@
           @include imgSkeloton;
           display: block;
           margin-right: 10%;
-          min-height: 236px;
+          &:empty {
+            min-height: 236px;
+          }
           @include screen(md) {
             margin-right: 0;
-            min-height: 471px;
+            &:empty {
+              min-height: 471px;
+            }
           }
           @include screen(lg) {
-            min-height: 313px;
+            &:empty {
+              min-height: 313px;
+            }
           }
           @include screen(xl) {
-            min-height: 383px;
+            &:empty {
+              min-height: 383px;
+            }
           }
           img {
             display: block;
