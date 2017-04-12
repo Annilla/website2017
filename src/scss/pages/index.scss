@@ -154,6 +154,7 @@
       li {
         list-style: none;
         display: inline-block;
+        float: left;
         .article {
           @include screen(md) {
             margin-bottom: 50px;
@@ -213,6 +214,9 @@
             overflow: hidden;
             font-size: 14px;
             text-align: left;
+            &:empty {
+              background-size: 50px 100px, 90% 100px, 80% 100px, 60% 100px;
+            }
             @include screen(md) {
               padding: 10px 0;
             }
@@ -316,6 +320,7 @@
     }
     a.more {
       @include moreBtn;
+      clear: both;
     }
   }
   section.popular {
