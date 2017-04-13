@@ -16,6 +16,20 @@
       </div>
     </li>
   `;
+  const $popular = $('.popArticles');
+  const $popMore = $('.popular .more');
+  let $popFrom = 0;
+  const $popSize = 10;
+  let $popInit = false;
+  const $popTmp = `
+    <li class="pure-g">
+      <a class="pure-u-1 pure-u-md-7-12 img" href="" target="_blank"></a>
+      <div class="txtWrap pure-u-1 pure-u-md-5-12">
+        <div class="detail"></div>
+      </div>
+    </li>
+  `;
+  let $popClick = 0;
 
   /*---------------------
   ** indexSlider
@@ -56,7 +70,7 @@
         latestSet(res.data);
       },
       error: function(e) {
-        console.log(`error: ${e}`);
+        console.log(`LATEST ERROR: ${e}`);
       }
     });
   }
@@ -82,14 +96,13 @@
           </div>
         </div>
       `;
-      const tmpTitle = `<a class="title" data-module="dotdotdot" href="${data[i].link}" target="_blank"><h3>${data[i].title}</h3>`
-      ;
+      const tmpTitle = `
+        <a class="title" data-module="dotdotdot" href="${data[i].link}" target="_blank"><h3>${data[i].title}</h3></a>
+      `;
       $item.find('a.img').attr('href', data[i].link).append(tmpImg);
       $item.find('.detail').append(tmpDetail);
       $item.find('.article').append(tmpTitle);
-      if ($winW < 768) {
-        $latest.trigger('refresh.owl.carousel');
-      }
+      if ($winW < 768) { $latest.trigger('refresh.owl.carousel'); }
     }
     $(document).trigger('dotdotdot');
     if ($winW >= 768) {
@@ -106,12 +119,8 @@
 
   function latestInit() {
     if ($latestInit === true) return;
-    if ($winW < 768) {
-      latestMobile();
-    }
-    else {
-      latestDesktop();
-    }
+    if ($winW < 768) { latestMobile(); }
+    else { latestDesktop(); }
     $latestInit = true;
   }
 
@@ -156,7 +165,94 @@
   }
 
   /*---------------------
-  ** indexMag
+  ** POPULAR
+  -----------------------*/
+  // Set skeleton
+  function popSkeleton ($el) {
+    let $popSke = '';
+    for (let i = 0; i < $popSize; i++) {
+      $popSke = `${$popSke}${$popTmp}`
+    }
+    $el.append($popSke);
+  }
+  popSkeleton($popular);
+
+  // API get data
+  function popGet ($size, $from) {
+    $.ajax({
+      url: 'https://juksy.getsandbox.com/v1.0/articles/popular',
+      data: { size: $size, from: $from },
+      type: 'GET',
+      dataType: 'json',
+      success: function(res) {
+        popSet(res.data);
+      },
+      error: function(e) {
+        console.log(`POPULAR ERROR: ${e}`);
+      }
+    });
+  }
+  popGet ($popSize, $popFrom);
+
+  // API set data
+  function popSet (data) {
+    const $list = $popular.find('li');
+    for (let i = 0; i < $popSize; i++) {
+      const date = new Date(data[i].published_at).toDateString().split(" ");
+      const $item = $list.eq(i+$popFrom);
+      const tmpImg = `
+        <img data-module="lazyload" data-src="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
+        <div class="category">${data[i].category}</div>
+      `;
+      const tmpDetail = `
+        <span class="date">${date[1]} ${date[2]}, ${date[3]}</span>
+        <span class="author hide show-md">by ${data[i].author}</span>
+        <span class="pageview">
+          <span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 15.9 15.9" xml:space="preserve"><path class="st0" d="M8,13.5c-3.6-0.2-6.3-1.8-7.9-5.1C0,8.1,0,7.8,0.1,7.5C1.7,4.2,4.3,2.4,8,2.5c3.6,0,6.3,1.8,7.9,5.1c0.1,0.2,0.1,0.6,0,0.8C14.3,11.7,11.6,13.3,8,13.5z M11.6,7.9c0-2-1.6-3.7-3.6-3.7c-2,0-3.7,1.6-3.7,3.7c0,2,1.7,3.7,3.7,3.7C10,11.6,11.6,10,11.6,7.9z"></path><path class="st0" d="M8,5.8c1.2,0,2.2,1,2.2,2.2c0,1.2-1,2.2-2.2,2.2c-1.2,0-2.2-1-2.2-2.2C5.8,6.8,6.8,5.8,8,5.8z"></path></svg></span>${data[i].pageviews}
+        </span>
+      `;
+      const tmpTitle = `
+        <a class="title" data-module="dotdotdot" href="${data[i].link}" target="_blank"><h3>${data[i].title}</h3></a>
+        <div class="description hide show-md" data-module="dotdotdot">${data[i].summary}</div>
+        <a class="readmore hide show-md" href="${data[i].link}" target="_blank">Read More >></a>
+      `;
+      $item.find('a.img').attr('href', data[i].link).append(tmpImg);
+      $item.find('.detail').append(tmpDetail);
+      $item.find('.txtWrap').append(tmpTitle);
+      if ($winW >= 768 && i >= $popSize/2) { $item.hide(); }
+    }
+    $(document).trigger('dotdotdot');
+    $(document).trigger('lazyload');
+    if ($winW >= 768) { $popMore.show(); }
+    popInit();
+  }
+
+  function popInit() {
+    if ($popInit === true) return;
+    $popMore.click(function () {
+      $popMore.hide();
+      $popClick ++ ;
+      if ($popClick%2 === 1 ) {
+        // click odd times to show next 5 articles
+        for (let i = $popSize/2; i < $popSize; i++) {
+          $popular.find('li').eq(i+$popFrom).show();
+        }
+        $(document).trigger('dotdotdot');
+        $(document).trigger('lazyload');
+        $popMore.show();
+      }
+      else {
+        // click even times to load AJAX
+        $popFrom = $popFrom + $popSize;
+        popSkeleton($popular);
+        popGet($popSize, $popFrom);
+      }
+    });
+    $popInit = true;
+  }
+
+  /*---------------------
+  ** JUKSY STAR
   -----------------------*/
   $indexMag.owlCarousel({
     loop: true,

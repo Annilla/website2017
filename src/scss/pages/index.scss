@@ -339,7 +339,7 @@
       width: $pc_max_width;
       margin: 0 auto 50px auto;
     }
-    ul.popArticle{
+    ul.popArticles{
       li {
         list-style: none;
         display: block;
@@ -394,6 +394,7 @@
         }
         .txtWrap {
           transform: translateY(-10px);
+          float: right;
           @include screen(md) {
             transform: translateY(0);
           }
