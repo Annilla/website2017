@@ -398,9 +398,9 @@
         }
         .txtWrap {
           transform: translateY(-10px);
-          float: right;
           @include screen(md) {
             transform: translateY(0);
+            float: right;
           }
           .detail {
             background-color: $white_90;
