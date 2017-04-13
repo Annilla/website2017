@@ -177,17 +177,24 @@
             &:hover {
               opacity: 0.8;
             }
+            min-height: 157px;
+            &:empty {
+              min-height: 157px;
+            }
             @include screen(md) {
+              min-height: 186.3px;
               &:empty {
                 min-height: 186.3px;
               }
             }
             @include screen(lg) {
+              min-height: 165.7px;
               &:empty {
                 min-height: 165.7px;
               }
             }
             @include screen(xl) {
+              min-height: 203.6px;
               &:empty {
                 min-height: 203.6px;
               }
@@ -344,6 +351,7 @@
           display: block;
           position: relative;
           @include imgSkeloton;
+          min-height: 157px;
           &:empty {
             min-height: 157px;
           }
@@ -352,16 +360,19 @@
           }
           @include screen(md) {
             display: inline-block;
+            min-height: 223px;
             &:empty {
               min-height: 223px;
             }
           }
           @include screen(lg) {
+            min-height: 302px;
             &:empty {
               min-height: 302px;
             }
           }
           @include screen(xl) {
+            min-height: 368px;
             &:empty {
               min-height: 368px;
             }
