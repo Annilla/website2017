@@ -32,6 +32,7 @@ require('owl.carousel/dist/assets/owl.theme.default.css');
 require('../scss/app.scss');
 
 // Plugin JS
+window.axios = require('axios');
 require('jquery');
 require('owl.carousel');
 require('dotdotdot');

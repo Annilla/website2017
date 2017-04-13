@@ -61,17 +61,17 @@
 
   // API get data
   function latestGet ($size, $from) {
-    $.ajax({
-      url: `//${API_HOST}/v1.0/articles/latest`,
-      data: { size: $size, from: $from },
-      type: 'GET',
-      dataType: 'json',
-      success: function(res) {
-        latestSet(res.data);
-      },
-      error: function(e) {
-        console.log(`LATEST ERROR: ${e}`);
+    axios.get(`//${API_HOST}/v1.0/articles/latest`, {
+      params: {
+        size: $size,
+        from: $from
       }
+    })
+    .then(function (response) {
+      latestSet(response.data.data);
+    })
+    .catch(function (e) {
+      console.log(`LATEST ERROR: ${e}`);
     });
   }
   latestGet ($latestSize, $latestFrom);
@@ -137,7 +137,6 @@
     });
     $latest.on('translate.owl.carousel', function(event) {
       const index = event.item.index;
-      console.log(index, $latestFrom+$latestSize-1);
       if (index === $latestFrom+$latestSize-1) {
         for (let i = 0; i < $latestSize; i++) {
           $latest.trigger('add.owl.carousel', [$($latestTmp)]).trigger('refresh.owl.carousel');
@@ -179,17 +178,17 @@
 
   // API get data
   function popGet ($size, $from) {
-    $.ajax({
-      url: `//${API_HOST}/v1.0/articles/popular`,
-      data: { size: $size, from: $from },
-      type: 'GET',
-      dataType: 'json',
-      success: function(res) {
-        popSet(res.data);
-      },
-      error: function(e) {
-        console.log(`POPULAR ERROR: ${e}`);
+    axios.get(`//${API_HOST}/v1.0/articles/popular`, {
+      params: {
+        size: $size,
+        from: $from
       }
+    })
+    .then(function (response) {
+      popSet(response.data.data);
+    })
+    .catch(function (e) {
+      console.log(`POPULAR ERROR: ${e}`);
     });
   }
   popGet ($popSize, $popFrom);
@@ -231,22 +230,11 @@
     if ($popInit === true) return;
     $popMore.click(function () {
       $popMore.hide();
-      $popClick ++ ;
-      if ($popClick%2 === 1 ) {
-        // click odd times to show next 5 articles
-        for (let i = $popSize/2; i < $popSize; i++) {
-          $popular.find('li').eq(i+$popFrom).show();
-        }
-        $(document).trigger('dotdotdot');
-        $(document).trigger('lazyload');
-        $popMore.show();
+      for (let i = $popSize/2; i < $popSize; i++) {
+        $popular.find('li').eq(i+$popFrom).show();
       }
-      else {
-        // click even times to load AJAX
-        $popFrom = $popFrom + $popSize;
-        popSkeleton($popular);
-        popGet($popSize, $popFrom);
-      }
+      $(document).trigger('dotdotdot');
+      $(document).trigger('lazyload');
     });
     $popInit = true;
   }
