@@ -62,7 +62,7 @@
   // API get data
   function latestGet ($size, $from) {
     $.ajax({
-      url: 'https://juksy.getsandbox.com/v1.0/articles/latest',
+      url: `//${API_HOST}/v1.0/articles/latest`,
       data: { size: $size, from: $from },
       type: 'GET',
       dataType: 'json',
@@ -180,7 +180,7 @@
   // API get data
   function popGet ($size, $from) {
     $.ajax({
-      url: 'https://juksy.getsandbox.com/v1.0/articles/popular',
+      url: `//${API_HOST}/v1.0/articles/popular`,
       data: { size: $size, from: $from },
       type: 'GET',
       dataType: 'json',

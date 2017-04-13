@@ -73,9 +73,7 @@
               min-height: 480px;
             }
             img {
-              width: 100%;
-              height: auto;
-              display: block;
+              @include img;
             }
           }
           .title {
@@ -210,9 +208,7 @@
               }
             }
             img {
-              width: 100%;
-              height: auto;
-              display: block;
+              @include img;
             }
             .category {
               color: $white;
@@ -388,9 +384,7 @@
             }
           }
           img {
-            width: 100%;
-            height: auto;
-            display: block;
+            @include img;
           }
           .category {
             color: $white;

@@ -41,6 +41,9 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.DefinePlugin({
+      API_HOST: '"juksy.getsandbox.com"'
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
