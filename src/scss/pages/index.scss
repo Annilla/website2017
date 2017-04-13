@@ -62,6 +62,16 @@
           position: relative;
           picture {
             display: block;
+            min-height: 420px;
+            @include screen(md) {
+              min-height: 256px;
+            }
+            @include screen(lg) {
+              min-height: 341px;
+            }
+            @include screen(xl) {
+              min-height: 480px;
+            }
             img {
               width: 100%;
               height: auto;
