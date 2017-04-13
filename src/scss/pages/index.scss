@@ -560,6 +560,12 @@
       @include moreBtn;
     }
   }
+  .bottomWrap {
+    @include screen(md) {
+      background-color: $gray_light;
+      padding: 50px 0 30px 0;
+    }
+  }
   section.juksyStars {
     margin: 0 $m_gap 50px $m_gap;
     background: linear-gradient(to bottom, transparent 10%, $juksyStarsBg 10%, $juksyStarsBg 90%, transparent 90%);
