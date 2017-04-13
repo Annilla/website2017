@@ -578,6 +578,9 @@
         text-align: center;
         font-weight: 700;
         font-size: 14px;
+        >div {
+          float: left;
+        }
         .num {
           font-size: 50px;
           margin-top: 70%;
