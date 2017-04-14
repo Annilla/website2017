@@ -36,7 +36,7 @@ window.axios = require('axios');
 require('jquery');
 require('owl.carousel');
 require('dotdotdot');
-require('jquery-lazy');
+window.LazyLoad = require('vanilla-lazyload');
 
 // Main JS
 require('./common/module.js');

@@ -211,6 +211,7 @@
             }
             img {
               @include img;
+              opacity: 0;
             }
             .category {
               color: $white;
@@ -403,6 +404,7 @@
           }
           img {
             @include img;
+            opacity: 0;
           }
           .category {
             color: $white;

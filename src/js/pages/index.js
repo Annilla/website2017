@@ -3,6 +3,7 @@
   const $winW = $window.width();
   const $indexSlider = $('.indexSlider');
   const $indexMag = $('.indexMag');
+  let latestLazyLoad;
   const $latest = $('.latestArticles');
   const $latestMore = $('.latest .more');
   let $latestFrom = 0;
@@ -83,7 +84,7 @@
       const date = new Date(data[i].published_at).toDateString().split(" ");
       const $item = $list.eq(i+$latestFrom);
       const tmpImg = `
-        <img class="owl-lazy lazy" data-src="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
+        <img class="owl-lazy" data-src="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
         <div class="category hide show-md">${data[i].category}</div>
       `;
       const tmpDetail = `
@@ -106,12 +107,7 @@
     }
     $(document).trigger('dotdotdot');
     if ($winW >= 768) {
-      $latest.find('.lazy').lazy({
-        effect: "fadeIn",
-        effectTime: 1000,
-        threshold: 0,
-        defaultImage: ''
-      });
+      latestLazyLoad.update();
       $latestMore.show();
     }
     latestInit();
@@ -148,13 +144,13 @@
   }
 
   // Desktop lazyLoad
-  function latestDesktop() {
-    $latest.find('.lazy').lazy({
-      effect: "fadeIn",
-      effectTime: 1000,
+  if ($winW >= 768) {
+    latestLazyLoad = new LazyLoad({
       threshold: 0,
-      defaultImage: ''
+      data_src: "src"
     });
+  }
+  function latestDesktop() {
     $latestMore.click(function () {
       $latestMore.hide();
       $latestFrom = $latestFrom + $latestSize;
@@ -200,7 +196,7 @@
       const date = new Date(data[i].published_at).toDateString().split(" ");
       const $item = $list.eq(i+$popFrom);
       const tmpImg = `
-        <img data-module="lazyload" data-src="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
+        <img data-original="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
         <div class="category">${data[i].category}</div>
       `;
       const tmpDetail = `
@@ -221,7 +217,7 @@
       if ($winW >= 768 && i >= $popSize/2) { $item.hide(); }
     }
     $(document).trigger('dotdotdot');
-    $(document).trigger('lazyload');
+    $(document).trigger('vlazyload_update');
     if ($winW >= 768) { $popMore.show(); }
     popInit();
   }

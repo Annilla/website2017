@@ -20,6 +20,16 @@
   height: auto;
   display: block;
   text-indent:-9999px;
+  border: 0;
+  &:not(.initial) {
+    transition: opacity 1s;
+  }
+  &.initial, &.loaded, &.error {
+    opacity: 1;
+  }
+  &:not([src]) {
+    visibility: hidden;
+  }
 }
 
 // image Skeloton
