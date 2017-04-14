@@ -188,11 +188,13 @@
             min-height: 157px;
             &:empty {
               min-height: 157px;
+              display: none;
             }
             @include screen(md) {
               min-height: 186.3px;
               &:empty {
                 min-height: 186.3px;
+                display: block;
               }
             }
             @include screen(lg) {
@@ -229,9 +231,11 @@
             text-align: left;
             &:empty {
               background-size: 50px 100px, 90% 100px, 80% 100px, 60% 100px;
+              display: none;
             }
             @include screen(md) {
               padding: 10px 0;
+              display: block;
             }
             .pageview {
               font-weight: bold;
@@ -262,6 +266,20 @@
             }
             &:hover {
               color: $juksyStarsBg;
+            }
+          }
+        }
+      }
+      li:first-child {
+        .article {
+          a.img {
+            &:empty {
+              display: block;
+            }
+          }
+          .detail {
+            &:empty {
+              display: block;
             }
           }
         }
