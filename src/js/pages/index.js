@@ -230,7 +230,7 @@
         $popular.find('li').eq(i+$popFrom).show();
       }
       $(document).trigger('dotdotdot');
-      $(document).trigger('lazyload');
+      $(document).trigger('vlazyload_update');
     });
     $popInit = true;
   }
