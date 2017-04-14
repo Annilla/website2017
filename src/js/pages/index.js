@@ -6,7 +6,7 @@
   let latestLazyLoad;
   let $latest = $('.latestArticles');
   let $latestMore = $('.latest .more');
-  let latestFrom = 0;
+  let latestPage = 1;
   let latestSize = 12;
   let latestInit = false;
   const latestTmp = `
@@ -19,7 +19,7 @@
   `;
   let $popular = $('.popArticles');
   let $popMore = $('.popular .more');
-  let popFrom = 0;
+  let popPage = 1;
   let popSize = 10;
   let popInit = false;
   const popTmp = `
@@ -61,11 +61,11 @@
   latestSkeleton($latest);
 
   // API get data
-  function latestGet ($size, $from) {
+  function latestGet (size, page) {
     axios.get(`//${API_HOST}/v1.0/articles/latest`, {
       params: {
-        size: $size,
-        from: $from
+        size: size,
+        page: page
       }
     })
     .then(function (response) {
@@ -75,14 +75,14 @@
       console.log(`LATEST ERROR: ${e}`);
     });
   }
-  latestGet (latestSize, latestFrom);
+  latestGet (latestSize, latestPage);
 
   // API set data
   function latestSet (data) {
     let $list = $latest.find('li');
     for (let i = 0; i < latestSize; i++) {
       let date = new Date(data[i].published_at).toDateString().split(" ");
-      let $item = $list.eq(i+latestFrom);
+      let $item = $list.eq(i+(latestPage-1)*latestSize);
       let tmpImg = `
         <img class="owl-lazy" data-src="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
         <div class="category hide show-md">${data[i].category}</div>
@@ -133,12 +133,12 @@
     });
     $latest.on('translate.owl.carousel', function(event) {
       let index = event.item.index;
-      if (index === latestFrom+latestSize-1) {
+      if (index === latestPage*latestSize-1) {
         for (let i = 0; i < latestSize; i++) {
           $latest.trigger('add.owl.carousel', [$(latestTmp)]).trigger('refresh.owl.carousel');
         }
-        latestFrom = latestFrom + latestSize;
-        latestGet (latestSize, latestFrom);
+        latestPage ++;
+        latestGet (latestSize, latestPage);
       }
     });
   }
@@ -153,9 +153,9 @@
   function latestDesktop() {
     $latestMore.click(function () {
       $latestMore.hide();
-      latestFrom = latestFrom + latestSize;
+      latestPage ++;
       latestSkeleton($latest);
-      latestGet(latestSize, latestFrom);
+      latestGet(latestSize, latestPage);
     });
   }
 
@@ -173,11 +173,11 @@
   popSkeleton($popular);
 
   // API get data
-  function popGet ($size, $from) {
+  function popGet (size, page) {
     axios.get(`//${API_HOST}/v1.0/articles/popular`, {
       params: {
-        size: $size,
-        from: $from
+        size: size,
+        page: page
       }
     })
     .then(function (response) {
@@ -187,14 +187,14 @@
       console.log(`POPULAR ERROR: ${e}`);
     });
   }
-  popGet (popSize, popFrom);
+  popGet (popSize, popPage);
 
   // API set data
   function popSet (data) {
     let $list = $popular.find('li');
     for (let i = 0; i < popSize; i++) {
       let date = new Date(data[i].published_at).toDateString().split(" ");
-      let $item = $list.eq(i+popFrom);
+      let $item = $list.eq(i+(popPage-1)*popSize);
       let tmpImg = `
         <img data-original="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
         <div class="category">${data[i].category}</div>
@@ -227,7 +227,7 @@
     $popMore.click(function () {
       $popMore.hide();
       for (let i = popSize/2; i < popSize; i++) {
-        $popular.find('li').eq(i+popFrom).show();
+        $popular.find('li').eq(i+(popPage-1)*popSize).show();
       }
       $(document).trigger('dotdotdot');
       $(document).trigger('vlazyload_update');
