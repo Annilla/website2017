@@ -211,7 +211,9 @@
             }
             img {
               @include img;
-              opacity: 0;
+              @include screen(md) {
+                opacity: 0;
+              }
             }
             .category {
               color: $white;
@@ -259,7 +261,7 @@
             margin: 0 10px;
             font-size: 18px;
             line-height: 1.5em;
-            height: 3em;
+            max-height: 3em;
             overflow: hidden;
             text-align: left;
             @include screen(md) {
