@@ -238,7 +238,9 @@
             }
             @include screen(md) {
               padding: 10px 0;
-              display: block;
+              &:empty {
+                display: block;
+              }
             }
             .pageview {
               font-weight: bold;
