@@ -1,5 +1,24 @@
 let vLazyLoad;
 
+export function facebook_init() {
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '608477045879026',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/zh_TW/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+}
+
 /**
  * Array/Object siample getter with default value.
  */
@@ -36,5 +55,6 @@ export function toDateString(timestamp) {
 }
 
 // Initial
+facebook_init();
 vLazyLoad_init();
 dotdotdot();

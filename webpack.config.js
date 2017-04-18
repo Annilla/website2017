@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "app.bundle.js"
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [{
       test: /\.(css|scss)$/,
@@ -59,6 +60,11 @@ module.exports = {
       hash: true,
       filename: './404.html',
       template: './src/pug/404.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './article_normal.html',
+      template: './src/pug/article/normal.pug'
     }),
     new ExtractTextPlugin({
       filename: 'app.css',

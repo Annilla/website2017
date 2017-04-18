@@ -1,0 +1,142 @@
+.article {
+  article {
+    margin: 0 $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap;
+    }
+    @include screen(lg) {
+      width: 1000px;
+      margin: 0 auto;
+    }
+    h1.title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      @include screen(md) {
+        font-size: 32px;
+      }
+    }
+    .cooperation {
+      font-size: 12px;
+      line-height: 40px;
+      color: $gray;
+      margin-bottom: 10px;
+      @include screen(md) {
+        font-size: 17px;
+      }
+      a:hover {
+        opacity: 0.5;
+        text-decoration: underline;
+      }
+    }
+    .detail {
+      position: relative;
+      @include screen(md) {
+        display: flex;
+        flex-flow: row wrap;
+      }
+      .detailWrap {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        @include screen(md) {
+          margin-bottom: 0;
+        }
+        a.head {
+          display: block;
+          margin-right: 10px;
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            display: block;
+          }
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+        .txtWrap {
+          font-size: 14px;
+          line-height: 1.5em;
+          .author {
+            font-weight: bold;
+            &:after {
+              content: '·';
+              display: inline-block;
+              margin: 0 5px;
+            }
+          }
+          .date {
+            display: block;
+            @include screen(md) {
+              display: inline-block;
+            }
+            a.category {
+              color: $juksyStarsBg;
+              font-weight: bold;
+            }
+          }
+          a:hover {
+            opacity: 0.5;
+            text-decoration: underline;
+          }
+        }
+      }
+      .social {
+        @include screen(md) {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          flex: 1 auto;
+        }
+        .pageview {
+          color: $gray;
+          font-weight: bold;
+          svg {
+            width: 18px;
+            height: 18px;
+            transform: translateY(3px);
+            margin-right: 5px;
+            .st0 {
+              fill: $gray;
+            }
+          }
+        }
+        .fbLike, .fbShare {
+          padding: 6px 20px;
+          font-size: 14px;
+          background-color: $fbLike;
+          color: $white;
+          font-weight: bold;
+          text-align: center;
+          margin-left: 5px;
+          cursor: pointer;
+          svg {
+            width: 16px;
+            height: 16px;
+            transform: translateY(2px);
+            margin-right: 5px;
+            .st0 {
+              fill: $white;
+            }
+          }
+        }
+        .fbShare {
+          background-color: $fbShare;
+          transition: .5s;
+          &:hover {
+            background-color: $black;
+          }
+        }
+      }
+      .fontSize {
+        width: 40px;
+        height: 40px;
+        border: 1px solid $black;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
