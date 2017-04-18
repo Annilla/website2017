@@ -41,3 +41,4 @@ window.LazyLoad = require('vanilla-lazyload');
 // Main JS
 require('./common/module.js');
 require('./pages/index/index.js');
+require('./pages/article.js');

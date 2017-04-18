@@ -30,6 +30,7 @@
     }
     .detail {
       position: relative;
+      margin-bottom: 20px;
       @include screen(md) {
         display: flex;
         flex-flow: row wrap;
@@ -101,8 +102,16 @@
             }
           }
         }
-        .fbLike, .fbShare {
-          padding: 6px 20px;
+        .fbLike,
+        .fbShare {
+          display: none;
+          @include screen(md) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          width: 100px;
+          height: 30px;
           font-size: 14px;
           background-color: $fbLike;
           color: $white;
@@ -113,11 +122,24 @@
           svg {
             width: 16px;
             height: 16px;
-            transform: translateY(2px);
             margin-right: 5px;
             .st0 {
               fill: $white;
             }
+          }
+        }
+        .fbLike {
+          &:hover {
+            .txt,
+            .word {
+              display: none;
+            }
+            .plugin {
+              display: block;
+            }
+          }
+          .plugin {
+            display: none;
           }
         }
         .fbShare {
@@ -125,6 +147,9 @@
           transition: .5s;
           &:hover {
             background-color: $black;
+            .txt {
+              display: none;
+            }
           }
         }
       }
@@ -136,6 +161,136 @@
         position: absolute;
         right: 0;
         bottom: 0;
+      }
+    }
+    .mainArticle {
+      line-height: 2em;
+      @include screen(md) {
+        font-size: 18px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        @include screen(md) {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+      p {
+        margin: 10px 0;
+      }
+      a {
+        color: $juksyStarsBg;
+      }
+      h1 {
+        color: $articleH1;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 0;
+      }
+      h2 {
+        color: $articleH2;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 0;
+      }
+      ul.figcaption {
+        margin: 5px 0 20px 0;
+        text-align: inherit;
+        @include screen(md) {
+          max-width: 600px;
+          margin: 5px auto 20px auto;
+          line-height: 1em;
+        }
+        li {
+          list-style: none;
+          display: block;
+          &.h1 {
+            font-size: 14px;
+            text-align: left;
+            color: $black;
+            font-weight: bold;
+            @include screen(md) {
+              display: inline;
+              margin-right: 10px;
+            }
+          }
+          &.desc {
+            font-size: 12px;
+            text-align: justify;
+            line-height: 2em;
+            color: $black;
+            @include screen(md) {
+              font-size: 14px;
+              display: inline;
+            }
+            a {
+              color: $black;
+              text-decoration: underline;
+            }
+          }
+          &.cite {
+            font-size: 10px;
+            text-align: right;
+            line-height: 2em;
+            color: $gray;
+            a {
+              color: $gray;
+            }
+          }
+        }
+      }
+      iframe[src^='https://www.youtube.com'], iframe[src^='//www.youtube.com'] {
+        @include screen(md) {
+          margin: 0 calc((100% - 600px)/2);
+        }
+      }
+      .fr-instagram, .fr-facebook {
+        @include screen(md) {
+          max-width: 600px !important;
+          margin: 0 calc((100% - 600px)/2) !important;
+        }
+      }
+    }
+    .pagination {
+      // display: flex;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: bold;
+      @include screen(md) {
+        width: 400px;
+        margin: 0 auto;
+      }
+      a.btn {
+        svg {
+          width: 20px;
+          height: 20px;
+          margin: 0 5px;
+          transform: translateY(3px);
+          transform-origin: 50% 50%;
+        }
+        &.next {
+          text-align: right;
+        }
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      ul.page {
+        text-align: center;
+        li {
+          list-style: none;
+          display: inline-block;
+          margin: 0 10px 10px 10px;
+          transition: .5s;
+          &.active {
+            border-bottom: 1px solid $black;
+          }
+          &:hover {
+            opacity: 0.5;
+          }
+        }
       }
     }
   }
