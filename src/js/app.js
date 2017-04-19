@@ -33,12 +33,13 @@ require('../scss/app.scss');
 
 // Plugin JS
 window.axios = require('axios');
+window.LazyLoad = require('vanilla-lazyload');
+require('lodash');
 require('jquery');
 require('owl.carousel');
 require('dotdotdot');
-window.LazyLoad = require('vanilla-lazyload');
 
 // Main JS
 require('./common/module.js');
 require('./pages/index/index.js');
-require('./pages/article.js');
+require('./pages/article/article.js');

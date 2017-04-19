@@ -1,5 +1,5 @@
 .article {
-  article {
+  .middle {
     margin: 0 $m_gap;
     @include screen(md) {
       margin: 0 $tb_gap;
@@ -8,6 +8,8 @@
       width: 1000px;
       margin: 0 auto;
     }
+  }
+  article {
     h1.title {
       font-size: 20px;
       margin-bottom: 10px;
@@ -164,9 +166,10 @@
       }
     }
     .mainArticle {
-      line-height: 2em;
+      font-size: 1rem; // resize font-size by js
+      transition: .5s;
       @include screen(md) {
-        font-size: 18px;
+        font-size: 1.125rem;
       }
       img {
         width: 100%;
@@ -179,21 +182,24 @@
       }
       p {
         margin: 10px 0;
+        line-height: 2em;
       }
       a {
         color: $juksyStarsBg;
       }
       h1 {
         color: $articleH1;
-        font-size: 20px;
+        font-size: 1.25em;
         font-weight: bold;
         padding: 10px 0;
+        line-height: 1.5em;
       }
       h2 {
         color: $articleH2;
-        font-size: 18px;
+        font-size: 1.125em;
         font-weight: bold;
         padding: 10px 0;
+        line-height: 1.5em;
       }
       ul.figcaption {
         margin: 5px 0 20px 0;
@@ -207,22 +213,23 @@
           list-style: none;
           display: block;
           &.h1 {
-            font-size: 14px;
+            font-size: 0.875em;
             text-align: left;
             color: $black;
             font-weight: bold;
+            line-height: 2em;
             @include screen(md) {
               display: inline;
               margin-right: 10px;
             }
           }
           &.desc {
-            font-size: 12px;
+            font-size: 0.75em;
             text-align: justify;
             line-height: 2em;
             color: $black;
             @include screen(md) {
-              font-size: 14px;
+              font-size: 0.777em;
               display: inline;
             }
             a {
@@ -231,7 +238,7 @@
             }
           }
           &.cite {
-            font-size: 10px;
+            font-size: 0.625em;
             text-align: right;
             line-height: 2em;
             color: $gray;
@@ -241,26 +248,117 @@
           }
         }
       }
-      iframe[src^='https://www.youtube.com'], iframe[src^='//www.youtube.com'] {
+      iframe[src^='https://www.youtube.com'],
+      iframe[src^='//www.youtube.com'] {
         @include screen(md) {
           margin: 0 calc((100% - 600px)/2);
         }
       }
-      .fr-instagram, .fr-facebook {
+      .fr-instagram,
+      .fr-facebook {
         @include screen(md) {
           max-width: 600px !important;
           margin: 0 calc((100% - 600px)/2) !important;
         }
       }
     }
+    .editorRecommend {
+      margin-bottom: 30px;
+      h3.recTitle {
+        font-size: 20px;
+        line-height: 2.5em;
+      }
+      ul.recList {
+        li {
+          list-style: none;
+          display: block;
+          margin-bottom: 20px;
+          a {
+            h4 {
+              line-height: 1.5em;
+              color: $articleH1;
+              text-decoration: underline;
+              font-weight: normal;
+              transition: .5s;
+              @include screen(md) {
+                font-size: 18px;
+              }
+              &:after {
+                content: '》';
+              }
+              &:before {
+                content: '《';
+              }
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+      a.banner {
+        position: relative;
+        display: block;
+        .img {
+          @include img;
+          opacity: 0;
+          min-height: 157px;
+          @include screen(md) {
+            min-height: 383px;
+          }
+        }
+        .banTitle {
+          background-color: $black_70;
+          color: $white;
+          text-align: center;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          padding: 10px 0;
+          @include screen(md) {
+            padding: 20px 0;
+          }
+          h4 {
+            padding: 0 10px;
+            @include screen(md) {
+              font-size: 20px;
+            }
+            @include screen(lg) {
+              font-size: 25px;
+            }
+          }
+          .more {
+            display: none;
+            @include screen(md) {
+              display: inline-block;
+              padding: 5px 25px;
+              border: 1px solid $white;
+              font-weight: bold;
+              margin-top: 10px;
+              transition: .5s;
+            }
+          }
+        }
+        &:hover {
+          opacity: 0.8;
+          .banTitle {
+            .more {
+              background-color: $white;
+              color: $black;
+            }
+          }
+        }
+      }
+    }
     .pagination {
-      // display: flex;
       font-size: 20px;
       line-height: 24px;
       font-weight: bold;
+      margin-bottom: 40px;
       @include screen(md) {
         width: 400px;
-        margin: 0 auto;
+        margin: 0 auto 40px auto;
       }
       a.btn {
         svg {
@@ -291,6 +389,251 @@
             opacity: 0.5;
           }
         }
+      }
+    }
+    .tag {
+      margin-bottom: 70px;
+      h3.tagTitle {
+        display: inline-block;
+        margin-right: 10px;
+      }
+      ul.tagWrap {
+        display: inline-block;
+        li {
+          list-style: none;
+          display: inline-block;
+          margin: 0 10px 10px 0;
+          a {
+            background-color: $black;
+            color: $white;
+            border: 1px solid $black;
+            display: inline-block;
+            padding: 5px 15px;
+            &:hover {
+              background-color: $white;
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+  h3.title {
+    @include title;
+    @include screen(xl) {
+      width: 1000px;
+    }
+  }
+  .recommend {
+    margin-bottom: 40px;
+    ul.recArticles {
+      overflow: hidden;
+      li {
+        list-style: none;
+        display: inline-block;
+        float: left;
+        .article {
+          &:before{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $black;
+            margin-bottom: 10px;
+          }
+          a.img {
+            display: block;
+            @include imgSkeloton;
+            &:empty {
+              min-height: 157px;
+              @include screen(md) {
+                min-height: 186px;
+              }
+              @include screen(lg) {
+                min-height: 257px;
+              }
+            }
+            img {
+              @include img;
+              @include screen(md) {
+                opacity: 0;
+              }
+            }
+          }
+          .detail {
+            @include txtSkeloton;
+            font-size: 14px;
+            line-height: 2em;
+          }
+          a.title {
+            font-size: 20px;
+            display: block;
+            line-height: 1.5em;
+            max-height: 3em;
+            overflow: hidden;
+          }
+        }
+      }
+      li:nth-child(odd) {
+        .article {
+          @include screen(md) {
+            padding-right: 10px;
+          }
+        }
+      }
+      li:nth-child(even) {
+        .article {
+          @include screen(md) {
+            padding-left: 10px;
+          }
+        }
+      }
+      li:nth-child(3), li:nth-child(4) {
+        @include screen(md) {
+          display: none;
+        }
+      }
+      .owl-dots {
+        .owl-dot {
+          span {
+            background-color: $lightgray;
+          }
+          &.active {
+            span {
+              background-color: $figcaptionCite;
+            }
+          }
+        }
+      }
+    }
+  }
+  .articleAuthor {
+    ul.tabs {
+      clear: both;
+      position: relative;
+      min-height: 230px;
+      margin-bottom: 50px;
+      li {
+        list-style: none;
+        display: block;
+        float: left;
+        label {
+          padding: 10px 40px;
+          background-color: $white;
+          color: $gray;
+          font-weight: bold;
+          cursor: pointer;
+          transition: .5s;
+        }
+        .tabContent {
+          position: absolute;
+          top: 29px;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          border-top: 1px solid $black;
+          border-bottom: 1px solid $black;
+          box-shadow: 0 3px 0 $white, 0 7px 0 $black;
+          padding: 20px 0;
+          .img {
+            width: 80%;
+            max-width: 150px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+          }
+          .txtWrap {
+            padding: 0 20px;
+            @include screen(lg) {
+              padding: 10px 20px;
+            }
+            a.name {
+              display: block;
+              font-size: 30px;
+              font-weight: bold;
+              margin-bottom: 10px;
+              &:after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 2px;
+                background-color: $black;
+              }
+            }
+            .description {
+              line-height: 2em;
+              height: 4em;
+              overflow: hidden;
+            }
+          }
+          ul.article {
+            padding: 0 20px;
+            @include screen(lg) {
+              padding: 30px 20px 10px 20px;
+            }
+            li {
+              width: 100%;
+              list-style: none;
+              display: block;
+              margin-bottom: 10px;
+              position: relative;
+              &:before {
+                content: '';
+                width: 3px;
+                height: 16px;
+                background-color: $black;
+                display: inline-block;
+                position: absolute;
+                top: 3px;
+                left: 0;
+              }
+              a {
+                display: inline-block;
+                width: calc(100% - 13px);
+                margin-left: 10px;
+                &:hover {
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+        [type=radio]:checked~label {
+          background-color: $black;
+          color: $white;
+        }
+        [type=radio]:checked~label~.tabContent {
+          z-index: 1;
+        }
+      }
+    }
+  }
+  .videoBottom {
+    margin-bottom: 50px;
+    .YTWrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      /* 16:9 */
+      height: 0;
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .FBWrap {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position:relative;
+      height: 0;
+      iframe {
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        position: absolute;
       }
     }
   }

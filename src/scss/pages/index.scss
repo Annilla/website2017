@@ -1,56 +1,6 @@
 .index {
   h2.title {
-    text-align: center;
-    font-weight: 900;
-    display: block;
-    margin-bottom: 30px;
-    @include screen(md) {
-      text-align: left;
-      margin: 0 auto 30px auto;
-      padding: $tb_gap;
-      &:after {
-        content: '';
-        display: block;
-        width: 100px;
-        height: 7px;
-        background-color: $black;
-      }
-    }
-    @include screen(xl) {
-      width: $pc_max_width;
-      margin: 0 auto 60px auto;
-      padding: 0;
-    }
-    .en {
-      font-size: 30px;
-      letter-spacing: 1px;
-      @include screen(md) {
-        font-size: 42px;
-        display: inline-block;
-      }
-      &:after {
-        content: '';
-        display: block;
-        width: 100px;
-        height: 5px;
-        margin: 6px auto;
-        background-color: $black;
-        @include screen(md) {
-          width: 5px;
-          height: 30px;
-          margin: 0 20px;
-          display: inline-block;
-        }
-      }
-    }
-    .ch {
-      font-size: 24px;
-      letter-spacing: 3px;
-      @include screen(md) {
-        display: inline-block;
-        font-size: 30px;
-      }
-    }
+    @include title;
   }
   section.indexSlider {
     position: relative;
