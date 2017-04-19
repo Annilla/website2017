@@ -2,7 +2,6 @@ import { social } from './social.js';
 import { articleYT } from './articleYT.js';
 import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
-import { videoBottom } from './videoBottom.js';
 
 (function() {
   // Facebook Share
@@ -13,6 +12,4 @@ import { videoBottom } from './videoBottom.js';
   articleFont();
   // 專屬推薦
   recommend();
-  // youtube and facebook video api
-  videoBottom();
 })();

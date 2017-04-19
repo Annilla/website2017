@@ -41,5 +41,7 @@ require('dotdotdot');
 
 // Main JS
 require('./common/module.js');
+require('./common/youtube.js');
+require('./common/facebook.js');
 require('./pages/index/index.js');
 require('./pages/article/article.js');

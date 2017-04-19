@@ -1,16 +1,5 @@
 let vLazyLoad;
 
-export function facebook_init() {
-  $.getScript('//connect.facebook.net/zh_TW/sdk.js', function() {
-    FB.init({
-      appId: '608477045879026',
-      version: 'v2.8',
-      xfbml: true
-    });
-    FB.AppEvents.logPageView();
-  });
-}
-
 /**
  * Array/Object siample getter with default value.
  */
@@ -47,6 +36,5 @@ export function toDateString(timestamp) {
 }
 
 // Initial
-facebook_init();
 vLazyLoad_init();
 dotdotdot();
