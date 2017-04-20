@@ -42,7 +42,7 @@
     FB.AppEvents.logPageView();
 
     // Facebook Video at article bottom autoplay
-    articleFBvideo();
+    // articleFBvideo();
   });
 
 })();

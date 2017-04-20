@@ -2,6 +2,7 @@ import { social } from './social.js';
 import { articleYT } from './articleYT.js';
 import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
+import { popular } from './popular.js';
 
 (function() {
   // Facebook Share
@@ -12,4 +13,6 @@ import { recommend } from './recommend.js';
   articleFont();
   // 專屬推薦
   recommend();
+  // 熱門文章
+  popular();
 })();

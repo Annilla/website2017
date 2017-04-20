@@ -3,8 +3,8 @@ import {v, vLazyLoad_update, dotdotdot, toDateString} from '../../common/module.
 let $window = $(window);
 let winW = $window.width();
 const device = 768;
-let $popular = $('.popArticles');
-let $popMore = $('.popular .more');
+let $popular = $('.index .popArticles');
+let $popMore = $('.index .popular .more');
 let popPage = 1;
 let popSize = 10;
 let popClick = 0;
@@ -33,7 +33,7 @@ function makePopularItem(data) {
 }
 
 function popGet(size, page) {
-  axios.get(`//${API_HOST}/v1.0/articles/popular`, {
+  axios.get(`//${API_HOST}/v1/articles/popular`, {
     params: {
       size: size,
       page: page

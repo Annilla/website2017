@@ -4,8 +4,8 @@ let $window = $(window);
 let winW = $window.width();
 const device = 768;
 let latestLazyLoad;
-let $latest = $('.latestArticles');
-let $latestMore = $('.latest .more');
+let $latest = $('.index .latestArticles');
+let $latestMore = $('.index .latest .more');
 let latestPage = 1;
 let latestSize = 12;
 let owlCarousel_settings = {
@@ -42,7 +42,7 @@ function makeLatestItem(data) {
 
 function latestGet(size, page) {
   // API get data
-  axios.get(`//${API_HOST}/v1.0/articles/latest`, {
+  axios.get(`//${API_HOST}/v1/articles/latest`, {
     params: {
       size: size,
       page: page

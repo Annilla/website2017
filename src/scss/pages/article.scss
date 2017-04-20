@@ -426,6 +426,9 @@
   }
   .recommend {
     margin-bottom: 40px;
+    @include screen(md) {
+      margin-bottom: 80px;
+    }
     ul.recArticles {
       overflow: hidden;
       li {
@@ -459,6 +462,9 @@
                 opacity: 0;
               }
             }
+            &:hover {
+              opacity: 0.5;
+            }
           }
           .detail {
             @include txtSkeloton;
@@ -471,6 +477,9 @@
             line-height: 1.5em;
             max-height: 3em;
             overflow: hidden;
+            &:hover {
+              opacity: 0.5;
+            }
           }
         }
       }
@@ -610,20 +619,7 @@
   }
   .videoBottom {
     margin-bottom: 50px;
-    .YTWrap {
-      position: relative;
-      padding-bottom: 56.25%;
-      /* 16:9 */
-      height: 0;
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .FBWrap {
+    .vWrap {
       overflow: hidden;
       padding-bottom: 56.25%;
       position:relative;
@@ -635,6 +631,281 @@
         width: 100%;
         position: absolute;
       }
+    }
+  }
+  .related {
+    margin-bottom: 50px;
+    ul.relateArticle {
+      overflow: hidden;
+      li {
+        list-style: none;
+        display: inline-block;
+        float: left;
+        margin-bottom: 20px;
+        .article {
+          a.img {
+            display: block;
+            img {
+              @include img;
+              opacity: 0;
+            }
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+          .detail {
+            font-size: 14px;
+            color: $figcaptionCite;
+            line-height: 2em;
+            .author {
+              display: none;
+              @include screen(md) {
+                display: inline-block;
+              }
+            }
+          }
+          a.title {
+            display: block;
+            line-height: 1.5em;
+            max-height: 4.5em;
+            overflow: hidden;
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+      li:nth-child(odd) {
+        .article {
+          padding-right: 5px;
+          @include screen(md) {
+            padding-right: 10px;
+          }
+          @include screen(lg) {
+            padding-right: 0;
+          }
+        }
+      }
+      li:nth-child(even) {
+        .article {
+          padding-left: 5px;
+          @include screen(md) {
+            padding-left: 10px;
+          }
+          @include screen(lg) {
+            padding-left: 0;
+          }
+        }
+      }
+      li:nth-child(4n+1) {
+        .article {
+          @include screen(lg) {
+            padding-right: 7.5px;
+          }
+        }
+      }
+      li:nth-child(4n+2) {
+        .article {
+          @include screen(lg) {
+            padding-right: 5px;
+            padding-left: 2.5px;
+          }
+        }
+      }
+      li:nth-child(4n+3) {
+        .article {
+          @include screen(lg) {
+            padding-right: 2.5px;
+            padding-left: 5px;
+          }
+        }
+      }
+      li:nth-child(4n+4) {
+        .article {
+          @include screen(lg) {
+            padding-left: 7.5px;
+          }
+        }
+      }
+    }
+  }
+  .popWrap {
+    background-color: $gray_light;
+    padding: 50px 0 50px 0;
+  }
+  .popular {
+    ul.popArticle {
+      overflow: hidden;
+      li {
+        list-style: none;
+        display: block;
+        float: left;
+        .article {
+          overflow: hidden;
+          >div {
+            float: left;
+          }
+          .rankWrap {
+            display: flex;
+            justify-content: center;
+            flex-flow: column wrap;
+            text-align: center;
+            .rank {
+              font-size: 30px;
+              font-weight: bold;
+              padding-top: 30px;
+              @include screen(md) {
+                font-size: 50px;
+              }
+              @include screen(lg) {
+                padding-top: 10px;
+              }
+            }
+            .date {
+              font-size: 14px;
+              color: $gray;
+              @include screen(lg) {
+                font-size: 10px;
+              }
+            }
+          }
+          .itemWrap {
+            padding: 10px 0;
+            border-bottom: 1px solid $lightgray;
+            overflow: hidden;
+            >div {
+              float: left;
+            }
+            a.img {
+              @include imgSkeloton;
+              display: block;
+              padding: 0 5px;
+              min-height: 66px;
+              &:empty {
+                min-height: 66px;
+              }
+              @include screen(md) {
+                min-height: 111px;
+                &:empty {
+                  min-height: 111px;
+                }
+              }
+              @include screen(lg) {
+                min-height: 69px;
+                &:empty {
+                  min-height: 69px;
+                }
+              }
+              img {
+                @include img;
+                opacity: 0;
+              }
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+            a.title {
+              @include txtSkeloton;
+              display: block;
+              line-height: 1.5em;
+              max-height: 4.5em;
+              overflow: hidden;
+              padding-left: 5px;
+              &:empty {
+                min-height: 60px;
+                margin-left: 10px;
+                background-size: 50px 100px, 90% 100px, 80% 100px, 60% 100px;
+                background-position: 0 0, 0 10px, 0 30px, 0 50px;
+                background-image: linear-gradient( 100deg, rgba(255, 255, 255, 0.001), $white_50 50%, rgba(255, 255, 255, 0.001) 80% ), linear-gradient( $lightgray 10px, transparent 0 ), linear-gradient( $lightgray 10px, transparent 0 ), linear-gradient( $lightgray 10px, transparent 0 );
+                animation: txtShineSmall 1s infinite;
+              }
+              @include screen(md) {
+                font-size: 18px;
+                padding: 10px 20px;
+              }
+              @include screen(lg) {
+                max-height: 3em;
+                padding: 0 10px;
+                font-size: 16px;
+              }
+              &:hover {
+                opacity: 0.5;
+              }
+            }
+            .detail {
+              padding: 0 20px;
+              color: $gray;
+              @include screen(lg) {
+                padding: 5px 10px 0 10px;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+      li:nth-child(1) {
+        .article {
+          .itemWrap {
+            border-top: 1px solid $lightgray;
+          }
+        }
+      }
+      li:nth-child(2) {
+        .article {
+          .itemWrap {
+            @include screen(lg) {
+              border-top: 1px solid $lightgray;
+            }
+          }
+        }
+      }
+      li:nth-child(odd) {
+        .article {
+          @include screen(lg) {
+            padding-right: 20px;
+          }
+        }
+      }
+      li:nth-child(even) {
+        .article {
+          @include screen(lg) {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+  .sourceWrap {
+    padding-top: 50px;
+    overflow: hidden;
+    line-height: 2em;
+    margin-bottom: 50px;
+    &:before {
+      content: '';
+      display: block;
+      width: 35px;
+      height: 0;
+      border-top: 2px solid $black;
+      margin-bottom: 10px;
+    }
+    .txt {
+      @include screen(md) {
+        display: inline-block;
+      }
+    }
+    a.source {
+      float: right;
+      color: $juksyStarsBg;
+      line-height: 1.5em;
+      font-weight: bold;
+      text-align: right;
+      border-bottom: 1px solid $juksyStarsBg;
+    }
+  }
+  .fbcomments {
+    margin-bottom: 50px;
+    @include screen(lg) {
+      margin-bottom: 100px;
     }
   }
 }

@@ -37,7 +37,7 @@ function makeRecommendItem(data) {
 
 function recommendGet(size, page) {
   // API get data
-  axios.get(`//${API_HOST}/v1.0/articles/latest`, {
+  axios.get(`//${API_HOST}/v1/articles/latest`, {
     params: {
       size: size,
       page: page
