@@ -34,6 +34,7 @@ require('../scss/app.scss');
 // Plugin JS
 window.axios = require('axios');
 window.LazyLoad = require('vanilla-lazyload');
+window.Clipboard = require('clipboard');
 require('lodash');
 require('jquery');
 require('owl.carousel');

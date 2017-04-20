@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "clipboard": "^1.6.1",
     "dotdotdot": "^1.7.0",
     "jquery": "^3.1.1",
     "juksy-css-reset": "^1.0.1",

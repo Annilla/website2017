@@ -356,11 +356,13 @@
       line-height: 24px;
       font-weight: bold;
       margin-bottom: 40px;
+      overflow: hidden;
       @include screen(md) {
         width: 400px;
         margin: 0 auto 40px auto;
       }
       a.btn {
+        float: left;
         svg {
           width: 20px;
           height: 20px;
@@ -376,6 +378,7 @@
         }
       }
       ul.page {
+        float: left;
         text-align: center;
         li {
           list-style: none;
@@ -393,6 +396,7 @@
     }
     .tag {
       margin-bottom: 70px;
+      text-align: left;
       h3.tagTitle {
         display: inline-block;
         margin-right: 10px;
@@ -544,6 +548,10 @@
           border-bottom: 1px solid $black;
           box-shadow: 0 3px 0 $white, 0 7px 0 $black;
           padding: 20px 0;
+          overflow: hidden;
+          .float {
+            float: left;
+          }
           .img {
             width: 80%;
             max-width: 150px;
@@ -906,6 +914,79 @@
     margin-bottom: 50px;
     @include screen(lg) {
       margin-bottom: 100px;
+    }
+  }
+  .floatSocial {
+    position: fixed;
+    left: calc(50vw - 500px - 150px);
+    top: 50vh;
+    .btn {
+      cursor: pointer;
+      margin-bottom: 20px;
+      .icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 30px;
+        margin: 0 auto;
+        transition: .5s;
+        svg {
+          .st0 {
+            transition: .5s;
+          }
+        }
+      }
+      .txt {
+        text-align: center;
+        font-size: 12px;
+        line-height: 2.5em;
+        font-weight: bold;
+      }
+      &.copy {
+        .icon {
+          border: 3px solid $gray;
+          svg {
+            .st0 {
+              fill: $gray;
+            }
+          }
+        }
+        .txt {
+          color: $gray;
+        }
+        &:hover {
+          .icon {
+            background-color: $gray;
+            svg {
+              .st0 {
+                fill: $white;
+              }
+            }
+          }
+        }
+      }
+      &.share {
+        .icon {
+          border: 3px solid $fbLike;
+          svg {
+            .st0 {
+              fill: $fbLike;
+            }
+          }
+        }
+        .txt {
+          color: $fbLike;
+        }
+        &:hover {
+          .icon {
+            background-color: $fbLike;
+            svg {
+              .st0 {
+                fill: $white;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

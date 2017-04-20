@@ -5,7 +5,6 @@ let winW = $window.width();
 const device = 768;
 let recommendLazyLoad;
 let $recommend = $('.recArticles');
-let recommendPage = 1;
 let recommendSize = 4;
 let owlCarousel_settings = {
   items: 1,
@@ -35,17 +34,16 @@ function makeRecommendItem(data) {
   `;
 }
 
-function recommendGet(size, page) {
+function recommendGet(size) {
   // API get data
-  axios.get(`//${API_HOST}/v1/articles/latest`, {
+  axios.get(`//${API_HOST}/v1/articles/jusyforyou`, {
     params: {
-      size: size,
-      page: page
+      size: size
     }
   })
   .then(function (response) {
     // API set data
-    let data = response.data.data;
+    let data = response.data;
     let $list = $recommend.find('li');
     for (let i = 0; i < recommendSize; i++) {
       let tmpImg = winW < device ? `
@@ -57,8 +55,7 @@ function recommendGet(size, page) {
         ${toDateString(data[i].published_at)}&nbsp; | &nbsp;by ${data[i].author}
       `;
 
-      var itemIndex = i+(recommendPage-1)*recommendSize;
-      $list.eq(itemIndex).replaceWith(makeRecommendItem({
+      $list.eq(i).replaceWith(makeRecommendItem({
         title: data[i].title,
         link: data[i].link,
         cover: tmpImg,
@@ -100,5 +97,5 @@ export function recommend() {
   }
 
   // Fetching at first time.
-  recommendGet(recommendSize, recommendPage);
+  recommendGet(recommendSize);
 }
