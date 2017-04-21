@@ -8,7 +8,11 @@ let $recommend = $('.recArticles');
 let recommendSize = 4;
 let owlCarousel_settings = {
   items: 1,
-  lazyLoad: false
+  lazyLoad: false,
+  loop: true,
+  autoplay: true,
+  autoplayTimeout: 5000,
+  smartSpeed: 1000
 };
 
 function recommendSkeleton() {
@@ -66,7 +70,12 @@ function recommendGet(size) {
     dotdotdot();
     
     if (winW >= device) {
+      // Desktop lazyLoad
       recommendLazyLoad.update();
+    } else {
+      // Mobile owlCarousel
+      $recommend.addClass('owl-carousel owl-theme');
+      $recommend.owlCarousel(owlCarousel_settings);
     }
 
     $recommend.trigger('refresh.owl.carousel');
@@ -86,15 +95,6 @@ if (winW >= device) {
 
 export function recommend() {
   recommendSkeleton();
-
-  // Detect current device screen.
-  if (winW < device) {
-    // Mobile owlCarousel
-    $recommend.addClass('owl-carousel owl-theme');
-    $recommend.owlCarousel(owlCarousel_settings);
-  } else {
-    // Desktop lazyLoad
-  }
 
   // Fetching at first time.
   recommendGet(recommendSize);

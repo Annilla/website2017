@@ -218,10 +218,6 @@
             color: $black;
             font-weight: bold;
             line-height: 2em;
-            @include screen(md) {
-              display: inline;
-              margin-right: 10px;
-            }
           }
           &.desc {
             font-size: 0.75em;
@@ -230,7 +226,6 @@
             color: $black;
             @include screen(md) {
               font-size: 0.777em;
-              display: inline;
             }
             a {
               color: $black;
@@ -248,10 +243,23 @@
           }
         }
       }
-      iframe[src^='https://www.youtube.com'],
-      iframe[src^='//www.youtube.com'] {
+      .fr-video {
+        display: block;
+        overflow: hidden;
+        padding-bottom: 56.25%;
+        position:relative;
+        height: 0;
         @include screen(md) {
+          width: 600px;
+          padding-bottom: 337.5px;
           margin: 0 calc((100% - 600px)/2);
+        }
+        iframe {
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          position: absolute;
         }
       }
       .fr-instagram,
@@ -549,6 +557,10 @@
           box-shadow: 0 3px 0 $white, 0 7px 0 $black;
           padding: 20px 0;
           overflow: hidden;
+          height: 190px;
+          @include screen(lg) {
+            height: 150px;
+          }
           .float {
             float: left;
           }
@@ -578,6 +590,7 @@
               }
             }
             .description {
+              font-size: 20px;
               line-height: 2em;
               height: 4em;
               overflow: hidden;
@@ -601,13 +614,14 @@
                 background-color: $black;
                 display: inline-block;
                 position: absolute;
-                top: 3px;
+                top: 7px;
                 left: 0;
               }
               a {
                 display: inline-block;
                 width: calc(100% - 13px);
                 margin-left: 10px;
+                font-size: 20px;
                 &:hover {
                   opacity: 0.5;
                 }
