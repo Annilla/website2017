@@ -47,3 +47,12 @@
     opacity: 0;
   }
 }
+
+@keyframes close_DFP {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

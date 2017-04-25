@@ -46,3 +46,5 @@ require('./common/module.js');
 require('./common/facebook.js');
 require('./pages/index/index.js');
 require('./pages/article/article.js');
+
+require('./common/googledfp.js');

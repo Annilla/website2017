@@ -2,6 +2,8 @@ import { social } from './social.js';
 import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
 import { popular } from './popular.js';
+import { coverDFP } from './coverDFP.js';
+import { sideDFP } from './sideDFP.js';
 
 (function() {
   // Facebook Share
@@ -12,4 +14,8 @@ import { popular } from './popular.js';
   recommend();
   // 熱門文章
   popular();
+  // 廣告蓋台
+  coverDFP();
+  // 門簾廣告
+  sideDFP();
 })();
