@@ -68,6 +68,11 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
+      filename: './article_full.html',
+      template: './src/pug/article/full.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
       filename: './takeover_top.html',
       template: './src/pug/article/takeover_top.pug'
     }),
