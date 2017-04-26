@@ -51,7 +51,10 @@ export function coverDFP() {
     threshold: 0,
     data_src: "track",
     callback_load: function() {
+      let status = $tag.data('popup');
+      if (status === 'true') return;
       $coverDFP.addClass(show);
+      $tag.data('popup', 'true');
     }
   });
 
