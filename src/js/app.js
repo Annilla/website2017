@@ -17,11 +17,12 @@ import '../img/android-chrome-144.png';
 import '../img/android-chrome-192.png';
 import '../img/manifest.json';
 
-// index import images
+// import images
 import '../img/index/1500x500_1.jpg';
 import '../img/index/1500x500_2.jpg';
 import '../img/index/640x840_mag1.jpg';
 import '../img/index/640x840_mag2.jpg';
+import '../img/tracker.png';
 
 // Plugin CSS
 require('juksy-css-reset/css/reset.css');

@@ -12,6 +12,7 @@ let hide = 'hide';
 let show = 'show';
 let tbW = 768;
 let desW = 1024;
+let poptracker;
 
 function clickDFP() {
   $closeBtn.click(function () {
@@ -36,17 +37,6 @@ function clickDFP() {
   });
 }
 
-function bottomDFP() {
-  let in_position = $tag.offset().top;
-  let window_position = $window.scrollTop();
-  let status = $tag.data('popup');
-  if (status === 'true') return;
-  if (in_position < window_position + winH) {
-    $coverDFP.addClass(show);
-    $tag.data('popup', 'true');
-  }
-}
-
 export function coverDFP() {
   // If isCollection is true dont popup
   if (noDFP) {
@@ -57,7 +47,13 @@ export function coverDFP() {
   clickDFP();
 
   // Listen bottom DFP
-  $window.scroll(_.throttle(bottomDFP, 250));
+  poptracker = new LazyLoad({
+    threshold: 0,
+    data_src: "track",
+    callback_load: function() {
+      $coverDFP.addClass(show);
+    }
+  });
 
   // Init DFP cover
   // juksy.com/embed/ads_pre_incover
