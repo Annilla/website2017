@@ -10,7 +10,7 @@ import {isCollection} from './module.js';
 
     // Remove DFP if isCollection = true
     // Remove DFP by device width
-    if (noDFP || (winW < 768 && device !== 'mobile') || (winW >= 1024 && device !== 'desktop')) {
+    if (noDFP || (winW < 768 && device !== 'mobile') || (winW >= 970 && device !== 'desktop')) {
       $this.remove();
       return;
     }

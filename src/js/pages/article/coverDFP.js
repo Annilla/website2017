@@ -2,10 +2,7 @@ let $window = $(window);
 let winH = $window.height();
 let $coverDFP = $('#coverDFP');
 let $closeBtn = $coverDFP.find('.closeDFP');
-let $mDFP_top = $('#juksy_m_content_takeover_top');
-let $mDFP_bottom = $('#juksy_m_content_takeover_bottom');
-let $deskDFP_top = $('#juksy_content_takeover_top');
-let $deskDFP_bottom = $('#juksy_content_takeover_bottom');
+let $iframe = $coverDFP.find('iframe.dfp');
 let $tag = $('.article article .tag');
 let winW = $(window).width();
 let hide = 'hide';
@@ -15,14 +12,23 @@ let desW = 1024;
 
 function clickDFP() {
   $closeBtn.click(function () {
+    let status = $tag.data('popup');
+
     $coverDFP.removeClass(show);
+    if (status === 'true') return;
     if (winW < tbW) {
-      $mDFP_top.addClass(hide);
-      $mDFP_bottom.removeClass(hide);
+      $iframe.attr({
+        'src': './takeover_bottom.html',
+        'width': 300,
+        'height': 250
+      });
     }
     else if (winW >= desW) {
-      $deskDFP_top.addClass(hide);
-      $deskDFP_bottom.removeClass(hide);
+      $iframe.attr({
+        'src': './takeover_bottom.html',
+        'width': 480,
+        'height': 250
+      });
     }
   });
 }
@@ -49,9 +55,17 @@ export function coverDFP() {
   // Init DFP cover
   $coverDFP.addClass(show);
   if (winW < tbW) {
-    $mDFP_top.removeClass(hide);
+    $iframe.attr({
+      'src': './takeover_top.html',
+      'width': 320,
+      'height': 480
+    });
   }
   else if (winW >= desW) {
-    $deskDFP_top.removeClass(hide);
+    $iframe.attr({
+      'src': './takeover_top.html',
+      'width': 970,
+      'height': 600
+    });
   }
 }

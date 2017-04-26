@@ -66,6 +66,16 @@ module.exports = {
       filename: './article_normal.html',
       template: './src/pug/article/normal.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './takeover_top.html',
+      template: './src/pug/article/takeover_top.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './takeover_bottom.html',
+      template: './src/pug/article/takeover_bottom.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,
