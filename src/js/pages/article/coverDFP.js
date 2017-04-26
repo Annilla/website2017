@@ -1,10 +1,13 @@
+import {isCollection} from '../../common/module.js';
+
 let $window = $(window);
+let winW = $(window).width();
 let winH = $window.height();
+let noDFP = isCollection();
 let $coverDFP = $('#coverDFP');
 let $closeBtn = $coverDFP.find('.closeDFP');
 let $iframe = $coverDFP.find('iframe.dfp');
 let $tag = $('.article article .tag');
-let winW = $(window).width();
 let hide = 'hide';
 let show = 'show';
 let tbW = 768;
@@ -44,8 +47,12 @@ function bottomDFP() {
   }
 }
 
-
 export function coverDFP() {
+  // If isCollection is true dont popup
+  if (noDFP) {
+    return;
+  }
+
   // Listen DFP close btn
   clickDFP();
 
