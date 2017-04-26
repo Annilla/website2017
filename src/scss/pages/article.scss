@@ -1004,4 +1004,78 @@
       }
     }
   }
+  .MfloatSocial {
+    position: fixed;
+    right: 0;
+    bottom: 10px;
+    overflow: auto;
+    padding-top: 10px;
+    z-index: 1;
+    .btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 30px;
+      background-color: $black_70;
+      cursor: pointer;
+      transition: .5s;
+      @include screen(lg) {
+        background-color: $juksyStarsBg_90;
+      }
+      &:hover {
+        background-color: $black;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+        .st0 {
+          fill: $white;
+        }
+      }
+      &.small {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .share {
+      display: flex;
+      align-items: center;
+      padding: 5px 5px 5px 10px;
+      margin: 0 5px;
+      border-radius: 35px;
+      margin-bottom: 10px;
+      @include screen(lg) {
+        display: none;
+      }
+      .btn {
+        margin-right: 10px;
+        &.small {
+          display: none;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &.copy {
+          background-color: $gray;
+        }
+        &.fb {
+          background-color: $fbLike;
+        }
+        &.line {
+          background-color: $line;
+        }
+      }
+      &.open {
+        background-color: $white_90;
+        box-shadow: 1px 1px 10px $black_50;
+        .small {
+          display: block;
+        }
+      }
+    }
+    .top {
+      float: right;
+      margin-right: 10px;
+    }
+  }
 }

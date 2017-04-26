@@ -6,7 +6,7 @@ import { coverDFP } from './coverDFP.js';
 import { sideDFP } from './sideDFP.js';
 
 (function() {
-  // Facebook Share
+  // 文章所有分享功能(包含TOP)
   social();
   // 文章內文字放大縮小功能
   articleFont();

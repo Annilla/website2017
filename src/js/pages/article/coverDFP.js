@@ -53,6 +53,8 @@ export function coverDFP() {
   $window.scroll(_.throttle(bottomDFP, 250));
 
   // Init DFP cover
+  // juksy.com/embed/ads_pre_incover
+  // juksy.com/embed/ads_post_incover
   $coverDFP.addClass(show);
   if (winW < tbW) {
     $iframe.attr({
