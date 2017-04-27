@@ -1,7 +1,13 @@
+let $window = $(window);
+let winW = $window.width();
+let winH = $window.height();
 let $fbShare = $('.article .detail .social .fbShare, .floatSocial .share, .MfloatSocial .fb');
 let $lineShare = $('.MfloatSocial .line');
 let $share = $('.MfloatSocial .share');
 let $top = $('.MfloatSocial .top');
+let $deskShare = $('.floatSocial');
+let deskW = 1280;
+let showOut = 'showOut';
 let copyLinkL = '.floatSocial .copy';
 let copyLinkR = '.MfloatSocial .copy';
 let open = 'open';
@@ -17,6 +23,16 @@ function successpop(e) {
   alert(`
     複製成功
     ${e.text}`);
+}
+
+function DeskShare() {
+  let window_position = $window.scrollTop();
+  let status = $deskShare.data('show');
+  if (winH < window_position) {
+    $deskShare.addClass(showOut);
+  } else {
+    $deskShare.removeClass(showOut);
+  }
 }
 
 export function social() {
@@ -47,4 +63,9 @@ export function social() {
   $top.click(function () {
     $('html,body').animate({ scrollTop: 0 }, 1000);
   });
+
+  // 桌機分享浮動按鈕到第二屏才出現
+  if (winW >= deskW) {
+    $window.scroll(_.throttle(DeskShare, 250));
+  }
 }
