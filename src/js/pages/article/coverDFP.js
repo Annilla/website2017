@@ -4,15 +4,33 @@ let $window = $(window);
 let winW = $(window).width();
 let winH = $window.height();
 let noDFP = isCollection();
-let $coverDFP = $('#coverDFP');
-let $closeBtn = $coverDFP.find('.closeDFP');
-let $iframe = $coverDFP.find('iframe.dfp');
+let $main = $('main.article');
+let $coverDFP;
+let $closeBtn;
+let $iframe;
 let $tag = $('.article article .tag');
 let hide = 'hide';
 let show = 'show';
 let tbW = 768;
 let desW = 1024;
 let poptracker;
+let coverTmp = `
+  <div class="juksyCover" id="coverDFP">
+    <div class="popWrap">
+      <div class="closeDFP">X</div>
+      <div class="popContent">
+        <iframe class="dfp" src="" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </div>
+`;
+
+function addTmp () {
+  $main.after(coverTmp);
+  $coverDFP = $('#coverDFP');
+  $closeBtn = $coverDFP.find('.closeDFP');
+  $iframe = $coverDFP.find('iframe.dfp');
+}
 
 function clickDFP() {
   $closeBtn.click(function () {
@@ -42,6 +60,9 @@ export function coverDFP() {
   if (noDFP) {
     return;
   }
+
+  // Dynamic add AD cover
+  addTmp();
 
   // Listen DFP close btn
   clickDFP();
