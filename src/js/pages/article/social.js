@@ -2,9 +2,10 @@ let $window = $(window);
 let winW = $window.width();
 let winH = $window.height();
 let $fbShare = $('.article .detail .social .fbShare, .floatSocial .share, .MfloatSocial .fb');
-let $lineShare = $('.MfloatSocial .line');
-let $share = $('.MfloatSocial .share');
-let $top = $('.MfloatSocial .top');
+let $commonBtn = $('.MfloatSocial');
+let $lineShare = $commonBtn.find('.line');
+let $share = $commonBtn.find('.share');
+let $top = $commonBtn.find('.top');
 let $deskShare = $('.floatSocial');
 let deskW = 1280;
 let showOut = 'showOut';
@@ -27,11 +28,21 @@ function successpop(e) {
 
 function DeskShare() {
   let window_position = $window.scrollTop();
-  let status = $deskShare.data('show');
   if (winH < window_position) {
     $deskShare.addClass(showOut);
   } else {
     $deskShare.removeClass(showOut);
+  }
+}
+
+function topCommon() {
+  let window_position = $window.scrollTop();
+  let tagTop = $('article .tag').offset() ? $('article .tag').offset().top : winH*2;
+  if (tagTop < window_position + winH) {
+    $commonBtn.addClass(showOut);
+  }
+  else if (window_position < winH) {
+    $commonBtn.removeClass(showOut);
   }
 }
 
@@ -68,4 +79,8 @@ export function social() {
   if (winW >= deskW) {
     $window.scroll(_.throttle(DeskShare, 250));
   }
+
+  // 右下角按鈕到tag的地方才出現，第一屏消失
+  $window.scroll(_.throttle(topCommon, 250));
+
 }
