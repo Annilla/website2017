@@ -43,7 +43,8 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      API_HOST: '"juksy.getsandbox.com"'
+      API_HOST: '"juksy.getsandbox.com"',
+      APP_HOST: '"localhost:8080"'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

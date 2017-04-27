@@ -40,14 +40,14 @@ function clickDFP() {
     if (status === 'true') return;
     if (winW < tbW) {
       $iframe.attr({
-        'src': './takeover_bottom.html',
+        'src': `//${APP_HOST}/takeover_bottom.html`,
         'width': 300,
         'height': 250
       });
     }
     else if (winW >= desW) {
       $iframe.attr({
-        'src': './takeover_bottom.html',
+        'src': `//${APP_HOST}/takeover_bottom.html`,
         'width': 480,
         'height': 250
       });
@@ -85,14 +85,14 @@ export function coverDFP() {
   $coverDFP.addClass(show);
   if (winW < tbW) {
     $iframe.attr({
-      'src': './takeover_top.html',
+      'src': `//${APP_HOST}/takeover_top.html`,
       'width': 320,
       'height': 480
     });
   }
   else if (winW >= desW) {
     $iframe.attr({
-      'src': './takeover_top.html',
+      'src': `//${APP_HOST}/takeover_top.html`,
       'width': 970,
       'height': 600
     });
