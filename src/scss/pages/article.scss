@@ -1,4 +1,5 @@
 .article {
+  overflow-x: hidden;
   .middle {
     margin: 0 $m_gap;
     @include screen(md) {
@@ -1039,8 +1040,8 @@
   }
   .MfloatSocial {
     position: fixed;
-    right: 10px;
-    bottom: 20px;
+    right: 0px;
+    bottom: 10px;
     overflow: auto;
     padding-top: 10px;
     z-index: 1;
