@@ -51,7 +51,3 @@ export function toDateString(timestamp) {
   var assoc = new Date(timestamp).toDateString().split(" ");
   return `${assoc[1]} ${assoc[2]}, ${assoc[3]}`;
 }
-
-// Initial
-vLazyLoad_init();
-dotdotdot();

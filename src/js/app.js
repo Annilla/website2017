@@ -42,10 +42,12 @@ require('owl.carousel');
 require('dotdotdot');
 
 // Main JS
-require('./common/module.js');
-// require('./common/youtube.js');
-require('./common/facebook.js');
-require('./pages/index/index.js');
-require('./pages/article/article.js');
+import router from './router';
 
-require('./common/googledfp.js');
+// Setup router configuration
+const routerOptions = {
+  html5history: true
+};
+
+// Run in browser
+router.configure(routerOptions).init();

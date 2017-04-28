@@ -1,3 +1,4 @@
+window.LazyLoad = require('vanilla-lazyload');
 import {v, dotdotdot, toDateString} from '../../common/module.js';
 
 let $window = $(window);

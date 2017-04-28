@@ -1,3 +1,5 @@
+window.Clipboard = require('clipboard');
+
 let $window = $(window);
 let winW = $window.width();
 let winH = $window.height();
