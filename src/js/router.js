@@ -4,7 +4,7 @@ import { Router } from 'director/build/director.js';
 
 const routes = {
   // 首頁
-  '/website2017/dist/': require('./pages/index')['default'],
+  '/website2017/dist': require('./pages/index')['default'],
   // 文章內容頁
   '/website2017/dist/article_:type.html': [
     require('./pages/article')['default'],
