@@ -46,7 +46,7 @@
         }
       }
     }
-    .white_30s {
+    .indexSliderDots {
       position: absolute;
       bottom: 10px;
       width: 100%;
@@ -109,6 +109,11 @@
       margin: 0 auto 50px auto;
     }
     ul.latestArticles {
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
       li {
         list-style: none;
         display: inline-block;
@@ -213,7 +218,7 @@
             margin: 0 10px;
             font-size: 18px;
             line-height: 1.5em;
-            max-height: 3em;
+            height: 3em;
             overflow: hidden;
             text-align: left;
             @include screen(md) {
@@ -325,6 +330,7 @@
         margin-bottom: 40px;
         @include screen(md) {
           box-shadow: 2px 2px 10px $black_20;
+          overflow: hidden;
         }
         a.img {
           display: block;
@@ -473,7 +479,7 @@
             margin: 5px 10px 0 10px;
             font-size: 18px;
             line-height: 1.5em;
-            height: 3em;
+            max-height: 3em;
             overflow: hidden;
             text-align: left;
             @include screen(md) {
@@ -504,7 +510,7 @@
             @include screen(xl) {
               margin: 20px 40px 0 40px;
               font-size: 16px;
-              height: 7.2em;
+              max-height: 7.2em;
             }
           }
           a.readmore {
