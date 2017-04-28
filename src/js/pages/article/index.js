@@ -8,7 +8,6 @@ import { sideDFP } from './sideDFP.js';
 
 
 const booting = function() {
-  console.log('article');
   // MODULE
   vLazyLoad_init();
   dotdotdot();

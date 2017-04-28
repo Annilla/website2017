@@ -87,6 +87,11 @@ module.exports = {
       filename: './takeover_bottom.html',
       template: './src/pug/article/takeover_bottom.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './channel.html',
+      template: './src/pug/channel.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,

@@ -5,7 +5,6 @@ import { popular } from './popular.js';
 import { juksyStar } from './juksyStar.js';
 
 const booting = function() {
-  console.log('index');
   // MODULE
   vLazyLoad_init();
   dotdotdot();
