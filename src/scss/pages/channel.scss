@@ -312,4 +312,8 @@
       }
     }
   }
+  .more {
+    @include moreBtn;
+    margin-bottom: 50px;
+  }
 }
