@@ -6,7 +6,6 @@ import { popular } from './popular.js';
 import { coverDFP } from './coverDFP.js';
 import { sideDFP } from './sideDFP.js';
 
-
 const booting = function() {
   // MODULE
   vLazyLoad_init();

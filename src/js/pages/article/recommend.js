@@ -85,15 +85,15 @@ function recommendGet(size) {
   });
 }
 
-// Initial
-if (winW >= device) {
-  recommendLazyLoad = new LazyLoad({
-    threshold: 0,
-    data_src: "src"
-  });
-}
-
 export function recommend() {
+  // Initial
+  if (winW >= device) {
+    recommendLazyLoad = new LazyLoad({
+      threshold: 0,
+      data_src: "src"
+    });
+  }
+
   recommendSkeleton();
 
   // Fetching at first time.

@@ -100,15 +100,15 @@ function checkNextPage(event) {
   return index === latestPage * latestSize - 1;
 }
 
-// Initial
-if (winW >= device) {
-  latestLazyLoad = new LazyLoad({
-    threshold: 0,
-    data_src: "src"
-  });
-}
-
 export function latest() {
+  // Initial
+  if (winW >= device) {
+    latestLazyLoad = new LazyLoad({
+      threshold: 0,
+      data_src: "src"
+    });
+  }
+  
   latestSkeleton();
 
   // Detect current device screen.

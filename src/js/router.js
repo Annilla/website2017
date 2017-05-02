@@ -13,6 +13,13 @@ const routes = {
   // 蓋台廣告
   '/takeover_:type.html': [
     require('./common/googledfp.js')['default']
+  ],
+  // 分類頁
+  '/channel.html': [
+    require('./pages/channel')['default'],
+    () => {
+      require('./common/googledfp.js');
+    }
   ]
 };
 
@@ -31,6 +38,13 @@ const routes = {
 //   // 蓋台廣告
 //   '/website2017/dist/takeover_:type.html': [
 //     require('./common/googledfp.js')['default']
+//   ],
+//   // 分類頁
+//   '/website2017/dist/channel.html': [
+//     require('./pages/channel')['default'],
+//     () => {
+//       require('./common/googledfp.js');
+//     }
 //   ]
 // };
 
