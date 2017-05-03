@@ -1,11 +1,10 @@
-import { vLazyLoad_init, dotdotdot } from '../../common/module.js';
+import { dotdotdot } from '../../common/module.js';
 import { nextPage } from './nextPage.js';
 
 const booting = function() {
   // MODULE
-  vLazyLoad_init();
   dotdotdot();
-  // Next Page
+  // Lazyload and Next Page
   nextPage();
 };
 

@@ -1,4 +1,3 @@
-window.LazyLoad = require('vanilla-lazyload');
 import {v, dotdotdot, toDateString} from '../../common/module.js';
 
 let $window = $(window);
@@ -104,7 +103,7 @@ export function latest() {
   // Initial
   if (winW >= device) {
     latestLazyLoad = new LazyLoad({
-      threshold: 0,
+      elements_selector: ".latestArticles img",
       data_src: "src"
     });
   }

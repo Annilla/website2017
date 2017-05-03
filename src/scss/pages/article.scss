@@ -1,4 +1,4 @@
-.article {
+main.article {
   overflow-x: hidden;
   .middle {
     margin: 0 $m_gap;
@@ -1123,7 +1123,7 @@
     }
   }
 }
-.article.full {
+main.article.full {
   article {
     h1.title {
       @include screen(lg) {

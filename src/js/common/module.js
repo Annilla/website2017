@@ -1,6 +1,3 @@
-let vLazyLoad;
-let iframeLazyLoad;
-
 export function pageType() {
   return $('meta[property="juksy:type"]').attr('content');
 }
@@ -24,21 +21,6 @@ export function v(obj, key, def) {
     return def;
   }
   return obj[key] || def;
-}
-
-export function vLazyLoad_init() {
-  vLazyLoad = new LazyLoad({
-    threshold: 0,
-    data_src: "original"
-  });
-  iframeLazyLoad = new LazyLoad({
-    elements_selector: "iframe",
-    data_src: "original"
-  });
-}
-
-export function vLazyLoad_update() {
-  vLazyLoad.update();
 }
 
 export function dotdotdot() {

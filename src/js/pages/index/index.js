@@ -1,4 +1,4 @@
-import { vLazyLoad_init, dotdotdot } from '../../common/module.js';
+import { dotdotdot } from '../../common/module.js';
 import { topSlider } from './topSlider.js';
 import { latest } from './latest.js';
 import { popular } from './popular.js';
@@ -6,7 +6,6 @@ import { juksyStar } from './juksyStar.js';
 
 const booting = function() {
   // MODULE
-  vLazyLoad_init();
   dotdotdot();
   // TOP SLIDER
   topSlider();

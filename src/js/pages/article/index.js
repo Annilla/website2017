@@ -1,4 +1,4 @@
-import { vLazyLoad_init, dotdotdot } from '../../common/module.js';
+import { dotdotdot } from '../../common/module.js';
 import { social } from './social.js';
 import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
@@ -8,7 +8,15 @@ import { sideDFP } from './sideDFP.js';
 
 const booting = function() {
   // MODULE
-  vLazyLoad_init();
+  new LazyLoad({
+    elements_selector: ".editorRecommend img"
+  });
+  new LazyLoad({
+    elements_selector: ".relateArticle img"
+  });
+  new LazyLoad({
+    elements_selector: ".videoBottom iframe"
+  });
   dotdotdot();
   // 文章所有分享功能(包含TOP)
   social();

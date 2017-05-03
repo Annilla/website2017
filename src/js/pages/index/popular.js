@@ -1,4 +1,4 @@
-import {v, vLazyLoad_update, dotdotdot, toDateString} from '../../common/module.js';
+import {v, dotdotdot, toDateString} from '../../common/module.js';
 
 let $window = $(window);
 let winW = $window.width();
@@ -8,6 +8,7 @@ let $popMore = $('.index .popular .more');
 let popPage = 1;
 let popSize = 10;
 let popClick = 0;
+let lazyLoad;
 
 function popSkeleton() {
   // Set skeleton
@@ -69,7 +70,7 @@ function popGet(size, page) {
       }
     }
     dotdotdot();
-    vLazyLoad_update();
+    lazyLoad.update();
     if (winW >= device) { $popMore.show(); }
   })
   .catch(function (e) {
@@ -78,6 +79,10 @@ function popGet(size, page) {
 }
 
 export function popular() {
+  lazyLoad = new LazyLoad({
+    elements_selector: ".popArticles img"
+  });
+
   popSkeleton();
 
   $popMore.click(function () {
@@ -86,7 +91,7 @@ export function popular() {
       $popular.find('li').eq(i+(popPage-1)*popSize).show();
     }
     dotdotdot();
-    vLazyLoad_update();
+    lazyLoad.update();
   });
 
   // Fetching at first time.

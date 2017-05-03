@@ -1,4 +1,4 @@
-import {v, vLazyLoad_update, dotdotdot, toDateString} from '../../common/module.js';
+import {v, dotdotdot, toDateString} from '../../common/module.js';
 
 let $window = $(window);
 let winW = $window.width();
@@ -6,6 +6,7 @@ const device = 1024;
 let $popular = $('.article .popArticle');
 let popPage = 1;
 let popSize = 10;
+let lazyLoad;
 
 function popSkeleton() {
   // Set skeleton
@@ -77,7 +78,7 @@ function popGet(size, page) {
       }));
     }
     dotdotdot();
-    vLazyLoad_update();
+    lazyLoad.update();
   })
   .catch(function (e) {
     console.log(`POPULAR ERROR: ${e}`);
@@ -85,6 +86,10 @@ function popGet(size, page) {
 }
 
 export function popular() {
+  lazyLoad = new LazyLoad({
+    elements_selector: ".popArticle img"
+  });
+
   popSkeleton();
 
   // Fetching at first time.

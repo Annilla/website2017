@@ -89,7 +89,7 @@ export function recommend() {
   // Initial
   if (winW >= device) {
     recommendLazyLoad = new LazyLoad({
-      threshold: 0,
+      elements_selector: ".recArticles img",
       data_src: "src"
     });
   }

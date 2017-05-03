@@ -71,6 +71,7 @@ export function coverDFP() {
 
   // Listen bottom DFP
   poptracker = new LazyLoad({
+    elements_selector: "#popupTra",
     threshold: 0,
     data_src: "track",
     callback_load: function() {
