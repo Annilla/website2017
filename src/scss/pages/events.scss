@@ -73,6 +73,7 @@
           display: block;
           .img {
             margin-bottom: 5px;
+            transition: .5s;
             img {
               @include img;
               opacity: 0;
@@ -128,6 +129,7 @@
               line-height: 1.5em;
               height: 3em;
               overflow: hidden;
+              transition: .5s;
               @include screen(md) {
                 font-size: 18px;
                 line-height: 72px;
@@ -139,6 +141,16 @@
               @include screen(lg) {
                 width: calc(100% - 200px - 100px);
                 padding-right: 100px;
+              }
+            }
+          }
+          &:hover {
+            .img {
+              opacity: 0.5;
+            }
+            .txtWrap {
+              .title {
+                color: $juksyStarsBg;
               }
             }
           }
