@@ -1,10 +1,7 @@
 import {isCollection} from '../../common/module.js';
 
-let $window = $(window);
 let winW = $(window).width();
-let winH = $window.height();
 let noDFP = isCollection();
-let $main = $('main.article');
 let $coverDFP;
 let $closeBtn;
 let $iframe;
@@ -26,14 +23,11 @@ let coverTmp = `
 `;
 
 function addTmp () {
-  $main.after(coverTmp);
-  $coverDFP = $('#coverDFP');
-  $closeBtn = $coverDFP.find('.closeDFP');
-  $iframe = $coverDFP.find('iframe.dfp');
+  return $(coverTmp).appendTo('body');
 }
 
 function clickDFP() {
-  $closeBtn.click(function () {
+  $coverDFP.on('click', '.closeDFP', function () {
     let status = $tag.data('popup');
 
     $coverDFP.removeClass(show);
@@ -64,7 +58,8 @@ export function coverDFP() {
   }
 
   // Dynamic add AD cover
-  addTmp();
+  $coverDFP = addTmp();
+  $iframe = $coverDFP.find('iframe.dfp');
 
   // Listen DFP close btn
   clickDFP();

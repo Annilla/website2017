@@ -92,6 +92,11 @@ module.exports = {
       filename: './channel.html',
       template: './src/pug/channel.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './issue.html',
+      template: './src/pug/issue.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,

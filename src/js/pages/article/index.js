@@ -4,18 +4,15 @@ import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
 import { popular } from './popular.js';
 import { coverDFP } from './coverDFP.js';
-import { sideDFP } from './sideDFP.js';
 
 const booting = function() {
   // MODULE
   new LazyLoad({
-    elements_selector: ".editorRecommend img"
-  });
-  new LazyLoad({
-    elements_selector: ".relateArticle img"
-  });
-  new LazyLoad({
-    elements_selector: ".videoBottom iframe"
+    elements_selector: `
+      .editorRecommend img,
+      .relateArticle img,
+      .videoBottom iframe
+    `
   });
   dotdotdot();
   // 文章所有分享功能(包含TOP)
@@ -28,8 +25,6 @@ const booting = function() {
   popular();
   // 廣告蓋台
   coverDFP();
-  // 門簾廣告
-  sideDFP();
 };
 
 export default booting;

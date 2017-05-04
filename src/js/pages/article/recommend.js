@@ -40,7 +40,7 @@ function makeRecommendItem(data) {
 
 function recommendGet(size) {
   // API get data
-  axios.get(`//${API_HOST}/v1/articles/jusyforyou`, {
+  axios.get(`//${API_HOST}/v1/articles/justforyou`, {
     params: {
       size: size
     }

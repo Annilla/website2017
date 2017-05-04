@@ -1,4 +1,5 @@
 .channel {
+  overflow-x: hidden;
   h2.title {
     @include title;
     @include screen(md) {

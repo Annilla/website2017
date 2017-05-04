@@ -107,6 +107,7 @@
 .desktopDFP {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
   #juksy_content_bottom_left {
     margin-right: 30px;
   }
@@ -117,10 +118,10 @@
   top: 0;
 }
 #juksy_content_side_left {
-  left: 0;
+  left: calc(50% - 500px - 160px - 50px);
 }
 #juksy_content_side_right {
-  right: 0;
+  right: calc(50% - 500px - 160px - 50px);
 }
 
 .centerDFP {

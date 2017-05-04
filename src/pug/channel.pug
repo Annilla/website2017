@@ -21,9 +21,9 @@ block main
       .en TREND
       .ch 全部流行
     section.chaList
-      ul.chArticles.pure-g
+      ul.chArticles
         - for (var y = 0; y < 1; y++)
-          li.section.pure-u-1
+          li.section
             .article
               a.img(href='#', target='_blank')
                 img(width='100%', height='auto', src='https://static.juksy.com/files/cover/64593/58eb47b6c9bcd.png?m=resize&i=760x400', alt='樂來樂愛你！教你如何在人生最低潮的時候，正面又積極的向前看！')
@@ -35,7 +35,7 @@ block main
                   h3 樂來樂愛你！教你如何在人生最低潮的時候，正面又積極的向前看！
                 .description.hide.show-md(data-module="dotdotdot") 這是一張不守成規又不可控制的製作。一年時間思、這是一張不守成規又不可控制的製作。一年間構思、動漫式搖滾，加入更多的摩城樂風，不間構思、動漫式搖心深處，最令人感動以及......
                 a.readmore.hide.show-md(href='#', target='_blank') Read More >>
-          ul.section
+          ul.section.pure-g
             - for (var a = 0; a < 6; a++)
               li.pure-u-1-2.pure-u-lg-1-3
                 .article
@@ -57,7 +57,7 @@ block main
             .centerDFP
               #juksy_m_channel_inside_0(data-module='googledfp', data-adunit='/65167615/juksy_m_fashion_channel_inside_336x280', data-dimensions='[336,280]', data-device='mobile')
               #juksy_channel_inside_0(data-module='googledfp', data-adunit='/65167615/juksy_fashion_channel_inside_970x250', data-dimensions='[970,250]', data-device='desktop')
-          ul.section
+          ul.section.pure-g
             - for (var b = 0; b < 6; b++)
               li.pure-u-1-2.pure-u-lg-1-3
                 .article

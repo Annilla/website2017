@@ -1,4 +1,5 @@
 window.Clipboard = require('clipboard');
+import {throttle} from '../../common/module.js';
 
 let $window = $(window);
 let winW = $window.width();
@@ -79,10 +80,10 @@ export function social() {
 
   // 桌機分享浮動按鈕到第二屏才出現
   if (winW >= deskW) {
-    $window.scroll(_.throttle(DeskShare, 250));
+    $window.scroll(throttle(DeskShare, 250));
   }
 
   // 右下角按鈕到tag的地方才出現，第一屏消失
-  $window.scroll(_.throttle(topCommon, 250));
+  $window.scroll(throttle(topCommon, 250));
 
 }
