@@ -1,0 +1,46 @@
+extends common/base.pug
+
+include common/meta.mixin.pug
+block meta.seo
+  +seo(
+  '主題特企 - JUKSY 街星',
+  '流行,潮流,街頭,生活,娛樂,時尚,精品,穿搭,影音,音樂,電影,設計,藝術',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!')
+block meta.fb
+  +fb(
+  '195769958936',
+  'https://juksy.com',
+  'website',
+  '主題特企 - JUKSY 街星',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!',
+  'https://juksy-demo.github.io/website2017/dist/src/img/fb.png'
+  )
+block main
+  main.events
+    h2(class='hide') JUKSY 主題推薦
+    section.eventsRec
+      a(href='#', target='_blank')
+        picture(style='background-image: url("src/img/index/1500x500_1.jpg")')
+          source(srcset='src/img/index/1500x500_1.jpg', media='(min-width: 768px) and (max-width: 1023px)')
+          source(srcset='src/img/index/1500x500_1.jpg', media='(min-width: 1024px)')
+          img(width='100%', height='auto', src='~img/index/640x840_1.jpg', alt='超有畫面！許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！')
+        .title
+          h3 超有畫面！A許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！
+    h2.title
+      .en SPECIAL
+      .ch 主題特企
+    section.eventsList
+      ul.evArticles
+        - for (var a = 0; a < 10; a++)
+          li
+            a(href='#', target='_blank')
+              .img
+                img(width='100%', height='auto', data-original='https://placeimg.com/760/400/animals', alt='樂來樂愛你！教你如何在人生最低潮的時候，正面又積極的向前看！')
+              .txtWrap
+                .icon
+                  svg(version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 40 40" xml:space="preserve")
+                    path.st0(d="M27.5,10.1h-0.6v1.3l9.5,7.6H0v2h36.3l-9.4,7.5v1.3h0.5c0.2,0,0.2,0,12.3-9.6L40,20L27.5,10.1z")
+                .title(data-module="dotdotdot")
+                  h3 樂來樂愛你！教你如何在人生最低潮的時候，正面又積極的向前看！
+    a.more.hide.show-md + &nbsp;MORE
+    img.infinite(data-original='./src/img/tracker.png', width='0', height='0')
