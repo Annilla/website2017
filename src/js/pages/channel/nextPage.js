@@ -57,6 +57,6 @@ export function nextPage() {
     }
   });
 
-  // 平板和手機 點擊加載更多
+  // 平板和桌機 點擊加載更多
   $more.click(addChannel);
 }

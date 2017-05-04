@@ -251,6 +251,10 @@
         }
       }
       ul.section {
+        overflow: hidden;
+        li {
+          float: left;
+        }
         li:nth-child(odd) {
           .article {
             padding: 0 $m_gap/2 0 $m_gap;
