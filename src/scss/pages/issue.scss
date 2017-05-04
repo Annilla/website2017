@@ -1,0 +1,171 @@
+.issue {
+  overflow-x: hidden;
+  h2.title {
+    font-size: 30px;
+    margin: 0 $m_gap 30px $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap 30px $tb_gap;
+    }
+    @include screen(lg) {
+      font-size: 42px;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 30px auto;
+    }
+    &:before {
+      content: '# ';
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 5px;
+      background-color: $black;
+    }
+  }
+  .issueList {
+    margin: 0 $m_gap 50px $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 50px auto;
+    }
+    ul.isArticles {
+      li {
+        list-style: none;
+        display: block;
+      }
+      .dfp {
+        margin-bottom: 30px;
+      }
+      ul.section {
+        li {
+          border: 1px solid $lightgray;
+          margin-bottom: 30px;
+          @include screen(md) {
+            overflow: hidden;
+            box-shadow: 0px 2px 10px $black_20;
+          }
+          a.img {
+            display: block;
+            @include screen(md) {
+              float: left;
+            }
+            img {
+              @include img;
+              opacity: 0;
+              min-height: 157px;
+              @include screen(md) {
+                min-height: 191px;
+              }
+              @include screen(lg) {
+                min-height: 258px;
+              }
+              @include screen(xl) {
+                min-height: 315px;
+              }
+            }
+            &:hover {
+              opacity: 0.5;
+            }
+          }
+          .txtWrap {
+            @include screen(md) {
+              float: right;
+            }
+            .detail {
+              padding-top: 10px;
+              overflow: hidden;
+              margin-bottom: 10px;
+              @include screen(md) {
+                padding-left: 20px;
+                margin-bottom: 0;
+              }
+              @include screen(lg) {
+                padding-left: 40px;
+              }
+              @include screen(xl) {
+                padding-top: 40px;
+                padding-left: 80px;
+              }
+              .category {
+                padding: 5px 15px;
+                background-color: $black;
+                color: $white;
+                font-weight: bold;
+                font-size: 14px;
+                float: left;
+                @include screen(md) {
+                  font-size: 12px;
+                }
+                @include screen(xl) {
+                  font-size: 14px;
+                }
+              }
+              .date {
+                color: $gray;
+                float: right;
+                line-height: 29px;
+                padding-right: 10px;
+                @include screen(md) {
+                  float: none;
+                  clear: both;
+                  display: block;
+                  font-size: 14px;
+                }
+                @include screen(lg) {
+                  padding-top: 10px;
+                  padding-bottom: 5px;
+                }
+              }
+            }
+            a.title {
+              display: block;
+              line-height: 1.5em;
+              height: 3em;
+              overflow: hidden;
+              padding: 0 10px;
+              margin-bottom: 20px;
+              @include screen(md) {
+                padding: 0 20px;
+                font-size: 20px;
+                margin-bottom: 10px;
+              }
+              @include screen(lg) {
+                padding: 0 40px;
+              }
+              @include screen(xl) {
+                padding: 0 80px;
+              }
+              &:hover {
+                color: $juksyStarsBg;
+              }
+            }
+            .description {
+              font-size: 14px;
+              line-height: 1.5em;
+              height: 3em;
+              padding: 0 20px;
+              @include screen(lg) {
+                font-size: 16px;
+                line-height: 2em;
+                height: 6em;
+                padding: 0 40px;
+              }
+              @include screen(xl) {
+                padding: 0 80px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .more {
+    @include moreBtn;
+    margin-bottom: 50px;
+  }
+}
