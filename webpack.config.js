@@ -102,6 +102,16 @@ module.exports = {
       filename: './events.html',
       template: './src/pug/events.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './exclusive.html',
+      template: './src/pug/exclusive.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './editors.html',
+      template: './src/pug/editors.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,

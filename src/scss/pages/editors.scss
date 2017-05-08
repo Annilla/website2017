@@ -1,0 +1,119 @@
+.editors {
+  h2.title {
+    @include title;
+  }
+  .edsList {
+    margin: 0 $m_gap 50px $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 50px auto;
+    }
+    ul.edsPage {
+      overflow: hidden;
+      li {
+        list-style: none;
+        display: block;
+        float: left;
+        margin-bottom: 20px;
+        .editor {
+          a.img {
+            display: block;
+            img {
+              @include img;
+              opacity: 0;
+              min-height: 145px;
+              @include screen(md) {
+                min-height: 359px;
+              }
+              @include screen(lg) {
+                min-height: 233px;
+              }
+              @include screen(xl) {
+                min-height: 287px;
+              }
+            }
+          }
+          a.title {
+            display: block;
+            text-align: center;
+            line-height: 2em;
+            font-size: 18px;
+            @include screen(md) {
+              font-size: 30px;
+              text-align: left;
+            }
+            h3 {
+              &:before {
+                content: '-';
+                margin-right: 5px;
+              }
+            }
+          }
+          .description {
+            line-height: 2em;
+            height: 6em;
+            overflow: hidden;
+            @include screen(lg) {
+              height: 8em;
+            }
+          }
+        }
+      }
+      li:nth-child(odd) {
+        .editor {
+          padding-right: 5px;
+          @include screen(md) {
+            padding-right: 10px;
+          }
+          @include screen(lg) {
+            padding-right: 0px;
+          }
+        }
+      }
+      li:nth-child(even) {
+        .editor {
+          padding-left: 5px;
+          @include screen(md) {
+            padding-left: 10px;
+          }
+          @include screen(lg) {
+            padding-left: 0px;
+          }
+        }
+      }
+      li:nth-child(4n+1) {
+        .editor {
+          @include screen(lg) {
+            padding-right: 12px;
+          }
+        }
+      }
+      li:nth-child(4n+2) {
+        .editor {
+          @include screen(lg) {
+            padding-left: 8px;
+            padding-right: 10px;
+          }
+        }
+      }
+      li:nth-child(4n+3) {
+        .editor {
+          @include screen(lg) {
+            padding-left: 10px;
+            padding-right: 8px;
+          }
+        }
+      }
+      li:nth-child(4n+4) {
+        .editor {
+          @include screen(lg) {
+            padding-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
