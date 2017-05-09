@@ -178,16 +178,17 @@ block main
       .en RELATED
       .ch 延伸閱讀
     section.related.middle
-      ul.relateArticle.pure-g
-        - for (var x = 0; x < 12; x++)
-          li.pure-u-1-2.pure-u-lg-1-4
-            .article
-              a.img(href='#', target='_blank')
-                img(width='100%', height='auto', data-original='https://placeimg.com/760/400/any', alt='真實街拍！生活在各大城市的時髦女孩　穿搭風格會有強烈不同嗎？')
-              .detail Dec 6,2016
-                span.author &nbsp; | &nbsp;by Nell
-              a.title(data-module="dotdotdot", href='#', target='_blank')
-                h4 真實街拍！生活在各大城市的時髦女孩　穿搭風格會有強烈不同嗎？
+      <div id="_popIn_recommend_footer"></div>
+      //- ul.relateArticle.pure-g
+      //-   - for (var x = 0; x < 12; x++)
+      //-     li.pure-u-1-2.pure-u-lg-1-4
+      //-       .article
+      //-         a.img(href='#', target='_blank')
+      //-           img(width='100%', height='auto', data-original='https://placeimg.com/760/400/any', alt='真實街拍！生活在各大城市的時髦女孩　穿搭風格會有強烈不同嗎？')
+      //-         .detail Dec 6,2016
+      //-           span.author &nbsp; | &nbsp;by Nell
+      //-         a.title(data-module="dotdotdot", href='#', target='_blank')
+      //-           h4 真實街拍！生活在各大城市的時髦女孩　穿搭風格會有強烈不同嗎？
     .popWrap
       h3.title
         .en POPULAR
@@ -247,3 +248,12 @@ block main
       .btn.top
         svg(version="1.1", xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", x="0px", y="0px", viewBox="0 0 40 40", xml:space="preserve")
           polygon.st0(points="20.9,15.7 19.5,15.7 9.4,24.6 13.1,24.6 20.2,18.3 27.5,24.6 31.3,24.6 ")
+
+block popin
+  //- popin tracker ad code
+  script(type="text/javascript").
+    (function() {
+      var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.charset = "utf-8"; pa.async = true;
+      pa.src = window.location.protocol + "//api.popin.cc/searchbox/juksy.js";
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+    })();
