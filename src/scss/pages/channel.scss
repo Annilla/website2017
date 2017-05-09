@@ -132,11 +132,17 @@
           }
           a.img {
             border-top: 0px solid $black;
+            min-height: 168px;
             @include screen(md) {
               width: 80%;
+              min-height: 323px;
             }
             @include screen(lg) {
               width: 70%;
+              min-height: 362px;
+            }
+            @include screen(xl) {
+              min-height: 442px;
             }
             img {
               opacity: 1;
