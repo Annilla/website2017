@@ -18,7 +18,7 @@ module.exports = {
         loader: ['css-loader', 'postcss-loader', 'sass-loader'],
         publicPath: '/dist'
       })
-    },{
+    }, {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
@@ -111,6 +111,11 @@ module.exports = {
       hash: true,
       filename: './editors.html',
       template: './src/pug/editors.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './editor.html',
+      template: './src/pug/editor.pug'
     }),
     new ExtractTextPlugin({
       filename: 'app.css',
