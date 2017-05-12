@@ -15,10 +15,13 @@ html(lang="zh-TW")
     // THIRD PARTY
     #fb-root
     // THIRD PARTY END
-    include header.pug
-    include nav.pug
+    block header
+      include header.pug
+    block nav
+      include nav.pug
     // MAIN
     block main
     // MAIN END
-    include footer.pug
+    block footer
+      include footer.pug
     block popin

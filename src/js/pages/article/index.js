@@ -1,4 +1,5 @@
 import { dotdotdot } from '../../common/module.js';
+import { ui } from '../../common/ui.js';
 import { social } from './social.js';
 import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
@@ -15,6 +16,8 @@ const booting = function() {
     `
   });
   dotdotdot();
+  // UI
+  ui();
   // 文章所有分享功能(包含TOP)
   social();
   // 文章內文字放大縮小功能

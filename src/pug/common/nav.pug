@@ -1,4 +1,10 @@
 // NAV
+input.hide(type="radio", id="noOpen", name="navGroup", checked)
+input.hide(type="radio", id="searchOpen", name="navGroup")
 nav
-	h3(class='hide') nav
+  .navGroup
+    .navWrap
+      h3(class='hide') nav
+      label.openSearch(for='searchOpen') 搜尋
+    include searchfixed.pug
 // NAV END

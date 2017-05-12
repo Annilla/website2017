@@ -9,7 +9,9 @@
 @import "common/grids";
 @import "common/utilities";
 
-// modules
+// pages common elements
+@import "pages/nav";
+// pages
 @import "pages/index";
 @import "pages/channel";
 @import "pages/issue";

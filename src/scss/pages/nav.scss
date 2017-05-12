@@ -1,0 +1,134 @@
+nav {
+  .navGroup {
+    width: 100%;
+    .navWrap {
+      background-color: $white;
+      height: $m_navHeight;
+      .openSearch {
+        border: 1px solid $black;
+        display: inline-block;
+        width: 60px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+    .searchfixed {
+      display: none;
+      background-color: $black_90;
+      color: $white;
+      height: 100vh;
+      .searchfixedWrap {
+        padding: 60px 40px 0 40px;
+        @include screen(lg) {
+          padding: 100px 0 0 0;
+          width: 700px;
+          margin: 0 auto;
+        }
+        form.inputWrap {
+          margin-bottom: 80px;
+          .inputDiv {
+            overflow: hidden;
+            input[type="text"] {
+              display: block;
+              margin: 0 0 10px 0;
+              width: 100%;
+              font-family: sans-serif;
+              appearance: none;
+              box-shadow: none;
+              border-radius: none;
+              border: none;
+              border-bottom: solid 1px $white_50;
+              background-color: transparent;
+              font-family: $font_body;
+              font-size: 24px;
+              line-height: 1.5em;
+              letter-spacing: 2px;
+              text-align: center;
+              font-weight: 900;
+              color: $white;
+              transition: .5s;
+              @include screen(md) {
+                font-size: 34px;
+                width: calc(100% - 50px);
+                float: left;
+                text-indent: 50px;
+              }
+              &:focus {
+                border-bottom: solid 1px $white;
+              }
+            }
+            input[type="text"]:focus {
+              outline: none;
+            }
+            .submit {
+              width: 40px;
+              height: 40px;
+              float: right;
+              color: $white;
+              border: none;
+              background: none;
+              margin: 10px 0 0 0;
+              padding: 0;
+              background-image: url('~img/search.svg');
+              background-position: center;
+              background-repeat: no-repeat;
+              cursor: pointer;
+            }
+          }
+          .description {
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            @include screen(md) {
+              font-size: 18px;
+            }
+          }
+        }
+        h2.keywords {
+          line-height: 2em;
+          @include screen(md) {
+            font-size: 18px;
+          }
+          ul.keywordWrap {
+            line-height: 1.5em;
+            @include screen(md) {
+              display: inline-block;
+              margin-left: 10px;
+            }
+            li {
+              list-style: none;
+              display: inline-block;
+              margin: 8px 10px 8px 0px;
+              a {
+                h3 {
+                  padding: 5px 15px;
+                  border: 1px solid $white;
+                  transition: .5s;
+                }
+                &:hover {
+                  h3 {
+                    background-color: $white;
+                    color: $black;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+input[id="searchOpen"]:checked ~ main {
+  padding-top: $m_navHeight;
+}
+input[id="searchOpen"]:checked ~ nav .navGroup {
+  position: fixed;
+  z-index: 3;
+  .searchfixed {
+    display: block;
+    animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
