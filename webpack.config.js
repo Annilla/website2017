@@ -117,6 +117,11 @@ module.exports = {
       filename: './editor.html',
       template: './src/pug/editor.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './search.html',
+      template: './src/pug/search.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,
