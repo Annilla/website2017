@@ -7,10 +7,11 @@ let $channel = $('.exclusive');
 let $more = $channel.find('.more');
 let $articles = $channel.find('.excArticles');
 let $tag = $('.tagWrap li');
-let excPage = 1;
+let excFrom = 0;
 let excSize = 12;
 let excTag = [];
 let now = 'now';
+let stopMLoad = false;
 let lazyLoad;
 
 function excSkeleton() {
@@ -33,18 +34,20 @@ function makeExclusiveItem(data) {
   `;
 }
 
-function excGet(size, page) {
-  axios.get(`//${API_HOST}/v1/articles/popular`, {
+function excGet(q, size, from) {
+  axios.get(`//${API_HOST}/v1/search/tags`, {
     params: {
+      q: q,
       size: size,
-      page: page
+      from: from
     }
   })
   .then(function (response) {
     // API set data
-    let data = response.data.data;
+    let data = response.data;
+    let length = data.length;
     let $list = $articles.find('li');
-    for (let i = 0; i < excSize; i++) {
+    for (let i = 0; i < length; i++) {
       let tmpImg = `
         <img data-original="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">
         <span class="category">${data[i].category}</span>
@@ -56,7 +59,7 @@ function excGet(size, page) {
         </a>
       `;
 
-      let itemIndex = i+(excPage-1)*excSize;
+      let itemIndex = excFrom*excSize + i;
       $list.eq(itemIndex).replaceWith(makeExclusiveItem({
         link: data[i].link,
         cover: tmpImg,
@@ -65,7 +68,19 @@ function excGet(size, page) {
     }
     dotdotdot();
     lazyLoad.update();
-    $more.show();
+    // If length < excSize, delete unnecessary skeleton
+    if (length < excSize) {
+      for (let j = length; j < excSize; j++) {
+        let itemIndex = excFrom*excSize + j;
+        $list.eq(itemIndex).remove();
+      }
+      $more.hide();
+      // If length < excSize, stop mobile auto loading
+      stopMLoad = true;
+    }
+    else {
+      $more.show();
+    }
   })
   .catch(function (e) {
     console.log(`EXCLUSIVE ERROR: ${e}`);
@@ -76,7 +91,7 @@ function addChannel() {
   // 插入下一頁
   $more.hide();
   excSkeleton();
-  excGet(excSize, ++excPage);
+  excGet(excTag, excSize, ++excFrom);
   // 插入下一頁觸發圖片
   $channel.append(`<img class="infinite" data-original="./src/img/tracker.png" width="0" height="0">`);
   // 圖片 lazyload
@@ -93,6 +108,8 @@ export function nextPage() {
     callback_load (el) {
       if (winW < 768 && el.classList.contains('infinite')) {
         // 手機自動加載
+        // If length < excSize, stop mobile auto loading
+        if (stopMLoad === true) return;
         addChannel();
       }
     }
@@ -105,19 +122,18 @@ export function nextPage() {
   excTag = $tag.map(function(i, el) {
     return $(el).text();
   }).get();
-  // Fetching at first time. excGet(excSize, excPage, excTag);
-  excGet(excSize, excPage);
+  // Fetching at first time.
+  excGet(excTag, excSize, excFrom);
 
   // 點擊 tag 換內容
   $tag.click(function() {
     $tag.removeClass(now);
     $(this).addClass(now);
     excTag = [];
-    excPage = 1;
+    excFrom = 0;
     excTag.push($(this).text());
     $articles.html('');
     excSkeleton();
-    // excGet(excSize, excPage, excTag);
-    excGet(excSize, excPage);
+    excGet(excTag, excSize, excFrom);
   });
 }
