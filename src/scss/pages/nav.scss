@@ -38,9 +38,9 @@ nav {
               font-family: sans-serif;
               appearance: none;
               box-shadow: none;
-              border-radius: none;
+              border-radius: 0;
               border: none;
-              border-bottom: solid 1px $white_50;
+              border-bottom: 1px solid $white_50;
               background-color: transparent;
               font-family: $font_body;
               font-size: 24px;
@@ -57,7 +57,7 @@ nav {
                 text-indent: 50px;
               }
               &:focus {
-                border-bottom: solid 1px $white;
+                border-bottom: 1px solid $white;
               }
             }
             input[type="text"]:focus {
@@ -70,6 +70,7 @@ nav {
               color: $white;
               border: none;
               background: none;
+              appearance: none;
               margin: 10px 0 0 0;
               padding: 0;
               background-image: url('~img/search.svg');

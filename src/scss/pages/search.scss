@@ -205,4 +205,102 @@
     @include moreBtn;
     margin-bottom: 50px;
   }
+  .notFound {
+    margin: 0 $m_gap 50px $m_gap;
+    padding-top: 50px;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 50px auto;
+    }
+    form.searchBar {
+      margin-bottom: 30px;
+      input[type="text"] {
+        width: 70%;
+        margin: 0;
+        padding: 0;
+        appearance: none;
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid $gray;
+        font-family: $font_body;
+        color: $gray;
+        font-size: 16px;
+        line-height: 2em;
+        letter-spacing: 2px;
+        text-indent: 10px;
+        font-weight: 900;
+        transition: .5s;
+        @include screen(md) {
+        }
+        &:focus {
+          border: 1px solid $black;
+        }
+      }
+      input[type="text"]:focus {
+        outline: none;
+      }
+      .submit {
+        width: calc(30% - 4px);
+        margin: 0;
+        padding: 0;
+        appearance: none;
+        background: none;
+        border-radius: 0;
+        font-family: $font_body;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: $white;
+        font-size: 16px;
+        line-height: 2em;
+        border: 1px solid $black;
+        background-color: $black;
+        cursor: pointer;
+      }
+    }
+    h2.notFoundTxt {
+      margin-bottom: 100px;
+      letter-spacing: 2px;
+      line-height: 1.8em;
+      .en {
+        letter-spacing: 1px;
+        font-size: 20px;
+      }
+    }
+    h2.keywords {
+      line-height: 2em;
+      @include screen(md) {
+        font-size: 18px;
+      }
+      ul.keywordWrap {
+        line-height: 1.5em;
+        @include screen(md) {
+          display: inline-block;
+          margin-left: 10px;
+        }
+        li {
+          list-style: none;
+          display: inline-block;
+          margin: 8px 10px 8px 0px;
+          a {
+            h3 {
+              padding: 5px 15px;
+              color: $white;
+              background-color: $black;
+              border: 1px solid $black;
+              transition: .5s;
+            }
+            &:hover {
+              h3 {
+                background-color: $white;
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
