@@ -217,6 +217,9 @@
     }
     form.searchBar {
       margin-bottom: 30px;
+      @include screen(md) {
+        margin-bottom: 80px;
+      }
       input[type="text"] {
         width: 70%;
         margin: 0;
@@ -233,7 +236,8 @@
         text-indent: 10px;
         font-weight: 900;
         transition: .5s;
-        @include screen(md) {
+        @include screen(lg) {
+          width: calc(100% - 200px);
         }
         &:focus {
           border: 1px solid $black;
@@ -258,15 +262,24 @@
         border: 1px solid $black;
         background-color: $black;
         cursor: pointer;
+        @include screen(lg) {
+          width: calc(200px - 4px);
+        }
       }
     }
     h2.notFoundTxt {
       margin-bottom: 100px;
       letter-spacing: 2px;
       line-height: 1.8em;
+      @include screen(md) {
+        font-size: 25px
+      }
       .en {
         letter-spacing: 1px;
         font-size: 20px;
+        @include screen(md) {
+          font-size: 35px
+        }
       }
     }
     h2.keywords {
