@@ -76,6 +76,12 @@
         float: left;
         margin-bottom: 10px;
         .article {
+          @include screen(md) {
+            min-height: 287px;
+          }
+          @include screen(xl) {
+            min-height: 304px;
+          }
           a.img {
             @include imgSkeloton;
             display: block;

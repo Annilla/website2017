@@ -7,7 +7,7 @@ let $articles = $channel.find('.srhArticles');
 let $tag = $channel.find('.searchTxt');
 let srhFrom = 0;
 let srhSize = 12;
-let srhTag = $tag.text();
+let srhTag = $.trim($tag.text());
 let stopMLoad = false;
 let lazyLoad;
 
@@ -56,7 +56,7 @@ function srhGet(q, size, from) {
         <span class="author hide show-md">by ${data[i].author}</span>
       `;
 
-      let itemIndex = srhFrom*srhSize + i;
+      let itemIndex = srhFrom + i;
       $list.eq(itemIndex).replaceWith(makeSearchItem({
         title: data[i].title,
         link: data[i].link,
@@ -90,7 +90,8 @@ function addChannel() {
   // 插入下一頁
   $more.hide();
   srhSkeleton();
-  srhGet(srhTag, srhSize, ++srhFrom);
+  srhFrom = srhFrom + srhSize;
+  srhGet(srhTag, srhSize, srhFrom);
   // 插入下一頁觸發圖片
   $channel.append(`<img class="infinite" data-original="./src/img/tracker.png" width="0" height="0">`);
   // 圖片 lazyload

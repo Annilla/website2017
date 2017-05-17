@@ -59,7 +59,7 @@ function excGet(q, size, from) {
         </a>
       `;
 
-      let itemIndex = excFrom*excSize + i;
+      let itemIndex = excFrom + i;
       $list.eq(itemIndex).replaceWith(makeExclusiveItem({
         link: data[i].link,
         cover: tmpImg,
@@ -91,7 +91,8 @@ function addChannel() {
   // 插入下一頁
   $more.hide();
   excSkeleton();
-  excGet(excTag, excSize, ++excFrom);
+  excFrom = excFrom + excSize;
+  excGet(excTag, excSize, excFrom);
   // 插入下一頁觸發圖片
   $channel.append(`<img class="infinite" data-original="./src/img/tracker.png" width="0" height="0">`);
   // 圖片 lazyload
@@ -120,7 +121,7 @@ export function nextPage() {
 
   // Get all tags in this page
   excTag = $tag.map(function(i, el) {
-    return $(el).text();
+    return $.trim($(el).text());
   }).get();
   // Fetching at first time.
   excGet(excTag, excSize, excFrom);
@@ -131,7 +132,7 @@ export function nextPage() {
     $(this).addClass(now);
     excTag = [];
     excFrom = 0;
-    excTag.push($(this).text());
+    excTag.push($.trim($(this).text()));
     $articles.html('');
     excSkeleton();
     excGet(excTag, excSize, excFrom);
