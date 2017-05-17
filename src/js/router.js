@@ -106,7 +106,10 @@ const routes = {
   ],
   // 品牌館
   '/website2017/dist/brand.html': [
-    require('./pages/brand')['default']
+    require('./pages/brand')['default'],
+    () => {
+      DFP.run();
+    }
   ],
   // 駐站達人
   '/website2017/dist/editors.html': [
