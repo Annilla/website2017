@@ -8,7 +8,7 @@ const booting = function() {
   // UI
   ui();
   // Lazyload and Next Page
-  // nextPage();
+  nextPage();
 };
 
 export default booting;

@@ -19,4 +19,27 @@ block main
   main.brand
     .brandWrap
       .bg(style='background-image: url("https://placeimg.com/1520/800/animals");')
-      .conWrap 123
+      .conWrap
+        .intro
+          a.logo(href='#', target='_blank')
+            img(src='https://placeimg.com/600/600/people', width='100%', height='auto', alt='Nike')
+          .txt
+            h1.title Nike
+            h2.description 台灣select shop品牌plain-me創辦人與商品總監，精通英、日語，長期觀察並研究時尚趨勢與潮流，首開台灣電視節目素人改造先鋒，並與各大媒體合作。擅長融入生活感的風格搭配，從素人到各行業專業人士皆為合作範疇。
+        .xlWrap
+          section.braList
+            ul.braArticles.pure-g
+              //- - for (var x = 0; x < 6; x++)
+              //-   li.pure-u-1-1.pure-u-md-1-2.pure-u-lg-1-3
+              //-     .article
+              //-       a.img(href='#', target='_blank')
+              //-         img(data-original='https://static.juksy.com/files/cover/65274/5901ac18a57de.png?m=resize&i=760x400&e=jpg&q=75', width='100%', height='auto', alt='「襪套+迷彩」太生火！熱燒不退的襪套鞋款，你還有 Reebok 這個選擇')
+              //-         .author.hide.show-lg Dec 6, 2017 | by ann830921
+              //-       .txtWrap
+              //-         .date.hide-md Dec 6, 2017
+              //-         a.title(data-module="dotdotdot", href='#', target='_blank')
+              //-           h3 「襪套+迷彩」太生火！熱燒不退的襪套鞋款，你還有 Reebok 這個選擇
+          a.more + &nbsp;MORE
+          .centerDFP
+            #juksy_m_brand_bottom(data-module='googledfp', data-adunit='/65167615/juksy_m_brand_bottom_336x280', data-dimensions='[336,280]', data-device='mobile')
+            #juksy_brand_bottom(data-module='googledfp', data-adunit='/65167615/juksy_brand_bottom_970x250', data-dimensions='[970,250]', data-device='desktop')
