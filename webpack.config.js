@@ -109,6 +109,11 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
+      filename: './brand.html',
+      template: './src/pug/brand.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
       filename: './editors.html',
       template: './src/pug/editors.pug'
     }),
