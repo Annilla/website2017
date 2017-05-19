@@ -51,11 +51,36 @@ function clickDFP() {
   });
 }
 
+function initDFP() {
+  // set cookies in 1 hour
+  let extime = 1/24;
+  Cookies.set('coverDFP', 'true', { expires: extime });
+  // juksy.com/embed/ads_pre_incover
+  // juksy.com/embed/ads_post_incover
+  $coverDFP.addClass(show);
+  if (winW < tbW) {
+    $iframe.attr({
+      // 'src': `//${APP_HOST}/takeover_top.html`,
+      'src': `./takeover_top.html`,
+      'width': 320,
+      'height': 480
+    });
+  }
+  else if (winW >= desW) {
+    $iframe.attr({
+      // 'src': `//${APP_HOST}/takeover_top.html`,
+      'src': `./takeover_top.html`,
+      'width': 970,
+      'height': 600
+    });
+  }
+}
+
 export function coverDFP() {
   // If isCollection is true dont popup
-  if (noDFP) {
-    return;
-  }
+  if (noDFP) return;
+  // If cookies exist, then don't insert AD cover
+  if (Cookies.get('coverDFP')==='true') return;
 
   // Dynamic add AD cover
   $coverDFP = addTmp();
@@ -78,23 +103,5 @@ export function coverDFP() {
   });
 
   // Init DFP cover
-  // juksy.com/embed/ads_pre_incover
-  // juksy.com/embed/ads_post_incover
-  $coverDFP.addClass(show);
-  if (winW < tbW) {
-    $iframe.attr({
-      // 'src': `//${APP_HOST}/takeover_top.html`,
-      'src': `./takeover_top.html`,
-      'width': 320,
-      'height': 480
-    });
-  }
-  else if (winW >= desW) {
-    $iframe.attr({
-      // 'src': `//${APP_HOST}/takeover_top.html`,
-      'src': `./takeover_top.html`,
-      'width': 970,
-      'height': 600
-    });
-  }
+  initDFP();
 }

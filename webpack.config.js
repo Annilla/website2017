@@ -132,6 +132,11 @@ module.exports = {
       filename: './search_notfound.html',
       template: './src/pug/search_notfound.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './idle.html',
+      template: './src/pug/idle.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,

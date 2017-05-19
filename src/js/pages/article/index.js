@@ -5,6 +5,8 @@ import { articleFont } from './articleFont.js';
 import { recommend } from './recommend.js';
 import { popular } from './popular.js';
 import { coverDFP } from './coverDFP.js';
+import { coverIDLE } from './idle.js';
+import { coverR18 } from './r18.js';
 
 const booting = function() {
   // MODULE
@@ -26,6 +28,10 @@ const booting = function() {
   recommend();
   // 熱門文章
   popular();
+  // 18禁
+  coverR18();
+  // 閒置頁
+  coverIDLE();
   // 廣告蓋台
   coverDFP();
 };

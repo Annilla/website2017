@@ -57,3 +57,16 @@ export function throttle(fn, threshhold, scope) {
     }
   };
 }
+
+export function debounce(fn, delay) {
+  // https://remysharp.com/2010/07/21/throttling-function-calls
+  let timer = null;
+  return function () {
+    let context = this
+    let args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}

@@ -1,0 +1,87 @@
+.idle {
+  .idleWrap {
+    width: 970px;
+    padding: 5px;
+    background-color: $white;
+    h1.title {
+      display: block;
+      background-color: $juksyStarsBg;
+      color: $white;
+      letter-spacing: 2px;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+    ul.idleArticles {
+      padding: 0 15px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      li {
+        list-style: none;
+        display: block;
+        float: left;
+        a {
+          display: block;
+          .img {
+            @include imgSkeloton;
+            min-height: 224px;
+            &:empty {
+              min-height: 224px;
+            }
+            margin-bottom: 5px;
+            transition: .5s;
+            img {
+              @include img;
+              opacity: 0;
+            }
+          }
+          .title {
+            @include txtSkeloton;
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
+            transition: .5s;
+            &:empty {
+              min-height: 45px;
+              height: 45px;
+              overflow: hidden;
+              background-size: 50px 100px, 90% 100px, 80% 100px, 60% 100px;
+              background-position: 0 0, 0 10px, 0 30px, 0 50px;
+              background-image: linear-gradient( 100deg, rgba(255, 255, 255, 0.001), $white_50 50%, rgba(255, 255, 255, 0.001) 80% ), linear-gradient( $lightgray 10px, transparent 0 ), linear-gradient( $lightgray 10px, transparent 0 ), linear-gradient( $lightgray 10px, transparent 0 );
+              animation: txtShineSmall 1s infinite;
+            }
+          }
+          &:hover {
+            .img {
+              opacity: 0.5;
+            }
+            .title {
+              color: $juksyStarsBg;
+            }
+          }
+        }
+      }
+      li:nth-child(4n+1) {
+        a {
+          padding-right: 11px;
+        }
+      }
+      li:nth-child(4n+2) {
+        a {
+          padding-left: 4px;
+          padding-right: 7.5px;
+        }
+      }
+      li:nth-child(4n+3) {
+        a {
+          padding-left: 7.5px;
+          padding-right: 4px;
+        }
+      }
+      li:nth-child(4n+4) {
+        a {
+          padding-left: 11px;
+        }
+      }
+    }
+  }
+}
