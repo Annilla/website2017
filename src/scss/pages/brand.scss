@@ -66,8 +66,13 @@
             padding: 50px 25px 25px 25px;
             background-color: $white;
           }
+          img {
+            transition: .5s;
+          }
           &:hover {
-            opacity: 0.5;
+            img {
+              opacity: 0.5;
+            }
           }
         }
         .txt {
