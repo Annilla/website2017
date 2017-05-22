@@ -6,7 +6,6 @@ let $coverDFP;
 let $closeBtn;
 let $iframe;
 let $tag = $('.article article .tag');
-let hide = 'hide';
 let show = 'show';
 let tbW = 768;
 let desW = 1024;
@@ -22,42 +21,41 @@ let coverTmp = `
   </div>
 `;
 
+// 通知是否有蓋台廣告
+window.extraMessage = function (key) {
+  switch (key) {
+    case 'dfp_popup_top':
+      showDFPcover(key);
+      break;
+    case 'dfp_popup_bottom':
+      showDFPcover(key);
+      break;
+  }
+}
+
+// 顯示蓋台廣告並設定 Cookies
+function showDFPcover(name) {
+  // Set cookies in 1 hour
+  Cookies.set(name, 'true', { expires: 1/24 });
+  // Show cover
+  $('#coverDFP').addClass('show');
+}
+
 function addTmp () {
   return $(coverTmp).appendTo('body');
 }
 
 function clickDFP() {
   $coverDFP.on('click', '.closeDFP', function () {
-    let status = $tag.data('popup');
-
     $coverDFP.removeClass(show);
-    if (status === 'true') return;
-    if (winW < tbW) {
-      $iframe.attr({
-        // 'src': `//${APP_HOST}/takeover_bottom.html`,
-        'src': `./takeover_bottom.html`,
-        'width': 300,
-        'height': 250
-      });
-    }
-    else if (winW >= desW) {
-      $iframe.attr({
-        // 'src': `//${APP_HOST}/takeover_bottom.html`,
-        'src': `./takeover_bottom.html`,
-        'width': 480,
-        'height': 250
-      });
-    }
   });
 }
 
-function initDFP() {
-  // set cookies in 1 hour
-  let extime = 1/24;
-  Cookies.set('coverDFP', 'true', { expires: extime });
+function initDFPpre() {
+  // If cookies exist, then don't embed AD iframe
+  if (Cookies.get('dfp_popup_top')==='true') return;
+  // init DFP iframe, call window.alertCoverDFP
   // juksy.com/embed/ads_pre_incover
-  // juksy.com/embed/ads_post_incover
-  $coverDFP.addClass(show);
   if (winW < tbW) {
     $iframe.attr({
       // 'src': `//${APP_HOST}/takeover_top.html`,
@@ -76,11 +74,35 @@ function initDFP() {
   }
 }
 
+function initDFPpost() {
+  // If cookies exist, then don't embed AD iframe
+  if (Cookies.get('dfp_popup_bottom')==='true') return;
+  // init DFP iframe, call window.alertCoverDFP
+  // juksy.com/embed/ads_post_incover
+  let status = $tag.data('popup');
+  if (status === 'true') return;
+  if (winW < tbW) {
+    $iframe.attr({
+      // 'src': `//${APP_HOST}/takeover_bottom.html`,
+      'src': `./takeover_bottom.html`,
+      'width': 300,
+      'height': 250
+    });
+  }
+  else if (winW >= desW) {
+    $iframe.attr({
+      // 'src': `//${APP_HOST}/takeover_bottom.html`,
+      'src': `./takeover_bottom.html`,
+      'width': 480,
+      'height': 250
+    });
+  }
+  $tag.data('popup', 'true');
+}
+
 export function coverDFP() {
   // If isCollection is true dont popup
   if (noDFP) return;
-  // If cookies exist, then don't insert AD cover
-  if (Cookies.get('coverDFP')==='true') return;
 
   // Dynamic add AD cover
   $coverDFP = addTmp();
@@ -95,13 +117,10 @@ export function coverDFP() {
     threshold: 0,
     data_src: "track",
     callback_load: function() {
-      let status = $tag.data('popup');
-      if (status === 'true') return;
-      $coverDFP.addClass(show);
-      $tag.data('popup', 'true');
+      initDFPpost();
     }
   });
 
-  // Init DFP cover
-  initDFP();
+  // Init DFP cover iframe
+  initDFPpre();
 }

@@ -27,3 +27,7 @@ block footer
 block main
   #juksy_m_content_takeover_top(data-module='googledfp', data-adunit='/65167615/juksy_m_content_takeover_320x480', data-dimensions='[320,480]', data-device='mobile')
   #juksy_content_takeover_top(data-module='googledfp', data-adunit='/65167615/juksy_content_takeover_970x600', data-dimensions='[970,600]', data-device='desktop')
+  script(type="text/javascript").
+    setTimeout(function(){
+      parent.window.extraMessage('dfp_popup_top');
+    }, 1000);
