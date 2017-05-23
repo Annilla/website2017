@@ -37,7 +37,6 @@ window.axios = require('axios');
 window.LazyLoad = require('vanilla-lazyload');
 window.Clipboard = require('clipboard');
 window.Cookies = require('js-cookie');
-require('lodash');
 require('jquery');
 require('owl.carousel');
 require('dotdotdot');
