@@ -182,6 +182,11 @@
 }
 
 // DFP custom style
+#juksy_m_content_top {
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
 #juksy_content_top {
   @include screen(lg) {
     display: flex;
@@ -202,7 +207,7 @@
 
 #juksy_content_side_left, #juksy_content_side_right {
   position: fixed;
-  top: 0;
+  top: $m_navHeight + $pc_statusHeight;
 }
 #juksy_content_side_left {
   left: calc(50% - 500px - 160px - 50px);
