@@ -5,6 +5,8 @@ let $channel = $('.search');
 let $more = $channel.find('.more');
 let $articles = $channel.find('.srhArticles');
 let $tag = $channel.find('.searchTxt');
+let $notFound = $channel.find('.notFound');
+let $hasFound = $channel.find('.hasFound');
 let srhFrom = 0;
 let srhSize = 12;
 let srhTag = $.trim($tag.text());
@@ -47,6 +49,17 @@ function srhGet(q, size, from) {
     let data = response.data;
     let length = data.length;
     let $list = $articles.find('li');
+    // Check whether has articles been found or not at first time
+    if (srhFrom === 0 && length === 0) {
+      // No data
+      $hasFound.remove();
+      $notFound.removeClass('hide');
+      return;
+    }
+    else {
+      // Has data
+      $notFound.remove();
+    }
     for (let i = 0; i < length; i++) {
       let tmpImg = `
         <img data-original="${data[i].image_cover}" width="100%" height="auto" alt="${data[i].title}">

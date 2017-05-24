@@ -17,21 +17,49 @@ block meta.fb
   )
 block main
   main.search
-    h2.title 搜尋 · 
-      span.searchTxt 球鞋
-    section.searchResult
-      ul.srhArticles
-        //- - for (var x = 0; x < 12; x++)
-        //-   li.pure-g
-        //-     a.pure-u-1.pure-u-md-7-12.img(href='#', target='_blank')
-        //-       img(data-original='https://placeimg.com/760/400/animals', width='100%', height='auto', alt='換上型格搖滾瓶身！YSL 全新彩蜜唇色漆亮系列，勢必火紅的美妝新品！')
-        //-     .txtWrap.pure-u-1.pure-u-md-5-12
-        //-       .detail
-        //-         span.date Dec 6,2017
-        //-         span.author by ann830921
-        //-       a.title(data-module="dotdotdot", href='#', target='_blank')
-        //-         h3 換上型格搖滾瓶身！YSL 全新彩蜜唇色漆亮系列，勢必火紅的美妝新品！
-        //-       .description.hide.show-md(data-module="dotdotdot") 這是一張不守成規又不可控制的製作。一年時間思、這是一張不守成規又不可控制的製作。一年間構思、動漫式搖滾，加入更多的摩城樂風，不間構思、動漫式搖心深處，最令人感動以及......
-        //-       a.readmore.hide.show-md(href='#', target='_blank') Read More >>
-    a.more.hide.show-md + &nbsp;MORE
-    img.infinite(data-original='./src/img/tracker.png', width='0', height='0')
+    .notFound.hide
+      form.searchBar
+        input(type='text', name='q', placeholder='SEARCH', value='王金平')
+        input.submit(type="submit", value="SEARCH")
+      h2.notFoundTxt
+        .en No results for your search
+        | 沒有搜尋到符合項目的文章
+      h2.keywords 熱門搜尋：
+        ul.keywordWrap
+          li
+            a(href='./')
+              h3 帆船鞋
+          li
+            a(href='./')
+              h3 adidas
+          li
+            a(href='./')
+              h3 中長髮
+          li
+            a(href='./')
+              h3 牛仔褲
+          li
+            a(href='./')
+              h3 Reebok
+          li
+            a(href='./')
+              h3 後背包
+    .hasFound
+      h2.title 搜尋 · 
+        span.searchTxt 球鞋
+      section.searchResult
+        ul.srhArticles
+          //- - for (var x = 0; x < 12; x++)
+          //-   li.pure-g
+          //-     a.pure-u-1.pure-u-md-7-12.img(href='#', target='_blank')
+          //-       img(data-original='https://placeimg.com/760/400/animals', width='100%', height='auto', alt='換上型格搖滾瓶身！YSL 全新彩蜜唇色漆亮系列，勢必火紅的美妝新品！')
+          //-     .txtWrap.pure-u-1.pure-u-md-5-12
+          //-       .detail
+          //-         span.date Dec 6,2017
+          //-         span.author by ann830921
+          //-       a.title(data-module="dotdotdot", href='#', target='_blank')
+          //-         h3 換上型格搖滾瓶身！YSL 全新彩蜜唇色漆亮系列，勢必火紅的美妝新品！
+          //-       .description.hide.show-md(data-module="dotdotdot") 這是一張不守成規又不可控制的製作。一年時間思、這是一張不守成規又不可控制的製作。一年間構思、動漫式搖滾，加入更多的摩城樂風，不間構思、動漫式搖心深處，最令人感動以及......
+          //-       a.readmore.hide.show-md(href='#', target='_blank') Read More >>
+      a.more.hide.show-md + &nbsp;MORE
+      img.infinite(data-original='./src/img/tracker.png', width='0', height='0')
