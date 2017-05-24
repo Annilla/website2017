@@ -1,17 +1,107 @@
-nav {
+.nav {
   .navGroup {
     width: 100%;
     .navWrap {
       background-color: $white;
       height: $m_navHeight;
-      .openSearch {
-        border: 1px solid $black;
-        display: inline-block;
-        width: 60px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid $lightgray;
+      @include screen(lg) {
+        border-bottom: none;
+        box-shadow: 0 0 10px $black_20;
+      }
+      @include screen(xl) {
+        height: $pc_navHeight;
+      }
+      .mobileMenu {
+        width: 30px;
+        position: relative;
+        margin-top: 5px;
+        margin-left: 15px;
+        .line {
+          width: 100%;
+          border-bottom: 3px solid $black;
+          margin-bottom: 8px;
+          transition: .5s;
+        }
+        label.openMenu {
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+      }
+      a.juksy {
+        display: block;
+        width: 120px;
+        margin-top: 5px;
+        margin-left: 30px;
+        @include screen(xl) {
+          width: 220px;
+        }
+      }
+      ul.icon {
+        overflow: hidden;
+        margin-right: 10px;
+        @include screen(md) {
+          margin-right: 15px;
+        }
+        @include screen(lg) {
+          margin-right: 35px;
+        }
+        li {
+          list-style: none;
+          display: block;
+          float: left;
+          position: relative;
+          cursor: pointer;
+          transition: .5s;
+          svg {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            @include screen(xl) {
+              width: 30px;
+              height: 30px;
+            }
+          }
+          &:after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 12px;
+            margin: 0 6px;
+            background-color: $black;
+            transform: translateY(-3px);
+            @include screen(md) {
+              margin: 0 10px;
+            }
+            @include screen(xl) {
+              height: 15px;
+              transform: translateY(-7px);
+            }
+          }
+          label.openSearch {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+          }
+          &:hover {
+            opacity: 0.5;
+          }
+        }
+        li:last-child {
+          &:after {
+            display: none;
+          }
+        }
       }
     }
     .searchfixed {
@@ -125,8 +215,14 @@ nav {
 }
 input[id="searchOpen"]:checked ~ main {
   padding-top: $m_navHeight;
+  @include screen(lg) {
+    padding-top: $m_navHeight + $pc_statusHeight;
+  }
+  @include screen(xl) {
+    padding-top: $pc_navHeight + $pc_statusHeight;
+  }
 }
-input[id="searchOpen"]:checked ~ nav .navGroup {
+input[id="searchOpen"]:checked ~ .header .nav .navGroup {
   position: fixed;
   z-index: 3;
   .searchfixed {

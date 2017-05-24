@@ -1,4 +1,7 @@
 // HEADER
+input.hide(type="radio", id="noOpen", name="navGroup", checked)
+input.hide(type="radio", id="searchOpen", name="navGroup")
+input.hide(type="radio", id="mMenuOpen", name="navGroup")
 header.header
   .statusbar.hide.show-lg
     .country
@@ -9,7 +12,7 @@ header.header
         li.select 台灣
           ul
             li
-              a(href='./', target='_blank') 台灣
+              a(href='./') 台灣
             li
               a(href='https://my.juksy.com/', target='_blank') 馬來西亞
     ul.social
