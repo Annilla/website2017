@@ -1,8 +1,4 @@
-import {
-  v,
-  dotdotdot,
-  toDateString
-} from '../../common/module.js';
+import {dotdotdot} from '../../common/module.js';
 
 let $window = $(window);
 let winW = $window.width();
@@ -18,6 +14,8 @@ function addChannel() {
   $articles.append($copy);
   // 圖片 lazyload
   lazyLoad.update();
+  // 文字超出變...
+  dotdotdot();
 }
 
 export function nextPage() {
