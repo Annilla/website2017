@@ -60,7 +60,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: 4;
   background-color: $black_70;
   justify-content: center;
   align-items: center;
@@ -208,6 +208,9 @@
 #juksy_content_side_left, #juksy_content_side_right {
   position: fixed;
   top: $m_navHeight + $pc_statusHeight;
+  @include screen(xl) {
+    top: $pc_navHeight + $pc_statusHeight;
+  }
 }
 #juksy_content_side_left {
   left: calc(50% - 500px - 160px - 50px);
