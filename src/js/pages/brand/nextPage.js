@@ -55,7 +55,7 @@ function braGet(q, size, from) {
         </a>
       `;
 
-      let itemIndex = braFrom*braSize + i;
+      let itemIndex = braFrom + i;
       $list.eq(itemIndex).replaceWith(makeBrandItem({
         link: data[i].link,
         cover: tmpImg,
@@ -85,7 +85,8 @@ function addChannel() {
   // 插入下一頁
   $more.hide();
   braSkeleton();
-  braGet(braTag, braSize, ++braFrom);
+  braFrom = braFrom + braSize;
+  braGet(braTag, braSize, braFrom);
   // 圖片 lazyload
   lazyLoad.update();
 }
