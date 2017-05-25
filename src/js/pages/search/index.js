@@ -4,9 +4,6 @@ import { nextPage } from './nextPage.js';
 
 const booting = function() {
   // MODULE
-  // new LazyLoad({
-  //   elements_selector: ".search img"
-  // });
   dotdotdot();
   // UI
   ui();

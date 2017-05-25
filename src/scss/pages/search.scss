@@ -218,6 +218,7 @@
     }
     form.searchBar {
       margin-bottom: 30px;
+      overflow: hidden;
       @include screen(md) {
         margin-bottom: 80px;
       }
@@ -225,6 +226,7 @@
         width: 70%;
         margin: 0;
         padding: 0;
+        float: left;
         appearance: none;
         box-shadow: none;
         border-radius: 0;
