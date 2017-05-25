@@ -48,7 +48,7 @@
   }
 }
 
-@keyframes close_DFP {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -70,7 +70,7 @@
 
 @keyframes fadeInDown {
   0% {
-    transform: translate(0, 20px);
+    transform: translate(0, -20px);
     opacity:0;
   }
   100% {

@@ -1,6 +1,14 @@
 .nav {
+  height: $m_navHeight;
+  @include screen(lg) {
+    height: $m_navHeight;
+  }
+  @include screen(xl) {
+    height: $pc_navHeight;
+  }
   .navGroup {
     width: 100%;
+    animation: fadeIn 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     .navWrap {
       background-color: $white;
       height: $m_navHeight;
@@ -212,14 +220,11 @@
       }
     }
   }
-}
-input[id="searchOpen"]:checked ~ main {
-  padding-top: $m_navHeight;
-  @include screen(lg) {
-    padding-top: $m_navHeight + $pc_statusHeight;
-  }
-  @include screen(xl) {
-    padding-top: $pc_navHeight + $pc_statusHeight;
+  .navGroup.fixed {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
 input[id="searchOpen"]:checked ~ .header .nav .navGroup {
@@ -227,6 +232,6 @@ input[id="searchOpen"]:checked ~ .header .nav .navGroup {
   z-index: 3;
   .searchfixed {
     display: block;
-    animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
