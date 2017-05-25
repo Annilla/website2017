@@ -8,7 +8,6 @@
   }
   .navGroup {
     width: 100%;
-    animation: fadeIn 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     .navWrap {
       background-color: $white;
       height: $m_navHeight;
@@ -48,6 +47,7 @@
         width: 120px;
         margin-top: 5px;
         margin-left: 30px;
+        animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         @include screen(xl) {
           width: 220px;
         }
@@ -225,6 +225,11 @@
     z-index: 3;
     top: 0;
     animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    .navWrap {
+      a.juksy {
+        animation: none;
+      }
+    }
   }
 }
 input[id="searchOpen"]:checked ~ .header .nav .navGroup {
