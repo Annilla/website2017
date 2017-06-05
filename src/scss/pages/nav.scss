@@ -678,7 +678,7 @@
     }
   }
 }
-input[id="searchOpen"]:checked ~ .header .nav .navGroup {
+input[id="searchOpen"]:checked ~ header .header .nav .navGroup {
   position: fixed;
   z-index: 3;
   &.fixed {
@@ -701,7 +701,7 @@ input[id="searchOpen"]:checked ~ .header .nav .navGroup {
     animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
-input[id="mMenuOpen"]:checked ~ .header .nav .navGroup {
+input[id="mMenuOpen"]:checked ~ header .header .nav .navGroup {
   position: fixed;
   z-index: 3;
   &.fixed {
