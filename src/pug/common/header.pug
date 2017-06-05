@@ -4,8 +4,9 @@ input.hide(type="radio", id="searchOpen", name="navGroup")
 input.hide(type="radio", id="mMenuOpen", name="navGroup")
 input.hide(type="checkbox", id="channelOpen", name="mnavGroup")
 input.hide(type="checkbox", id="countryOpen", name="mnavGroup")
-header.header
-  include statusbar.pug
-  include nav.pug
-  block mobile_topic
+header
+  .header
+    include statusbar.pug
+    include nav.pug
+    block mobile_topic
 // HEADER END
