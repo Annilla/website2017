@@ -19,8 +19,9 @@
       display: block;
       position: relative;
       picture {
-        background-size: 100% auto;
+        background-size: auto calc(100vw/3 + 45px);
         background-repeat: no-repeat;
+        background-position: center $pc_navHeight;
         display: block;
         @include screen(xl) {
           background-attachment: fixed;

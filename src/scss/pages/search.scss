@@ -2,16 +2,16 @@
   min-height: 100vh;
   h2.title {
     font-size: 18px;
-    margin: 0 $m_gap 20px $m_gap;
+    margin: 30px $m_gap 20px $m_gap;
     @include screen(md) {
-      margin: 0 $tb_gap 20px $tb_gap;
+      margin: 30px $tb_gap 20px $tb_gap;
     }
     @include screen(lg) {
       font-size: 34px;
     }
     @include screen(xl) {
       width: $pc_max_width;
-      margin: 0 auto 20px auto;
+      margin: 70px auto 20px auto;
     }
   }
   .searchResult {
@@ -207,14 +207,14 @@
     margin-bottom: 50px;
   }
   .notFound {
-    margin: 0 $m_gap 50px $m_gap;
+    margin: 30px $m_gap 50px $m_gap;
     padding-top: 50px;
     @include screen(md) {
-      margin: 0 $tb_gap 50px $tb_gap;
+      margin: 30px $tb_gap 50px $tb_gap;
     }
     @include screen(xl) {
       width: $pc_max_width;
-      margin: 0 auto 50px auto;
+      margin: 70px auto 50px auto;
     }
     form.searchBar {
       margin-bottom: 30px;

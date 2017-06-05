@@ -13,8 +13,9 @@ main.article {
   picture.fullCover {
     display: block;
     margin-bottom: 10px;
-    background-size: 100% auto;
+    background-size: auto calc(100vw/3 + 45px);
     background-repeat: no-repeat;
+    background-position: center $pc_navHeight;
     @include screen(xl) {
       background-attachment: fixed;
       margin-bottom: 20px;
@@ -46,9 +47,13 @@ main.article {
   article {
     h1.title {
       font-size: 20px;
+      margin-top: 10px;
       margin-bottom: 10px;
       @include screen(md) {
         font-size: 32px;
+      }
+      @include screen(lg) {
+        margin-top: 0;
       }
     }
     .cooperation {

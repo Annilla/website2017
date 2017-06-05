@@ -3,7 +3,7 @@
   .brandWrap {
     .bg {
       background-repeat: no-repeat;
-      background-position: center top;
+      background-position: center $m_navHeight;
       background-size: auto 100vw;
       background-color: $black;
       width: 100vw;
@@ -17,6 +17,12 @@
       @include screen(md) {
         background-size: 100% auto;
       }
+      @include screen(lg) {
+        background-position: center $m_navHeight;
+      }
+      @include screen(xl) {
+        background-position: center $pc_navHeight;
+      }
     }
     &:after {
       content: ' ';
@@ -25,10 +31,16 @@
       height: 50px;
       background: linear-gradient(to bottom, transparent 0%, $black 100%);
       position: fixed;
-      top: calc(100vw - 50px);
+      top: calc(100vw - 45px);
       z-index: -9; // This is pretty important.
       @include screen(md) {
-        top: calc(100vw/1.9 - 50px);
+        top: calc(100vw/1.9 - 45px);
+      }
+      @include screen(lg) {
+        top: calc(100vw/1.9);
+      }
+      @include screen(xl) {
+        top: calc(100vw/1.9 + 45px);
       }
     }
     .conWrap {

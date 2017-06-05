@@ -2,10 +2,18 @@
   overflow-x: hidden;
   h2.title {
     @include title;
+    margin-top: 30px;
     @include screen(md) {
+      margin-top: 30px;
       &:after {
         background-color: $gray_dark;
       }
+    }
+    @include screen(lg) {
+      margin-top: 30px;
+    }
+    @include screen(xl) {
+      margin-top: 70px;
     }
     .en {
       &:after {
