@@ -75,6 +75,10 @@ if (DEV_MODE === true) {
       () => {
         DFP.run();
       }
+    ],
+    // 關於我們
+    '/about.html': [
+      require('./pages/about')['default']
     ]
   };
 }
@@ -148,6 +152,10 @@ else {
       () => {
         DFP.run();
       }
+    ],
+    // 關於我們
+    '/website2017/dist/about.html': [
+      require('./pages/about')['default']
     ]
   };
 }

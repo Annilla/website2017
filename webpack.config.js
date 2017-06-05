@@ -137,6 +137,11 @@ module.exports = {
       filename: './idle.html',
       template: './src/pug/idle.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './about.html',
+      template: './src/pug/about.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,
