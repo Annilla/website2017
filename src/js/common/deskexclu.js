@@ -81,7 +81,10 @@ export function dExclusive() {
 
   // 滑過桌機導覽列 “獨家企劃”
   $excNav.hover(function(){
-    if(hasLoaded) return;
+    if(hasLoaded) {
+      refreshList(); // 防止還沒 lazyload 圖片就滑出去選單
+      return;
+    };
     // Fetching at first time.
     addChannel();
     hasLoaded = true;
