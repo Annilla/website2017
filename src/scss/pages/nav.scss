@@ -27,13 +27,14 @@
         position: relative;
         margin-top: 5px;
         margin-left: 15px;
+        transition: .5s;
         .line {
           width: 100%;
           border-bottom: 3px solid $black;
           margin-bottom: 8px;
           transition: .5s;
         }
-        label.openMenu {
+        label.openMenu, label.closeMenu {
           display: block;
           position: absolute;
           width: 100%;
@@ -41,25 +42,30 @@
           top: 0;
           left: 0;
         }
+        label.closeMenu {
+          display: none;
+        }
       }
       a.juksy {
         display: block;
         width: 120px;
         margin-top: 5px;
         margin-left: 30px;
-        animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
         @include screen(xl) {
+          animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
           width: 220px;
         }
       }
       ul.icon {
         overflow: hidden;
         margin-right: 10px;
+        padding: 0 10px 0 30px;// Filled space for more two icons in future
         @include screen(md) {
           margin-right: 15px;
         }
         @include screen(lg) {
           margin-right: 35px;
+          padding: 0 0px 0 80px;// Filled space for more two icons in future
         }
         li {
           list-style: none;
@@ -111,6 +117,443 @@
         li:last-child {
           &:after {
             display: none;
+          }
+        }
+      }
+      .desktopNav {
+        width: calc(100% - 120px - 170px);
+        display: none;
+        @include screen(lg) {
+          display: flex;
+        }
+        @include screen(xl) {
+          width: calc(100% - 220px - 200px);
+        }
+        ul.dnav {
+          display: flex;
+          justify-content: flex-start;
+          @include screen(xl) {
+            margin-left: 30px;
+          }
+          li {
+            list-style: none;
+          }
+          >li {
+            font-size: 18px;
+            white-space: nowrap;
+            margin: 0 5px;
+            position: relative;
+            @include screen(xl) {
+              font-size: 20px;
+            }
+            h2 {
+              padding: 0 15px;
+              height: $m_navHeight;
+              line-height: $m_navHeight;
+              @include screen(xl) {
+                height: $pc_navHeight;
+                line-height: $pc_navHeight;
+              }
+            }
+            &:hover {
+              h2 {
+                color: $juksyStarsBg;
+              }
+            }
+            &.arrow {
+              h2 {
+                background-image: url('~img/countryArrow_black.svg');
+                background-repeat: no-repeat;
+                background-size: 40px 40px;
+                background-position: calc(100% + 10px) center;
+                padding-right: 20px;
+                &:hover {
+                  background-image: url('~img/countryArrow_blue.svg');
+                }
+              }
+            }
+            &.now {
+              h2 {
+                position: relative;
+                &:after {
+                  content: '';
+                  display: block;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 8px;
+                  background-color: $juksyStarsBg;
+                  @include screen(xl) {
+                    height: 10px;
+                  }
+                }
+              }
+            }
+            &.chan {
+              >h2 {
+                cursor: pointer;
+              }
+              >ul {
+                display: none;
+                position: fixed;
+                margin-top: 0;
+                z-index: 4;
+                background-color: $black_90;
+                color: $white;
+                font-size: 16px;
+                padding: 10px 10px 20px 10px;
+                margin-left: -220px;
+                @include screen(xl) {
+                  margin-left: -320px;
+                }
+                >li {
+                  padding: 0 20px;
+                  border-right: 1px solid $gray;
+                  &:last-child {
+                    border-right: none;
+                  }
+                  >h3 {
+                    padding: 0 0 10px 0;
+                    @include screen(xl) {
+                      font-size: 20px;
+                    }
+                    &:before {
+                      content: '';
+                      display: inline-block;
+                      width: 5px;
+                      height: 16px;
+                      background-color: $white;
+                      transform: translateY(2px);
+                      margin-right: 5px;
+                      @include screen(xl) {
+                        height: 18px;
+                      }
+                    }
+                  }
+                  >ul {
+                    border-top: 1px solid $gray;
+                    @include screen(xl) {
+                      padding: 5px 20px 0 0;
+                    }
+                    >li {
+                      a {
+                        display: block;
+                        h4 {
+                          padding: 7.5px 0;
+                          @include screen(xl) {
+                            padding: 5px 0;
+                          }
+                        }
+                        &:hover {
+                          opacity: 0.5;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              &:hover {
+                >ul {
+                  display: flex;
+                  animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+              }
+            }
+            &.exclu {
+              >ul {
+                display: none;
+                position: fixed;
+                margin-top: 0;
+                z-index: 4;
+                background-color: $black_90;
+                color: $white;
+                font-size: 16px;
+                padding: 20px 0px 20px 20px;
+                margin-left: -220px;
+                overflow: hidden;
+                max-width: 1074px;
+                max-height: 227px;
+                @include screen(xl) {
+                  margin-left: -320px;
+                }
+                >li {
+                  float: left;
+                  display: block;
+                  width: calc(25% - 20px);
+                  margin-right: 20px;
+                  min-width: 193px;
+                  min-height: 160px;
+                  @include screen(xl) {
+                    min-width: 240px;
+                    min-height: 186px;
+                  }
+                  a {
+                    display: block;
+                    .img {
+                      @include imgSkeloton;
+                      min-height: 100px;
+                      margin-bottom: 10px;
+                      transition: .5s;
+                      &:empty {
+                        min-height: 100px;
+                        @include screen(xl) {
+                          min-height: 127px;
+                        }
+                      }
+                      img {
+                        @include img;
+                        opacity: 0;
+                      }
+                    }
+                    .title {
+                      @include txtSkeloton;
+                      line-height: 1.5em;
+                      height: 3em;
+                      overflow: hidden;
+                      transition: .5s;
+                      &:empty {
+                        min-height: 45px;
+                        height: 45px;
+                        overflow: hidden;
+                        background-size: 90% 100px, 80% 100px, 60% 100px;
+                        background-position: 0 10px, 0 30px, 0 50px;
+                        background-image: linear-gradient( $lightgray 10px, transparent 0 ), linear-gradient( $lightgray 10px, transparent 0 ), linear-gradient( $lightgray 10px, transparent 0 );
+                        animation: none;
+                      }
+                    }
+                    &:hover {
+                      opacity: 0.5;
+                    }
+                  }
+                }
+              }
+              &:hover {
+                >ul {
+                  display: block;
+                  animation: fadeInDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+              }
+            }
+          }
+        }
+        .dtopic {
+          overflow-x: scroll;
+          overflow-y: hidden;
+          padding: 0 10px 0 10px;
+          @include screen(xl) {
+            overflow-x: hidden;
+          }
+          .tagWrap {
+            display: flex;
+            .tag {
+              display: inline-block;
+              a {
+                display: block;
+                h2 {
+                  color: $juksyStarsBg;
+                  height: $m_navHeight;
+                  line-height: $m_navHeight;
+                  white-space: nowrap;
+                  font-size: 18px;
+                  @include screen(xl) {
+                    height: $pc_navHeight;
+                    line-height: $pc_navHeight;
+                    font-size: 20px;
+                  }
+                  &:before {
+                    content: '#';
+                  }
+                }
+                &:hover {
+                  opacity: 0.5;
+                }
+              }
+            }
+            .owl-dots {
+              display: flex;
+              margin-top: 0;
+              padding-left: 10px;
+              .owl-dot {
+                display: flex;
+                align-items: center;
+                span {
+                  width: 5px;
+                  height: 5px;
+                  border-radius: 5px;
+                }
+                &.active {
+                  span {
+                    background-color: $juksyStarsBg;
+                  }
+                }
+                &:hover {
+                  span {
+                    background-color: $juksyStarsBg_90;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .mobileNav {
+      background-color: $black_90;
+      color: $white;
+      height: calc(100vh - 55px);
+      display: none;
+      .mobileNavWrap {
+        height: 100%;
+        overflow-y: scroll;
+        ul.mnav {
+          li {
+            list-style: none;
+            display: block;
+            a {
+              display: block;
+            }
+            span {
+              display: block;
+              font-weight: bold;
+              font-size: 18px;
+              line-height: 3em;
+              padding: 0 50px;
+              border-bottom: 1px solid $gray;
+            }
+          }
+          li.arrow {
+            >span {
+              overflow: hidden;
+              &:after {
+                content: '';
+                display: block;
+                float: right;
+                width: 40px;
+                height: 40px;
+                margin-top: 7px;
+                background-image: url('~img/countryArrow.svg');
+                background-repeat: no-repeat;
+                background-size: 100%;
+                background-position: center;
+              }
+            }
+          }
+          li.channel {
+            position: relative;
+            &.arrow {
+              >span {
+                &:after {
+                  transition: .5s;
+                }
+              }
+            }
+            >label {
+              width: 100%;
+              height: 55px;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+            >ul {
+              height: 0;
+              li {
+                a {
+                  padding: 0 20px;
+                  background-color: $white_10;
+                }
+              }
+              >li {
+                >a {
+                  span {
+                    &:before {
+                      content: "";
+                      display: inline-block;
+                      width: 5px;
+                      height: 12px;
+                      background-color: $white;
+                      margin-right: 10px;
+                    }
+                  }
+                }
+                ul {
+                  li {
+                    a {
+                      span {
+                        padding: 0 65px;
+                        font-size: 16px;
+                        font-weight: normal;
+                      }
+                    }
+                  }
+                }
+              }
+              >li:last-child >ul >li:last-child {
+                a {
+                  border-bottom: 1px solid $gray;
+                  span {
+                    border-bottom: none;
+                  }
+                }
+              }
+            }
+          }
+          li.country {
+            position: relative;
+            background-image: url('~img/country_m.svg');
+            background-repeat: no-repeat;
+            background-size: 40px 40px;
+            background-position: 10px 7px;
+            &.arrow {
+              >span {
+                &:after {
+                  transition: .5s;
+                }
+              }
+            }
+            label {
+              width: 100%;
+              height: 55px;
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+            ul {
+              height: 0;
+              overflow: hidden;
+              transition: all .5s;
+              li {
+                a {
+                  span {
+                    background-color: $white_10;
+                  }
+                }
+              }
+            }
+          }
+        }
+        ul.social {
+          text-align: center;
+          padding: 20px 0;
+          li {
+            list-style: none;
+            display: inline-block;
+            margin: 0 10px;
+            a {
+              width: 26px;
+              height: 26px;
+              border-radius: 20px;
+              display: block;
+              border: 2px solid $white;
+              &:hover {
+                opacity: 0.5;
+              }
+              svg {
+                .st0 {
+                  fill: $white;
+                }
+              }
+            }
           }
         }
       }
@@ -238,6 +681,9 @@
 input[id="searchOpen"]:checked ~ .header .nav .navGroup {
   position: fixed;
   z-index: 3;
+  &.fixed {
+    animation: none;
+  }
   ul.icon {
     li.searchIcon {
       svg {
@@ -253,5 +699,64 @@ input[id="searchOpen"]:checked ~ .header .nav .navGroup {
   .searchfixed {
     display: block;
     animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+input[id="mMenuOpen"]:checked ~ .header .nav .navGroup {
+  position: fixed;
+  z-index: 3;
+  &.fixed {
+    animation: none;
+  }
+  .mobileMenu {
+    transform: rotate(360deg);
+    transform-origin: 50% 50%;
+    .top {
+      transform: translateY(11px) rotate(45deg);
+    }
+    .middle {
+      opacity: 0;
+    }
+    .bottom {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+    label.closeMenu {
+      display: block;
+    }
+  }
+  .mobileNav {
+    display: block;
+    animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+input[id="countryOpen"]:checked ~ .header .nav .navGroup .mobileNav .mobileNavWrap {
+  ul.mnav {
+    li.country {
+      &.arrow {
+        >span {
+          &:after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      ul {
+        height: auto;
+      }
+    }
+  }
+}
+input[id="channelOpen"]:checked ~ .header .nav .navGroup .mobileNav .mobileNavWrap {
+  ul.mnav {
+    li.channel {
+      &.arrow {
+        >span {
+          &:after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      >ul {
+        height: auto;
+      }
+    }
   }
 }

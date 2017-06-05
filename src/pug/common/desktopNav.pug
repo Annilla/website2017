@@ -1,0 +1,127 @@
+.desktopNav
+  ul.dnav
+    li
+      a(href='#')
+        h2 主題特企
+    li.chan.arrow.now
+      h2 街頭熱
+      ul
+        li
+          h3 流行
+          ul
+            li
+              a(href='#')
+                h4 全部流行
+            li
+              a(href='#')
+                h4 流行新訊
+            li
+              a(href='#')
+                h4 品牌故事
+            li
+              a(href='#')
+                h4 市場快訊
+        li
+          h3 球鞋
+          ul
+            li
+              a(href='#')
+                h4 全部球鞋
+        li
+          h3 造型
+          ul
+            li
+              a(href='#')
+                h4 全部造型
+            li
+              a(href='#')
+                h4 男性
+            li
+              a(href='#')
+                h4 女性
+        li
+          h3 美妝
+          ul
+            li
+              a(href='#')
+                h4 全部美妝
+            li
+              a(href='#')
+                h4 保養
+            li
+              a(href='#')
+                h4 彩妝
+        li
+          h3 娛樂
+          ul
+            li
+              a(href='#')
+                h4 全部娛樂
+            li
+              a(href='#')
+                h4 星聞
+            li
+              a(href='#')
+                h4 音樂
+            li
+              a(href='#')
+                h4 影視
+        li
+          h3 運動
+          ul
+            li
+              a(href='#')
+                h4 全部運動
+        li
+          h3 生活
+          ul
+            li
+              a(href='#')
+                h4 全部生活
+            li
+              a(href='#')
+                h4 話題
+            li
+              a(href='#')
+                h4 美食
+            li
+              a(href='#')
+                h4 旅遊
+        li
+          h3 兩性
+          ul
+            li
+              a(href='#')
+                h4 全部兩性
+        li
+          h3 專題
+          ul
+            li
+              a(href='#')
+                h4 全部專題
+            li
+              a(href='#')
+                h4 主題特企
+            li
+              a(href='#')
+                h4 人物專訪
+    li.exclu
+      a(href='#')
+        h2 獨家企劃
+      ul.excluArticles(data-tag='["男流硬派穿搭","羅曼情慾電影","下女的誘惑","UltraBOOST","Angelia&Pets","日活株式會社","逃出絕命鎮","麥肯娜葛瑞絲","NEW_Balance","CONVERSE"]')
+        //- - for (var h = 0; h < 4; h++)
+        //-   li
+        //-     a(href='#', target='_blank')
+        //-       .img
+        //-         img(data-original='https://placeimg.com/760/400/any', width='100%', height='auto', alt='Sports Bra 走出健身房！Gigi Hadid 將它演繹出另一種街頭性感風來!')
+        //-       .title(data-module="dotdotdot")
+        //-         h3 Sports Bra 走出健身房！Gigi Hadid 將它演繹出另一種街頭性感風來!
+    li
+      a(href='#')
+        h2 影音
+  .dtopic
+    .tagWrap
+      each val in ['下女的誘惑', 'Suicide_Squad', '帆船鞋', 'Reebok', '後背包']
+        .tag(style='')
+          a(href='#')
+            h2= val

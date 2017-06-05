@@ -1,4 +1,5 @@
 import {throttle} from './module.js';
+import {dExclusive} from './deskexclu.js';
 
 function navFixed() {
   let $window = $(window);
@@ -32,9 +33,67 @@ function searchCover() {
   });
 }
 
+function mTopic() {
+  let $tagWrap = $('.mtopic .tagWrap');
+  let $tag = $tagWrap.find('.tag');
+
+  // Add tag inline style css
+  $tag.each(function () {
+    let $this = $(this);
+    $this.css('width',$this.width());
+  });
+
+  // Add class for owl-carousel
+  $tagWrap.addClass('owl-carousel owl-theme');
+
+  // Init owl-carousel
+  $tagWrap.owlCarousel({
+    margin: 10,
+    autoWidth: true,
+    dots: false,
+    nav: true,
+    navContainerClass: 'topicNav',
+    navText: ['', '']
+  });
+}
+
+function dTopic() {
+  let $tagWrap = $('.dtopic .tagWrap');
+  let $tag = $tagWrap.find('.tag');
+
+  // Add tag inline style css
+  $tag.each(function () {
+    let $this = $(this);
+    $this.css('width',$this.width());
+  });
+
+  // Add class for owl-carousel
+  $tagWrap.addClass('owl-carousel owl-theme');
+
+  // Init owl-carousel
+  $tagWrap.owlCarousel({
+    margin: 20,
+    autoWidth: true
+  });
+
+  // Hide owl-dots if only has one dot
+  let $dots = $('.owl-dots');
+  let $dot = $dots.find('.owl-dot');
+  if ($dot.length === 1) {
+    $dots.hide();
+  }
+
+}
+
 export function ui() {
   // Nav fixed top
   navFixed();
   // Search popup
   searchCover();
+  // Mobile topic
+  mTopic();
+  // Desktop topic
+  dTopic();
+  // Desktop menu exclusive
+  dExclusive();
 }

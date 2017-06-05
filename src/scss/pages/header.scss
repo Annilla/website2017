@@ -90,4 +90,60 @@
       clear: both;
     }
   }
+  .mtopic {
+    padding: 10px 40px 7px 40px;
+    border-bottom: 1px solid $lightgray;
+    .tagWrap {
+      display: flex;
+      justify-content: center;
+      .tag {
+        a {
+          display: inline-block;
+          white-space: nowrap;
+          text-align: center;
+          color: $juksyStarsBg;
+          font-weight: bold;
+          padding: 5px 15px;
+          border: 1px solid $juksyStarsBg;
+          border-radius: 20px;
+          &:before {
+            content: '#';
+          }
+        }
+      }
+      .topicNav {
+        position: absolute;
+        right: inherit;
+        top: inherit;
+        width: 100%;
+        .owl-prev,
+        .owl-next {
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: -5px;
+          background-image: url('~img/topicNav.svg');
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center;
+          cursor: pointer;
+        }
+        .owl-prev {
+          left: 0;
+          transform: translateX(-40px);
+          &.disabled {
+            display: none;
+          }
+        }
+        .owl-next {
+          right: 0;
+          transform: translateX(40px) rotate(180deg);
+          transform-origin: 50% 50%;
+          &.disabled {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
