@@ -79,6 +79,10 @@ if (DEV_MODE === true) {
     // 關於我們
     '/about.html': [
       require('./pages/about')['default']
+    ],
+    // 聯絡我們
+    '/contact.html': [
+      require('./pages/contact')['default']
     ]
   };
 }
@@ -156,6 +160,10 @@ else {
     // 關於我們
     '/website2017/dist/about.html': [
       require('./pages/about')['default']
+    ],
+    // 聯絡我們
+    '/website2017/dist/contact.html': [
+      require('./pages/contact')['default']
     ]
   };
 }

@@ -142,6 +142,11 @@ module.exports = {
       filename: './about.html',
       template: './src/pug/about.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './contact.html',
+      template: './src/pug/contact.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,

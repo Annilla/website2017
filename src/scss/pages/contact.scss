@@ -1,0 +1,165 @@
+.contact {
+  h2.title {
+    @include title;
+    margin-top: 30px;
+    color: $gray_dark;
+    @include screen(md) {
+      margin-top: 30px;
+      &:after {
+        background-color: $gray_dark;
+      }
+    }
+    @include screen(xl) {
+      margin-top: 70px;
+    }
+    .en {
+      &:after {
+        background-color: $gray_dark;
+      }
+    }
+  }
+  .map {
+    overflow:hidden;
+    padding-bottom: calc(100% * 550 / 1200);
+    position:relative;
+    height:0;
+    margin-bottom: 20px;
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 50px auto;
+    }
+    iframe {
+      left:0;
+      top:0;
+      height:100%;
+      width:100%;
+      position:absolute;
+    }
+  }
+  .infoWrap{
+    margin: 0 $m_gap 50px $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(lg) {
+      display: flex;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 50px auto;
+    }
+    .info {
+      line-height: 1.5em;
+      margin-bottom: 30px;
+      @include screen(lg) {
+        width: 50%;
+      }
+      .infoTitle {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .address {
+        margin-bottom: 20px;
+      }
+      ul.telfax {
+        margin-bottom: 20px;
+        li {
+          list-style: none;
+          display: flex;
+          .item {
+            width: 40px;
+          }
+        }
+      }
+      ul.link {
+        li {
+          list-style: none;
+          display: flex;
+          .name {
+            width: 120px;
+            font-weight: bold;
+          }
+          .url {
+            width: calc(100% - 120px);
+            word-break: break-all;
+            color: $juksyStarsBg;
+          }
+        }
+      }
+    }
+    .form {
+      .marginB {
+        margin-bottom: 20px;
+      }
+      .label {
+        display: block;
+        line-height: 2em;
+        font-weight: bold;
+      }
+      .select {
+        appearance: none;
+        font-family: $font_body;
+        color: $gray;
+        width: 99%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        text-indent: 1em;
+        letter-spacing: 1px;
+        border: 1px solid $lightgray;
+        border-radius: 0;
+        background: #fff url('~img/countryArrow_black.svg') no-repeat right center;
+        background-size: auto 100%;
+      }
+      .input {
+        font-family: $font_body;
+        color: $gray;
+        width: 99%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        text-indent: 1em;
+        letter-spacing: 1px;
+        border: 1px solid $lightgray;
+        border-radius: 0;
+      }
+      .textarea {
+        font-family: $font_body;
+        color: $gray;
+        width: calc(99% - 2em);
+        font-size: 16px;
+        padding: 1em;
+        letter-spacing: 1px;
+        border: 1px solid $lightgray;
+        border-radius: 0;
+      }
+      .submit {
+        cursor: pointer;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: 900;
+        padding: 0;
+        background-color: $black;
+        color: $white;
+        border-radius: 0;
+        border: 1px solid $black;
+        margin: 0 auto;
+        display: block;
+        transition: .5s;
+        @include screen(lg) {
+          width: 250px;
+          margin: 0;
+        }
+        &:hover {
+          background-color: $juksyStarsBg;
+        }
+      }
+      .checkRobot {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

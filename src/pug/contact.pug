@@ -1,0 +1,68 @@
+extends common/base.pug
+
+include common/meta.mixin.pug
+block meta.seo
+  +seo(
+  '聯絡我們 - JUKSY 街星',
+  '流行,潮流,街頭,生活,娛樂,時尚,精品,穿搭,影音,音樂,電影,設計,藝術',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!')
+block meta.fb
+  +fb(
+  '195769958936',
+  'https://juksy.com',
+  'website',
+  '聯絡我們 - JUKSY 街星',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!',
+  'https://juksy-demo.github.io/website2017/dist/src/img/fb.png'
+  )
+block main
+  main.contact
+    h2.title
+      .en CONTACT US
+      .ch 聯絡我們
+    .map
+      iframe(src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.537799007425!2d121.5784433158653!3d25.049754983965038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab9dc539e5a5%3A0x9f75410339913527!2zSlVLU1kg6KGX5pif!5e0!3m2!1szh-TW!2stw!4v1496716149431", width="1200" height="550", frameborder="0", style="border:0", allowfullscreen)
+    .infoWrap
+      .info
+        .infoTitle 聯絡資訊
+        .address 11577
+          br
+          | 台北市南港區八德路四段768巷9號3樓之1
+        ul.telfax
+          li
+            .item Tel:
+            .number +886-2-2653-5377
+              br
+              | +886-2-7709-1777
+          li
+            .item Fax:
+            .number +886-2-2653-5388
+        ul.link
+          li
+            .name JUKSY 官網
+            .url
+              a(href='/', target='_blank') www.JUKSY.com
+          li
+            .name JUKSY 粉絲團
+            .url
+              a(href='https://www.facebook.com/juksymag', target='_blank') www.facebook.com/JUKSYmag
+      form.form
+        label.label(for='subject') 聯絡主旨
+        select.select.marginB(name="subtype", id="subject", required)
+            option(value="廣告購買") 廣告購買
+            option(value="媒體合作") 媒體合作
+            option(value="網站建議") 網站建議
+            option(value="合作提案") 合作提案
+            option(value="我要投稿") 我要投稿
+            option(value="其他聯絡事項") 其他聯絡事項
+        label.label(for='name') 您的姓名
+        input.input.marginB(type='text' ,name='name', id='name', required)
+        label.label(for='email') 聯絡信箱
+        input.input.marginB(type='email' ,name='email', id='email', required)
+        label.label(for='mobile') 聯絡電話
+        input.input.marginB(type='tel' ,name='mobile', id='mobile', required)
+        label.label(for='content') 留言內容
+        textarea.textarea.marginB(name='content', id='content', cols='50', rows='10', required)
+        label.label 圖形驗證
+        .checkRobot 這裡要放 google “我不是機器人”
+        input.submit(type='submit', value='Send Message')
