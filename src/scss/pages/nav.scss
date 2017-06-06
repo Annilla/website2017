@@ -635,6 +635,7 @@
         }
         h2.keywords {
           line-height: 2em;
+          text-align: left;
           @include screen(md) {
             font-size: 18px;
           }
