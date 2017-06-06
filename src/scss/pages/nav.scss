@@ -679,7 +679,7 @@
     }
   }
 }
-input[id="searchOpen"]:checked ~ header .header .nav .navGroup {
+input[id="searchOpen"]:checked ~ .header .nav .navGroup {
   position: fixed;
   z-index: 3;
   &.fixed {
@@ -702,7 +702,7 @@ input[id="searchOpen"]:checked ~ header .header .nav .navGroup {
     animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
-input[id="mMenuOpen"]:checked ~ header .header .nav .navGroup {
+input[id="mMenuOpen"]:checked ~ .header .nav .navGroup {
   position: fixed;
   z-index: 3;
   &.fixed {
@@ -729,7 +729,7 @@ input[id="mMenuOpen"]:checked ~ header .header .nav .navGroup {
     animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 }
-input[id="countryOpen"]:checked ~ header .header .nav .navGroup .mobileNav .mobileNavWrap {
+input[id="countryOpen"]:checked ~ .header .nav .navGroup .mobileNav .mobileNavWrap {
   ul.mnav {
     li.country {
       &.arrow {
@@ -745,7 +745,7 @@ input[id="countryOpen"]:checked ~ header .header .nav .navGroup .mobileNav .mobi
     }
   }
 }
-input[id="channelOpen"]:checked ~ header .header .nav .navGroup .mobileNav .mobileNavWrap {
+input[id="channelOpen"]:checked ~ .header .nav .navGroup .mobileNav .mobileNavWrap {
   ul.mnav {
     li.channel {
       &.arrow {
