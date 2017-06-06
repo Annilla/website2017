@@ -94,9 +94,8 @@
     padding: 10px 40px 7px 40px;
     border-bottom: 1px solid $lightgray;
     .tagWrap {
-      display: flex;
-      justify-content: center;
       .tag {
+        display: inline-block;
         a {
           display: inline-block;
           white-space: nowrap;
