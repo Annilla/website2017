@@ -83,6 +83,10 @@ if (DEV_MODE === true) {
     // 聯絡我們
     '/contact.html': [
       require('./pages/contact')['default']
+    ],
+    // 隱私權
+    '/privacy.html': [
+      require('./pages/privacy')['default']
     ]
   };
 }
@@ -164,6 +168,10 @@ else {
     // 聯絡我們
     '/website2017/dist/contact.html': [
       require('./pages/contact')['default']
+    ],
+    // 隱私權
+    '/website2017/dist/privacy.html': [
+      require('./pages/privacy')['default']
     ]
   };
 }
