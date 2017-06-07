@@ -84,6 +84,10 @@ if (DEV_MODE === true) {
     '/contact.html': [
       require('./pages/contact')['default']
     ],
+    // 廣告刊登
+    '/adguide.html': [
+      require('./pages/adguide')['default']
+    ],
     // 隱私權
     '/privacy.html': [
       require('./pages/privacy')['default']
@@ -168,6 +172,10 @@ else {
     // 聯絡我們
     '/website2017/dist/contact.html': [
       require('./pages/contact')['default']
+    ],
+    // 廣告刊登
+    '/website2017/dist/adguide.html': [
+      require('./pages/adguide')['default']
     ],
     // 隱私權
     '/website2017/dist/privacy.html': [

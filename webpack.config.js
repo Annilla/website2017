@@ -152,6 +152,11 @@ module.exports = {
       filename: './privacy.html',
       template: './src/pug/privacy.pug'
     }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './adguide.html',
+      template: './src/pug/adguide.pug'
+    }),
     new ExtractTextPlugin({
       filename: 'app.css',
       disable: false,
