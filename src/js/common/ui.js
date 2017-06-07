@@ -37,12 +37,6 @@ function mTopic() {
   let $tagWrap = $('.mtopic .tagWrap');
   let $tag = $tagWrap.find('.tag');
 
-  // Add tag inline style css
-  $tag.each(function () {
-    let $this = $(this);
-    $this.css('width',$this.width());
-  });
-
   // Add class for owl-carousel
   $tagWrap.addClass('owl-carousel owl-theme');
 
