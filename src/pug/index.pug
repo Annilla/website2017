@@ -19,6 +19,9 @@ block meta.fb
 block mobile_topic
   include common/mtopic.pug
 
+block topDFP
+  #juksy_m_index(data-module='googledfp', data-adunit='/65167615/juksy_m_index_336x280', data-dimensions='[336,280]', data-device='mobile')
+
 block main
   main.index
     h2(class='hide') JUKSY 街星輪播
@@ -68,6 +71,7 @@ block main
               img(width='100%', height='auto', src='~img/index/640x840_1.jpg', alt='超有畫面！許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！')
             .title
               h3 超有畫面！C許瑋甯深談《目擊者》床戲　自爆：「他」看了我大部分的身體！
+    #juksy_index(data-module='googledfp', data-adunit='/65167615/juksy_index_1200x250', data-dimensions='[1200,250]', data-device='desktop')
     h2.title
       .en LATEST
       .ch 最新文章
@@ -141,3 +145,5 @@ block main
                 a.mag(href='#', target='_blank')
                   img.owl-lazy(data-src='./src/img/index/640x840_mag2.jpg', width='100%', height='auto', alt='10月焦點人物')
                   h3.hide 10月焦點人物
+  #juksy_index_side_left(data-module='googledfp', data-adunit='/65167615/juksy_index_side_left_160x600', data-dimensions='[160,600]', data-device='desktop')
+  #juksy_index_side_right(data-module='googledfp', data-adunit='/65167615/juksy_index_side_right_160x600', data-dimensions='[160,600]', data-device='desktop')

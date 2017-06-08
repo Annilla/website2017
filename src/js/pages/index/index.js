@@ -4,6 +4,7 @@ import { topSlider } from './topSlider.js';
 import { latest } from './latest.js';
 import { popular } from './popular.js';
 import { juksyStar } from './juksyStar.js';
+import { sideDFP } from './sideDFP.js';
 
 const booting = function() {
   // MODULE
@@ -18,6 +19,8 @@ const booting = function() {
   popular();
   // JUKSY STAR
   juksyStar();
+  // SIDE DFP
+  sideDFP();
 };
 
 export default booting;

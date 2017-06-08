@@ -182,7 +182,12 @@
 }
 
 // DFP custom style
-#juksy_m_content_top {
+#juksy_index {
+  width: 1200px;
+  margin: 0 auto 50px auto;
+}
+
+#juksy_m_index, #juksy_m_content_top {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
@@ -204,6 +209,27 @@
   #juksy_content_bottom_left {
     margin-right: 30px;
   }
+}
+
+#juksy_index_side_left, #juksy_index_side_right {
+  position: absolute;
+  top: calc(55px + 45px + 100vw/3 + 25px);
+  @include screen(xl) {
+    top: calc(85px + 45px + 100vw/3 + 25px);
+  }
+  &.fixed {
+    position: fixed;
+    top: $m_navHeight + $pc_statusHeight;
+    @include screen(xl) {
+      top: $pc_navHeight + $pc_statusHeight;
+    }
+  }
+}
+#juksy_index_side_left {
+  left: calc(50% - 600px - 160px - 50px);
+}
+#juksy_index_side_right {
+  right: calc(50% - 600px - 160px - 50px);
 }
 
 #juksy_content_side_left, #juksy_content_side_right {

@@ -9,8 +9,18 @@ if (DEV_MODE === true) {
   // npm run dev use: /
   routes = {
     // 首頁
-    '/': require('./pages/index')['default'],
-    '/index.html': require('./pages/index')['default'],
+    '/': [
+      require('./pages/index')['default'],
+      () => {
+        DFP.run();
+      }
+    ],
+    '/index.html': [
+      require('./pages/index')['default'],
+      () => {
+        DFP.run();
+      }
+    ],
     // 文章內容頁
     '/article_:type.html': [
       require('./pages/article')['default'],
@@ -98,8 +108,18 @@ else {
   // npm run prod use: /website2017/dist
   routes = {
     // 首頁
-    '/website2017/dist/': require('./pages/index')['default'],
-    '/website2017/dist/index.html': require('./pages/index')['default'],
+    '/website2017/dist/': [
+      require('./pages/index')['default'],
+      () => {
+        DFP.run();
+      }
+    ],
+    '/website2017/dist/index.html': [
+      require('./pages/index')['default'],
+      () => {
+        DFP.run();
+      }
+    ],
     // 文章內容頁
     '/website2017/dist/article_:type.html': [
       require('./pages/article')['default'],
