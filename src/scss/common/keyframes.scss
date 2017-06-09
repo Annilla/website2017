@@ -23,3 +23,58 @@
   	background-position: 0, 50%;
 	}
 }
+
+@keyframes txtShine {
+  to {
+    background-position: 100% 0, 0px 10px, 0px 40px, 0px 70px;
+  }
+}
+
+@keyframes txtShineSmall {
+  to {
+    background-position: 100% 0, 0 10px, 0 30px, 0 50px;
+  }
+}
+
+@keyframes errorCount {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate(0, 20px);
+    opacity:0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    transform: translate(0, -20px);
+    opacity:0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}

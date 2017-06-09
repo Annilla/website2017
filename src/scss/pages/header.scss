@@ -1,0 +1,151 @@
+.header {
+  .statusbar {
+    background-color: $black;
+    color: $white;
+    height: $pc_statusHeight;
+    font-weight: bold;
+    padding: 0 20px;
+    .country {
+      line-height: $pc_statusHeight;
+      text-align: center;
+      position: relative;
+      float: left;
+      .icon {
+        width: $pc_statusHeight;
+        height: $pc_statusHeight;
+        position: absolute;
+        top: 0;
+        left: 0;
+        svg {
+          fill: $white;
+        }
+      }
+      ul.list {
+        width: 124px;
+        background: url('~img/countryArrow.svg') no-repeat right;
+        li {
+          list-style: none;
+          display: block;
+          padding: 0 25px;
+          cursor: pointer;
+          &.select {
+            padding: 0;
+            &:hover {
+              ul {
+                display: block;
+              }
+            }
+          }
+          a {
+            display: block;
+            padding: 0 5px;
+            border-bottom: 1px solid $white_50;
+            &:hover {
+              color: $white_50;
+            }
+          }
+          ul {
+            position: absolute;
+            background-color: $black_90;
+            z-index: 3;
+            display: none;
+            li:last-child {
+              a {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    ul.social {
+      overflow: hidden;
+      float: right;
+      margin-top: calc((45px - 30px)/2);
+      li {
+        list-style: none;
+        display: block;
+        float: left;
+        margin-right: 10px;
+        a {
+          width: 26px;
+          height: 26px;
+          border-radius: 20px;
+          display: block;
+          border: 2px solid $white;
+          &:hover {
+            opacity: 0.5;
+          }
+          svg {
+            .st0 {
+              fill: $white;
+            }
+          }
+        }
+      }
+    }
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  .mtopic {
+    padding: 10px 40px 7px 40px;
+    border-bottom: 1px solid $lightgray;
+    .tagWrap {
+      display: flex;
+      justify-content: center;
+      text-align: left;
+      .tag {
+        display: inline-block;
+        a {
+          display: inline-block;
+          white-space: nowrap;
+          text-align: center;
+          color: $juksyStarsBg;
+          font-weight: bold;
+          padding: 5px 15px;
+          border: 1px solid $juksyStarsBg;
+          border-radius: 20px;
+          &:before {
+            content: '#';
+          }
+        }
+      }
+      .topicNav {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        .owl-prev,
+        .owl-next {
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: -5px;
+          background-image: url('~img/topicNav.svg');
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center;
+          cursor: pointer;
+        }
+        .owl-prev {
+          left: 0;
+          transform: translateX(-40px);
+          &.disabled {
+            display: none;
+          }
+        }
+        .owl-next {
+          right: 0;
+          transform: translateX(40px) rotate(180deg);
+          transform-origin: 50% 50%;
+          &.disabled {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

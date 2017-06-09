@@ -13,12 +13,118 @@
     @media screen and (min-width: $xl) { @content; }
   }
 }
-// img Skeloton
+
+// section title style
+@mixin title {
+  text-align: center;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 30px;
+  @include screen(md) {
+    text-align: left;
+    margin: 0 auto 30px auto;
+    padding: $tb_gap;
+    &:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 7px;
+      background-color: $black;
+    }
+  }
+  @include screen(xl) {
+    width: $pc_max_width;
+    margin: 0 auto 60px auto;
+    padding: 0;
+  }
+  .en {
+    font-size: 30px;
+    letter-spacing: 1px;
+    @include screen(md) {
+      font-size: 42px;
+      display: inline-block;
+    }
+    &:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 5px;
+      margin: 6px auto;
+      background-color: $black;
+      @include screen(md) {
+        width: 5px;
+        height: 30px;
+        margin: 0 20px;
+        display: inline-block;
+      }
+    }
+  }
+  .ch {
+    font-size: 24px;
+    letter-spacing: 3px;
+    @include screen(md) {
+      display: inline-block;
+      font-size: 30px;
+    }
+  }
+}
+
+// hide image alt
+@mixin img {
+  width: 100%;
+  height: auto;
+  display: block;
+  text-indent:-9999px;
+  border: 0;
+  &:not(.initial) {
+    transition: opacity 1s;
+  }
+  &.initial, &.loaded, &.error {
+    opacity: 1;
+  }
+  &:not([src]) {
+    visibility: hidden;
+  }
+}
+
+// image Skeloton
 @mixin imgSkeloton {
-  min-height: 200px; // adjust height where we put
-  background-color: $lightgray;
-  background-image: radial-gradient(at top left, $white 0%, $lightgray_50 80%, $lightgray 47%, $lightgray 100%), radial-gradient(at bottom right, $lightgray 0%, $lightgray_50 80%, $lightgray 47%, $white 100%);
-  background-size: 200%, 200%;
-  background-position: 0, 0;
-  animation: imgShine 1s infinite;
+  &:empty {
+    min-height: 150px; // adjust height where we put
+    background-color: $lightgray;
+    background-image: radial-gradient(at top left, $white 0%, $lightgray_50 80%, $lightgray 47%, $lightgray 100%), radial-gradient(at bottom right, $lightgray 0%, $lightgray_50 80%, $lightgray 47%, $white 100%);
+    background-size: 200%, 200%;
+    background-position: 0, 0;
+    animation: imgShine 1s infinite;
+  }
+}
+
+// text Skeloton
+@mixin txtSkeloton {
+  &:empty {
+    min-height: 90px;
+    background-repeat: repeat-y;
+    background-image: linear-gradient( 100deg, rgba(255, 255, 255, 0.001), $white_50 50%, rgba(255, 255, 255, 0.001) 80% ), linear-gradient( $lightgray 14px, transparent 0 ), linear-gradient( $lightgray 14px, transparent 0 ), linear-gradient( $lightgray 14px, transparent 0 );
+    background-size: 50px 90px, 90% 90px, 80% 90px, 60% 90px;
+    background-position: 0 0, 0 10px, 0 40px, 0 70px;
+    animation: txtShine 1s infinite;
+  }
+}
+
+// + MORE Button
+@mixin moreBtn {
+  color: $black;
+  border: 1px solid $black;
+  background-color: $white;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  padding: 10px 30px;
+  width: 150px;
+  margin: 0 auto;
+  cursor: pointer;
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
 }

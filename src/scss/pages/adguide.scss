@@ -1,0 +1,110 @@
+.adguide {
+  h2.title {
+    @include title;
+    margin-top: 30px;
+    color: $gray_dark;
+    @include screen(md) {
+      margin-top: 30px;
+      &:after {
+        background-color: $gray_dark;
+      }
+    }
+    @include screen(xl) {
+      margin-top: 70px;
+    }
+    .en {
+      &:after {
+        background-color: $gray_dark;
+      }
+    }
+  }
+  section.site {
+    margin: 0 $m_gap 50px $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 100px auto;
+    }
+    h3.title {
+      font-size: 20px;
+      border-bottom: 1px solid $lightgray;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      @include screen(md) {
+        margin-bottom: 30px;
+      }
+      @include screen(xl) {
+        font-size: 30px;
+      }
+    }
+    ul.list {
+      margin-bottom: 50px;
+      @include screen(md) {
+        display: flex;
+        justify-content: center;
+      }
+      li {
+        list-style: none;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 30px;
+        @include screen(md) {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        .icon {
+          width: 100px;
+          margin: 0 auto;
+          .st0 {
+            &.op {
+              opacity: 0.3;
+            }
+          }
+        }
+        .number {
+          color: $juksyStarsBg;
+          font-size: 28px;
+          .arrow {
+            width: 20px;
+            display: inline-block;
+            svg {
+              .st0 {
+                fill: $juksyStarsBg;
+              }
+            }
+          }
+        }
+        .description {
+          font-size: 20px;
+          @include screen(lg) {
+            width: 200px;
+          }
+        }
+      }
+    }
+    .detail {
+      text-align: center;
+      font-weight: bold;
+      line-height: 2em;
+      @include screen(md) {
+        width: 630px;
+        font-size: 20px;
+        margin: 0 auto;
+      }
+      a.btn {
+        background-color: $black;
+        color: $white;
+        display: block;
+        width: 100px;
+        padding: 2px 50px;
+        margin: 20px auto;
+        &:hover {
+          background-color: $juksyStarsBg;
+        }
+      }
+    }
+  }
+}

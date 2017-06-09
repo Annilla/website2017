@@ -1,0 +1,63 @@
+.privacy {
+  h2.title {
+    @include title;
+    margin-top: 30px;
+    color: $gray_dark;
+    @include screen(md) {
+      margin-top: 30px;
+      &:after {
+        background-color: $gray_dark;
+      }
+    }
+    @include screen(xl) {
+      margin-top: 70px;
+    }
+    .en {
+      &:after {
+        background-color: $gray_dark;
+      }
+    }
+  }
+  ol.policy {
+    margin: 0 $m_gap 50px $m_gap;
+    list-style-position: inside;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 100px auto;
+    }
+    >li {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 50px;
+      @include screen(xl) {
+        font-size: 30px;
+      }
+      >h3 {
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+      >ul {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 2em;
+        color: $gray_dark;
+        border-top: 1px solid $lightgray;
+        padding-top: 10px;
+        >li {
+          list-style: none;
+          a {
+            color: $juksyStarsBg;
+          }
+          ol {
+            list-style: upper-alpha;
+            list-style-position: outside;
+            padding-left: 1.2em;
+          }
+        }
+      }
+    }
+  }
+}

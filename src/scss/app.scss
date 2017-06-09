@@ -7,8 +7,26 @@
 @import "common/mixin";
 @import "common/keyframes";
 @import "common/grids";
-@import "common/base";
 @import "common/utilities";
 
-// modules
+// pages common elements
+@import "pages/header";
+@import "pages/nav";
+@import "pages/footer";
+// pages
 @import "pages/index";
+@import "pages/channel";
+@import "pages/issue";
+@import "pages/events";
+@import "pages/exclusive";
+@import "pages/brand";
+@import "pages/article";
+@import "pages/editors";
+@import "pages/editor";
+@import "pages/search";
+@import "pages/idle";
+@import "pages/error";
+@import "pages/about";
+@import "pages/contact";
+@import "pages/adguide";
+@import "pages/privacy";

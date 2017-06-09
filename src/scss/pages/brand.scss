@@ -1,0 +1,282 @@
+.brand {
+  overflow-x: hidden;
+  .brandWrap {
+    .bg {
+      background-repeat: no-repeat;
+      background-position: center $m_navHeight;
+      background-size: auto 100vw;
+      background-color: $black;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: fixed;
+      z-index: -10; // This is pretty important.
+      @include screen(md) {
+        background-size: 100% auto;
+      }
+      @include screen(lg) {
+        background-position: center $m_navHeight;
+      }
+      @include screen(xl) {
+        background-position: center $pc_navHeight;
+      }
+    }
+    &:after {
+      content: ' ';
+      display: block;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent 0%, $black 100%);
+      position: fixed;
+      top: calc(100vw - 45px);
+      z-index: -9; // This is pretty important.
+      @include screen(md) {
+        top: calc(100vw/1.9 - 45px);
+      }
+      @include screen(lg) {
+        top: calc(100vw/1.9);
+      }
+      @include screen(xl) {
+        top: calc(100vw/1.9 + 45px);
+      }
+    }
+    .conWrap {
+      margin: calc(100vw - 50px) auto 0 auto;
+      background-color: $white;
+      padding-bottom: 50px;
+      @include screen(md) {
+        max-width: $pc_max_width;
+        margin: calc(100vw/1.9 - 55px) auto 0 auto;
+      }
+      @include screen(xl) {
+        background-color: transparent;
+        margin: calc(100vw/1.9 - 55px - 200px) auto 0 auto;
+      }
+      .intro {
+        margin: 0 $m_gap;
+        overflow: hidden;
+        padding-top: 50px;
+        @include screen(md) {
+          margin: 0 $tb_gap;
+        }
+        @include screen(xl) {
+          margin: 0 auto;
+          padding-top: 0;
+        }
+        a.logo {
+          display: block;
+          width: 80px;
+          float: left;
+          @include screen(md) {
+            width: 100px;
+          }
+          @include screen(xl) {
+            width: 140px;
+            padding: 50px 25px 25px 25px;
+            background-color: $white;
+          }
+          img {
+            transition: .5s;
+          }
+          &:hover {
+            img {
+              opacity: 0.5;
+            }
+          }
+        }
+        .txt {
+          float: left;
+          padding-left: 20px;
+          width: calc(100% - 80px - 20px);
+          @include screen(md) {
+            width: calc(100% - 100px - 20px);
+          }
+          @include screen(xl) {
+            width: calc(1010px - 20px - 20px);
+            padding: 50px 20px 0 20px;
+            float: right;
+            background-color: $white;
+          }
+          h1.title {
+            font-size: 30px;
+            @include screen(md) {
+              font-size: 42px;
+              line-height: 1.5em;
+            }
+            &:before {
+              content: '# ';
+            }
+            &:after {
+              content: '';
+              display: block;
+              width: 70px;
+              height: 5px;
+              background-color: $black;
+              margin-bottom: 10px;
+              @include screen(md) {
+                width: 100px;
+              }
+            }
+          }
+          h2.description {
+            font-size: 14px;
+            color: $gray;
+            line-height: 1.5em;
+            text-align: left;
+            margin-bottom: 30px;
+            @include screen(md) {
+              font-size: 16px;
+              line-height: 2em;
+            }
+            @include screen(xl) {
+              min-height: 4em;
+            }
+          }
+        }
+      }
+      .xlWrap {
+        @include screen(xl) {
+          width: 1010px;
+          margin-left: calc(1200px - 1010px);
+          background-color: $white;
+          padding-bottom: 50px;
+        }
+      }
+      section.braList {
+        margin: 0 $m_gap;
+        @include screen(md) {
+          margin: 0 $tb_gap;
+        }
+        @include screen(xl) {
+          margin: 0 auto;
+        }
+        ul.braArticles {
+          overflow: hidden;
+          @include screen(xl) {
+            padding: 0 20px;
+          }
+          li {
+            list-style: none;
+            display: block;
+            float: left;
+            margin-bottom: 10px;
+            .article {
+              a.img {
+                @include imgSkeloton;
+                display: block;
+                position: relative;
+                img {
+                  @include img;
+                  opacity: 0;
+                  min-height: 157px;
+                  @include screen(md) {
+                    min-height: 186px;
+                  }
+                  @include screen(lg) {
+                    min-height: 165px;
+                  }
+                  @include screen(xl) {
+                    min-height: 163px;
+                  }
+                }
+                .author {
+                  position: absolute;
+                  width: 100%;
+                  top: 0;
+                  left: calc(100% - 15px);
+                  color: $white;
+                  font-size: 10px;
+                  font-weight: bold;
+                  transform: rotate(90deg);
+                  transform-origin: 0;
+                  @include screen(xl) {
+                    width: 100%;
+                  }
+                }
+                &:hover {
+                  opacity: 0.5;
+                }
+              }
+              .txtWrap {
+                @include txtSkeloton;
+                width: 80%;
+                padding: 10px 5%;
+                transform: translateY(-20px);
+                background-color: $white;
+                &:empty {
+                  background-size: 50px 100px, 90% 100px, 80% 100px, 60% 0px;
+                  min-height: 80px;
+                }
+                .date {
+                  line-height: 2em;
+                  color: $figcaptionCite;
+                  font-weight: bold;
+                }
+                a.title {
+                  display: block;
+                  font-weight: 18px;
+                  line-height: 1.5em;
+                  height: 3em;
+                  overflow: hidden;
+                  &:hover {
+                    color: $juksyStarsBg;
+                  }
+                }
+              }
+            }
+          }
+          li:nth-child(odd) {
+            .article {
+              @include screen(md) {
+                padding-right: 10px;
+              }
+              @include screen(lg) {
+                padding-right: 0px;
+              }
+            }
+          }
+          li:nth-child(even) {
+            .article {
+              @include screen(md) {
+                padding-left: 10px;
+              }
+              @include screen(lg) {
+                padding-left: 0px;
+              }
+            }
+          }
+          li:nth-child(3n+1) {
+            .article {
+              @include screen(lg) {
+                padding-right: 13px;
+              }
+            }
+          }
+          li:nth-child(3n+2) {
+            .article {
+              @include screen(lg) {
+                padding-left: 7px;
+                padding-right: 7px;
+              }
+            }
+          }
+          li:nth-child(3n+3) {
+            .article {
+              @include screen(lg) {
+                padding-left: 13px;
+              }
+            }
+          }
+        }
+      }
+      a.more {
+        @include moreBtn;
+        display: block;
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

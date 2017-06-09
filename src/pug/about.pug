@@ -1,0 +1,58 @@
+extends common/base.pug
+
+include common/meta.mixin.pug
+block meta.seo
+  +seo(
+  '關於我們 - JUKSY 街星',
+  '流行,潮流,街頭,生活,娛樂,時尚,精品,穿搭,影音,音樂,電影,設計,藝術',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!')
+block meta.fb
+  +fb(
+  '195769958936',
+  'https://juksy.com',
+  'website',
+  '關於我們 - JUKSY 街星',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!',
+  'https://juksy-demo.github.io/website2017/dist/src/img/fb.png'
+  )
+block main
+  main.about
+    h2.title
+      .en ABOUT US
+      .ch 關於我們
+    section.timelist
+      h3.title 捷喜多媒體大事記
+      ul.list
+        li
+          .year 2007
+          .description 成立 JUKSY 流行生活網
+        li
+          .year 2008
+          .description  JUKSY 獲選為年度十大必看流行資訊網站之一
+        li
+          .year 2009
+          .description 舉辦 JUKSY 兩周年【街頭榮光派對】三千人付費入場
+        li
+          .year 2012
+          .description 與 MTV 頻道合作，推出流行帶狀電視節目【潮流星玩家】，創業界先例
+        li
+          .year 2013
+          .description 於 LUXY 舉辦【PLAN P】千人派對
+        li
+          .year 2013
+          .description 於 W Hotel 舉辦結合AR擴增實境的O2O【超跑泳池派對】
+        li
+          .year 2013
+          .description 成立社群精準行銷部門與整合行銷部門
+        li
+          .year 2014
+          .description 成立捷喜多媒體中國分公司
+        li
+          .year 2015
+          .description JUKSY 榮獲 Google 【年度創新大獎】
+        li
+          .year 2016
+          .description  成立創意影片部門與網紅經紀部門
+        li
+          .year 2016
+          .description 成立捷喜多媒體新加坡分公司

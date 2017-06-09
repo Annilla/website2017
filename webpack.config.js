@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "app.bundle.js"
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [{
       test: /\.(css|scss)$/,
@@ -17,7 +18,7 @@ module.exports = {
         loader: ['css-loader', 'postcss-loader', 'sass-loader'],
         publicPath: '/dist'
       })
-    },{
+    }, {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
@@ -41,6 +42,10 @@ module.exports = {
     }
   },
   plugins: [
+    new webpack.DefinePlugin({
+      API_HOST: '"juksy.getsandbox.com"',
+      APP_HOST: '"localhost:8080"'
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -51,6 +56,106 @@ module.exports = {
       hash: true,
       filename: './index.html',
       template: './src/pug/index.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './404.html',
+      template: './src/pug/404.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './article_normal.html',
+      template: './src/pug/article/normal.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './article_full.html',
+      template: './src/pug/article/full.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './article_video.html',
+      template: './src/pug/article/video.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './takeover_top.html',
+      template: './src/pug/article/takeover_top.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './takeover_bottom.html',
+      template: './src/pug/article/takeover_bottom.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './channel.html',
+      template: './src/pug/channel.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './issue.html',
+      template: './src/pug/issue.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './events.html',
+      template: './src/pug/events.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './exclusive.html',
+      template: './src/pug/exclusive.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './brand.html',
+      template: './src/pug/brand.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './editors.html',
+      template: './src/pug/editors.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './editor.html',
+      template: './src/pug/editor.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './search.html',
+      template: './src/pug/search.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './search_notfound.html',
+      template: './src/pug/search_notfound.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './idle.html',
+      template: './src/pug/idle.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './about.html',
+      template: './src/pug/about.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './contact.html',
+      template: './src/pug/contact.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './privacy.html',
+      template: './src/pug/privacy.pug'
+    }),
+    new HtmlWebpackPlugin({
+      hash: true,
+      filename: './adguide.html',
+      template: './src/pug/adguide.pug'
     }),
     new ExtractTextPlugin({
       filename: 'app.css',

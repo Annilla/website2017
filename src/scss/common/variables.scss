@@ -12,16 +12,36 @@ $pc_max_width: 1200px;
 $m_gap: 10px; // mobile
 $tb_gap: 20px; // tablet
 
+// nav height
+$pc_statusHeight: 45px;
+$pc_navHeight: 85px;
+$m_navHeight: 55px;
+
 // Fonts
 $font_body: 'Roboto', 'Microsoft JhengHei', sans-serif;
 
 // Colors
 $white: rgba(255, 255, 255, 1);
+$white_10: rgba(255, 255, 255, 0.1);
 $white_30: rgba(255, 255, 255, 0.3);
 $white_50: rgba(255, 255, 255, 0.5);
+$white_90: rgba(255, 255, 255, 0.9);
 $black: rgba(0, 0, 0, 1);
+$black_20: rgba(0, 0, 0, 0.2);
+$black_50: rgba(0, 0, 0, 0.5);
+$black_70: rgba(0, 0, 0, 0.7);
 $black_90: rgba(0, 0, 0, 0.9);
-$juksyStarsBg_1: rgba(26, 69, 128, 1);
+$juksyStarsBg: rgba(26, 69, 128, 1);
+$juksyStarsBg_90: rgba(26, 69, 128, 0.9);
 $lightgray: rgba(204, 204, 204, 1);
 $lightgray_50: rgba(204, 204, 204, 0.5);
-
+$gray: rgba(102, 102, 102, 1);
+$gray_dark: rgba(77, 77, 77, 1);
+$gray_light: rgba(244, 244, 244, 1);
+$fbLike: rgba(64, 101, 180, 1);
+$fbShare: rgba(34, 66, 163, 1);
+$articleH1: rgba(20, 75, 140, 1);
+$articleH2: rgba(241, 90, 36, 1);
+$figcaptionCite: rgba(148, 148, 148, 1);
+$line: rgba(29, 192, 33, 1);
+$R18: rgba(247, 87, 125, 1);

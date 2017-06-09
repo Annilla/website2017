@@ -1,3 +1,12 @@
 // HEADER
 header
+  input.hide(type="radio", id="noOpen", name="navGroup", checked)
+  input.hide(type="radio", id="searchOpen", name="navGroup")
+  input.hide(type="radio", id="mMenuOpen", name="navGroup")
+  input.hide(type="checkbox", id="channelOpen", name="mnavGroup")
+  input.hide(type="checkbox", id="countryOpen", name="mnavGroup")
+  .header
+    include statusbar.pug
+    include nav.pug
+    block mobile_topic
 // HEADER END

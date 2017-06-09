@@ -1,4 +1,7 @@
 .index {
+  h2.title {
+    @include title;
+  }
   section.indexSlider {
     position: relative;
     margin-bottom: 30px;
@@ -9,10 +12,18 @@
           position: relative;
           picture {
             display: block;
+            min-height: 420px;
+            @include screen(md) {
+              min-height: 256px;
+            }
+            @include screen(lg) {
+              min-height: 341px;
+            }
+            @include screen(xl) {
+              min-height: 480px;
+            }
             img {
-              width: 100%;
-              height: auto;
-              display: block;
+              @include img;
             }
           }
           .title {
@@ -35,7 +46,7 @@
         }
       }
     }
-    .white_30s {
+    .indexSliderDots {
       position: absolute;
       bottom: 10px;
       width: 100%;
@@ -88,61 +99,456 @@
       }
     }
   }
-  h2.title {
-    text-align: center;
-    font-weight: 900;
-    display: block;
-    margin-bottom: 30px;
+  section.latest {
+    margin: 0 $m_gap 50px $m_gap;
     @include screen(md) {
-      text-align: left;
-      margin: 0 auto 30px auto;
-      padding: $tb_gap;
-      &:after {
-        content: '';
-        display: block;
-        width: 100px;
-        height: 7px;
-        background-color: $black;
-      }
+      margin: 0 $tb_gap 50px $tb_gap;
     }
     @include screen(xl) {
       width: $pc_max_width;
-      padding: 0;
+      margin: 0 auto 50px auto;
     }
-    .en {
-      font-size: 30px;
-      letter-spacing: 1px;
-      @include screen(md) {
-        font-size: 42px;
-        display: inline-block;
-      }
+    ul.latestArticles {
       &:after {
         content: '';
         display: block;
-        width: 100px;
-        height: 5px;
-        margin: 6px auto;
-        background-color: $black;
-        @include screen(md) {
-          width: 5px;
-          height: 30px;
-          margin: 0 20px;
-          display: inline-block;
+        clear: both;
+      }
+      li {
+        list-style: none;
+        display: inline-block;
+        float: left;
+        .article {
+          @include screen(md) {
+            margin-bottom: 50px;
+            &:before {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 2px;
+              background-color: $black;
+              margin-bottom: 10px;
+            }
+          }
+          @include screen(lg) {
+            margin-bottom: 60px;
+          }
+          a.img {
+            @include imgSkeloton;
+            display: block;
+            position: relative;
+            &:hover {
+              opacity: 0.8;
+            }
+            min-height: 157px;
+            &:empty {
+              min-height: 157px;
+              display: none;
+            }
+            @include screen(md) {
+              min-height: 186.3px;
+              &:empty {
+                min-height: 186.3px;
+                display: block;
+              }
+            }
+            @include screen(lg) {
+              min-height: 165.7px;
+              &:empty {
+                min-height: 165.7px;
+              }
+            }
+            @include screen(xl) {
+              min-height: 203.6px;
+              &:empty {
+                min-height: 203.6px;
+              }
+            }
+            img {
+              @include img;
+              @include screen(md) {
+                opacity: 0;
+              }
+            }
+            .category {
+              color: $white;
+              background-color: $juksyStarsBg_90;
+              font-weight: bold;
+              position: absolute;
+              top: 15px;
+              left: -6px;
+              padding: 5px 30px;
+            }
+          }
+          .detail {
+            @include txtSkeloton;
+            padding: 10px;
+            color: $gray;
+            overflow: hidden;
+            font-size: 14px;
+            text-align: left;
+            &:empty {
+              background-size: 50px 100px, 90% 100px, 80% 100px, 60% 100px;
+              display: none;
+            }
+            @include screen(md) {
+              padding: 10px 0;
+              &:empty {
+                display: block;
+              }
+            }
+            .pageview {
+              font-weight: bold;
+              float: right;
+              .icon {
+                width: 19px;
+                height: 19px;
+                float: left;
+                margin-right: 10px;
+                svg {
+                  .st0 {
+                    fill: $gray;
+                  }
+                }
+              }
+            }
+          }
+          a.title {
+            display: block;
+            margin: 0 10px;
+            font-size: 18px;
+            line-height: 1.5em;
+            height: 3em;
+            overflow: hidden;
+            text-align: left;
+            @include screen(md) {
+              margin: 0;
+            }
+            &:hover {
+              color: $juksyStarsBg;
+            }
+          }
+        }
+      }
+      li:first-child {
+        .article {
+          a.img {
+            &:empty {
+              display: block;
+            }
+          }
+          .detail {
+            &:empty {
+              display: block;
+            }
+          }
+        }
+      }
+      li:nth-child(odd) {
+        .article {
+          @include screen(md) {
+            padding-right: 10px;
+          }
+          @include screen(lg) {
+            padding-right: 0;
+          }
+        }
+      }
+      li:nth-child(even) {
+        .article {
+          @include screen(md) {
+            padding-left: 10px;
+          }
+          @include screen(lg) {
+            padding-left: 0;
+          }
+        }
+      }
+      li:nth-child(3n+1) {
+        .article {
+          @include screen(lg) {
+            padding-right: 13px;
+          }
+        }
+      }
+      li:nth-child(3n+2) {
+        .article {
+          @include screen(lg) {
+            padding-left: 7px;
+            padding-right: 7px;
+          }
+        }
+      }
+      li:nth-child(3n+3) {
+        .article {
+          @include screen(lg) {
+            padding-left: 13px;
+          }
+        }
+      }
+      .latestNav {
+        position: absolute;
+        right: -10px;
+        top: 15%;
+        .owl-prev,
+        .owl-next {
+          width: 35px;
+          height: 42px;
+          background-color: $black_90;
+          background-image: url('~img/index/indexMagPrev.svg');
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center;
+        }
+        .owl-prev {
+          margin-bottom: 10px;
+        }
+        .owl-next {
+          transform: rotate(180deg);
+          transform-origin: 50% 50%;
         }
       }
     }
-    .ch {
-      font-size: 24px;
-      letter-spacing: 3px;
-      @include screen(md) {
-        display: inline-block;
-        font-size: 30px;
+    a.more {
+      @include moreBtn;
+      clear: both;
+    }
+  }
+  section.popular {
+    margin: 0 $m_gap 50px $m_gap;
+    @include screen(md) {
+      margin: 0 $tb_gap 50px $tb_gap;
+    }
+    @include screen(xl) {
+      width: $pc_max_width;
+      margin: 0 auto 50px auto;
+    }
+    ul.popArticles{
+      li {
+        list-style: none;
+        display: block;
+        margin-bottom: 40px;
+        @include screen(md) {
+          box-shadow: 2px 2px 10px $black_20;
+          overflow: hidden;
+        }
+        a.img {
+          display: block;
+          position: relative;
+          @include imgSkeloton;
+          min-height: 157px;
+          &:empty {
+            min-height: 157px;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+          @include screen(md) {
+            display: inline-block;
+            min-height: 223px;
+            &:empty {
+              min-height: 223px;
+            }
+          }
+          @include screen(lg) {
+            min-height: 302px;
+            &:empty {
+              min-height: 302px;
+            }
+          }
+          @include screen(xl) {
+            min-height: 368px;
+            &:empty {
+              min-height: 368px;
+            }
+          }
+          img {
+            @include img;
+            opacity: 0;
+          }
+          .category {
+            color: $white;
+            background-color: $juksyStarsBg_90;
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 3px 20px;
+          }
+        }
+        .txtWrap {
+          transform: translateY(-10px);
+          @include screen(md) {
+            transform: translateY(0);
+            float: right;
+          }
+          .detail {
+            background-color: $white_90;
+            padding: 5px 10px;
+            color: $gray_dark;
+            width: 80%;
+            font-size: 14px;
+            @include txtSkeloton;
+            @include screen(md) {
+              width: calc(100% - 40px);
+              padding: 18px 20px;
+              font-weight: bold;
+              overflow: hidden;
+              &:empty {
+                width: calc(100% - 60px);
+                margin: 20px 0 0 20px;
+              }
+            }
+            @include screen(lg) {
+              width: calc(100% - 60px);
+              padding: 30px 30px 20px 30px;
+              &:empty {
+                width: calc(100% - 80px);
+                min-height: 100px;
+              }
+            }
+            @include screen(xl) {
+              width: calc(100% - 80px);
+              padding: 30px 40px 20px 40px;
+              font-size: 16px;
+              &:empty {
+                width: calc(100% - 100px);
+              }
+            }
+            .date {
+              &:after {
+                content: '';
+                display: inline-block;
+                width: 1px;
+                height: 8px;
+                background-color: $gray_dark;
+                margin: 0 10px;
+                @include screen(md) {
+                  margin: 0 5px;
+                }
+                @include screen(lg) {
+                  margin: 0 10px;
+                }
+              }
+              @include screen(md) {
+                &:before {
+                  content: '';
+                  display: inline-block;
+                  width: 13px;
+                  height: 13px;
+                  margin-right: 10px;
+                  background-color: $gray_dark;
+                  transform: translateY(2px);
+                }
+              }
+            }
+            .author {
+              @include screen(md) {
+                display: inline-block;
+                font-size: 10px;
+              }
+              @include screen(lg) {
+                font-size: 14px;
+              }
+              @include screen(xl) {
+                font-size: 16px;
+              }
+            }
+            .pageview {
+              color: $juksyStarsBg;
+              overflow: hidden;
+              @include screen(md) { 
+                float: right;
+              }
+              .icon {
+                margin-right: 5px;
+                svg {
+                  width: 14px;
+                  height: 14px;
+                  display: inline-block;
+                  transform: translateY(2px);
+                  .st0 {
+                    fill: $juksyStarsBg;
+                  }
+                }
+              }
+            }
+          }
+          a.title {
+            display: block;
+            margin: 5px 10px 0 10px;
+            font-size: 18px;
+            line-height: 1.5em;
+            max-height: 3em;
+            overflow: hidden;
+            text-align: left;
+            @include screen(md) {
+              margin: 5px 20px 0 20px;
+            }
+            @include screen(lg) {
+              margin: 5px 30px 0 30px;
+              font-size: 24px;
+            }
+            @include screen(xl) {
+              margin: 5px 40px 0 40px;
+            }
+            &:hover {
+              color: $juksyStarsBg;
+            }
+          }
+          .description {
+            margin: 10px 20px 0 20px;
+            font-size: 12px;
+            line-height: 1.8em;
+            height: 3.6em;
+            overflow: hidden;
+            @include screen(lg) {
+              margin: 10px 30px 0 30px;
+              font-size: 14px;
+              height: 5.4em;
+            }
+            @include screen(xl) {
+              margin: 20px 40px 0 40px;
+              font-size: 16px;
+              max-height: 7.2em;
+            }
+          }
+          a.readmore {
+            padding: 5px 20px;
+            background-color: $black;
+            border: 1px solid $black;
+            color: $white;
+            width: 100px;
+            margin: 10px auto 0 auto;
+            text-align: center;
+            @include screen(lg) {
+              margin: 20px auto 0 auto;
+            }
+            @include screen(xl) {
+              width: 130px;
+              font-size: 18px;
+            }
+            &:hover {
+              background-color: $white;
+              color: $black;
+            }
+          }
+        }
       }
+    }
+    a.more {
+      @include moreBtn;
+    }
+  }
+  .bottomWrap {
+    @include screen(md) {
+      background-color: $gray_light;
+      padding: 50px 0 30px 0;
     }
   }
   section.juksyStars {
     margin: 0 $m_gap 50px $m_gap;
-    background: linear-gradient(to bottom, transparent 10%, $juksyStarsBg_1 10%, $juksyStarsBg_1 90%, transparent 90%);
+    background: linear-gradient(to bottom, transparent 10%, $juksyStarsBg 10%, $juksyStarsBg 90%, transparent 90%);
     @include screen(md) {
       margin: 0 $tb_gap 50px $tb_gap;
       background: none;
@@ -158,6 +564,9 @@
         text-align: center;
         font-weight: 700;
         font-size: 14px;
+        >div {
+          float: left;
+        }
         .num {
           font-size: 50px;
           margin-top: 70%;
@@ -178,16 +587,24 @@
           @include imgSkeloton;
           display: block;
           margin-right: 10%;
-          min-height: 250px;
+          &:empty {
+            min-height: 236px;
+          }
           @include screen(md) {
             margin-right: 0;
-            min-height: 471px;
+            &:empty {
+              min-height: 471px;
+            }
           }
           @include screen(lg) {
-            min-height: 313px;
+            &:empty {
+              min-height: 313px;
+            }
           }
           @include screen(xl) {
-            min-height: 383px;
+            &:empty {
+              min-height: 383px;
+            }
           }
           img {
             display: block;
@@ -205,7 +622,8 @@
           top: inherit;
           width: 100%;
         }
-        .owl-prev, .owl-next {
+        .owl-prev,
+        .owl-next {
           width: 35px;
           height: 42px;
           background-color: $black_90;
@@ -213,6 +631,7 @@
           background-repeat: no-repeat;
           background-size: 100% auto;
           background-position: center;
+          cursor: pointer;
           @include screen(md) {
             width: 50px;
             height: 50px;

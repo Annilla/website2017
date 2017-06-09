@@ -1,0 +1,35 @@
+extends common/base.pug
+
+include common/meta.mixin.pug
+block meta.seo
+  +seo(
+  '閒置頁 - JUKSY 街星',
+  '流行,潮流,街頭,生活,娛樂,時尚,精品,穿搭,影音,音樂,電影,設計,藝術',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!')
+block meta.fb
+  +fb(
+  '195769958936',
+  'https://juksy.com',
+  'website',
+  '閒置頁 - JUKSY 街星',
+  '貼近人性，建立風格，創造影響。矢志報導一切新鮮、趣味、流行的人、事、時、地、物。在這裡我們可以每天隨時：新奇、有趣、有型!',
+  'https://juksy-demo.github.io/website2017/dist/src/img/fb.png'
+  )
+
+block header
+block footer
+
+block main
+  main.idle
+    .idleWrap
+      h1.title 您已經閒置超過3分鐘囉！請點擊右上角關閉或背景處，即可返回原網頁！
+      ul.idleArticles
+        //- - for (var x = 0; x < 4; x++)
+        //-   li.pure-u-1-4
+        //-     a(href='#', target='_blank')
+        //-       .img
+        //-         img(src='https://placeimg.com/600/600/any', width='100%', height='auto', alt='Sports Bra 走出健身房！Gigi Hadid 將它演繹出另一種街頭性感風來!')
+        //-       .title(data-module="dotdotdot")
+        //-         h3 Sports Bra 走出健身房！Gigi Hadid 將它演繹出另一種街頭性感風來!
+      .centerDFP
+        #juksy_idle(data-module='googledfp', data-adunit='/65167615/juksy_idle_970x250', data-dimensions='[970,250]', data-device='desktop')
