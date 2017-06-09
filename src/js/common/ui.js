@@ -37,6 +37,9 @@ function mTopic() {
   let $tagWrap = $('.mtopic .tagWrap');
   let $tag = $tagWrap.find('.tag');
 
+  // check if no tag
+  if($tag.length === 0) return;
+
   // Add class for owl-carousel
   $tagWrap.addClass('owl-carousel owl-theme');
 
@@ -54,6 +57,9 @@ function mTopic() {
 function dTopic() {
   let $tagWrap = $('.dtopic .tagWrap');
   let $tag = $tagWrap.find('.tag');
+
+  // check if no tag
+  if($tag.length === 0) return;
 
   // Add tag inline style css
   $tag.each(function () {
